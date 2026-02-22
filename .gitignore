@@ -1,0 +1,13 @@
+# Ignorar bibliotecas geradas (o GitHub Pages não precisa delas se o Quarto renderizar tudo)
+**/site_libs/
+**/revealjs/
+
+# Ignorar caches e arquivos de suporte
+**/*_files/
+**/*_cache/
+**/.quarto/
+
+# Ignorar arquivos de sistema
+.Rhistory
+.RData
+.Rproj.user

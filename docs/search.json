@@ -1,0 +1,513 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Apresentações e Palestras - Magno Severino",
+    "section": "",
+    "text": "Bem-vindo ao meu portal de apresentações. Aqui você encontra os materiais utilizados em aulas, conferências e palestras."
+  },
+  {
+    "objectID": "index.html#apresentações-disponíveis",
+    "href": "index.html#apresentações-disponíveis",
+    "title": "Apresentações e Palestras - Magno Severino",
+    "section": "Apresentações Disponíveis",
+    "text": "Apresentações Disponíveis"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#agenda",
+    "href": "20260306_CLAPEM/slides.html#agenda",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Agenda",
+    "text": "Agenda"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes",
+    "href": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nDiferente de modelos em lattice (grades regulares), o grafo G^* aqui é geral e não-homogêneo."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes-1",
+    "href": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nDiferente de modelos em lattice (grades regulares), o grafo G^* aqui é geral e não-homogêneo."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#por-que-ir-além-do-iid",
+    "href": "20260306_CLAPEM/slides.html#por-que-ir-além-do-iid",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Por que ir além do IID?",
+    "text": "Por que ir além do IID?\nA maioria das técnicas tradicionais assume que as observações \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots são independentes (iid).\nNo entanto, em cenários reais, a independência é restritiva:\n\nSéries Temporais de EEG: Dependência neural ao longo do tempo.\nFluxo de Rios: Dependência hidrológica sequencial.\nMercado Financeiro: Índices diários com autocorrelação.\n\nNossa proposta: Um critério global que prova a consistência mesmo sob condições de mixing."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#mixing-condition",
+    "href": "20260306_CLAPEM/slides.html#mixing-condition",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Mixing Condition",
+    "text": "Mixing Condition\n\nX^{(i:j)} denote the sequence of vectors X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\n\nO processo satisfaz uma condição de mixing com taxa \\psi(\\ell) se a dependência entre o passado (X^{(1:m)}) e o futuro (X^{(n:n+k-1)}) decai conforme a distância n-m aumenta:\n\n\\Bigl| \\mathbb P (X_{future} | X_{past}) - \\mathbb P (X_{future}) \\Bigr| \\leq \\psi(n-m) \\mathbb P(X_{future})\n\\tag{1}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#empirical-probabilities",
+    "href": "20260306_CLAPEM/slides.html#empirical-probabilities",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nThe stationary distribution of the process \\pi is unknown, we must estimate it from the data.\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W}, \\begin{equation*}\n    \\widehat{\\pi}(a_W)  = \\frac{N(a_W)}{n}.\n\\end{equation*}\nIf \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{W'}|a_{W})  = \\frac{\\widehat\\pi(a_{W'\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,W'\\subset V and configurations a_W\\in A^W, a_{W'}\\in A^{W'}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#empirical-probabilities-1",
+    "href": "20260306_CLAPEM/slides.html#empirical-probabilities-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nGiven a graph G=(V,E), define G(v) = \\big\\{u \\in V: (u,v) \\in E \\big\\}, for v \\in V, the set of neighbors of v in graph G.\n\nThen we can compute \\begin{equation*}\n    \\widehat\\pi(a_v|a_{G(v)})  = \\frac{\\widehat\\pi(a_{\\{v\\}\\cup G(v)})}{\\widehat\\pi(a_{G(v)})}.\n\\end{equation*}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#graph-estimator",
+    "href": "20260306_CLAPEM/slides.html#graph-estimator",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Graph Estimator",
+    "text": "Graph Estimator\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \n\\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nApplying the logarithm we can write expression above as \n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{3}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#consistency-theorem",
+    "href": "20260306_CLAPEM/slides.html#consistency-theorem",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Consistency Theorem",
+    "text": "Consistency Theorem\n Theorem 10: Assume the process \\{X^{(i)}: i \\in \\mathbb{Z}\\} satisfies the mixing condition presented before with \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) for some \\epsilon&gt;0. Then, by taking \\lambda_n = c \\log n, we have that \\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*} satisfies \\widehat G=G^* eventually almost surely as n\\to \\infty."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#algorithms-for-estimation-1",
+    "href": "20260306_CLAPEM/slides.html#algorithms-for-estimation-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Algorithms for Estimation",
+    "text": "Algorithms for Estimation\n\nExact Algorithm\nForward stepwise Algorithm\nBackward stepwise Algorithm\nSimulated Annealing Algorithm\n\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.\nAvailable at github.com/magnotairone/MixingGraph.\nOffers examples on how to use the package."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data",
+    "href": "20260306_CLAPEM/slides.html#são-francisco-river-data",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data-1",
+    "href": "20260306_CLAPEM/slides.html#são-francisco-river-data-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nWater volume measured at d stations along the river’s course.\nStations denoted as X_{u}, where u = 1, \\ldots, d.\nVector \\mathbf{X} observed at discrete time intervals (10-day mean).\nEach observation denoted as \\mathbf{X}^{(i)}= (X_{1}^{(i)}, \\ldots, X_{d}^{(i)}).\nProcess \\mathbf{X}^n=\\{\\mathbf{X}^{(i)}: 1 \\leq i \\leq n\\}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data-2",
+    "href": "20260306_CLAPEM/slides.html#são-francisco-river-data-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nData avaiability: daily measurements from October 1st, 1924, to February 28th, 2019.\nData considered: from January 1977 to December 2016.\nTotal of 1042 observations.\nDiscretizetion of the data into five levels based on quantiles."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data-3",
+    "href": "20260306_CLAPEM/slides.html#são-francisco-river-data-3",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\nForward stepwise algorithm and a 5-fold cross-validation approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResults similar to Leonardi et al (2021)."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#stock-exchange-data",
+    "href": "20260306_CLAPEM/slides.html#stock-exchange-data",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\n\n\n\nRelation between stock exchanges’ performance reflect global market interconnectedness and economic trends.\nImpacts investment strategies, risk assessment, and portfolio diversification.\nChallenge: Variations in stock exchange operating hours due to different time zones.\nComplex analysis required to account for global market fluctuations."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#stock-exchange-data-1",
+    "href": "20260306_CLAPEM/slides.html#stock-exchange-data-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises 2{,}654 rows for analysis.\nForward stepwise algorithm and a 5-fold cross-validation approach."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#stock-exchange-data-2",
+    "href": "20260306_CLAPEM/slides.html#stock-exchange-data-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nEstimated graph, considering the penalizing constant value chosen by cross-validation."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#discussion",
+    "href": "20260306_CLAPEM/slides.html#discussion",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Discussion",
+    "text": "Discussion\n\nContribuição: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].\nImplementação: Pacote MixingGraph (disponível no GitHub).\nTrabalho Futuro: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323]."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#agenda-1",
+    "href": "20260306_CLAPEM/slides.html#agenda-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntrodução e Motivação: O problema de dados não-independentes.\nO Estimador de Grafo: Critério de pseudo-verossimilhança penalizada.\nResultados Teóricos: Consistência quase certa sob condições de mixing.\nAlgoritmos e Pacote R: Implementação via MixingGraph.\nEstudos de Simulação e Aplicações: Rio São Francisco e Mercado Financeiro."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#processos-estocásticos-vetoriais",
+    "href": "20260306_CLAPEM/slides.html#processos-estocásticos-vetoriais",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Processos Estocásticos Vetoriais",
+    "text": "Processos Estocásticos Vetoriais"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#processos-estocásticos-vetoriais-1",
+    "href": "20260306_CLAPEM/slides.html#processos-estocásticos-vetoriais-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Processos Estocásticos Vetoriais",
+    "text": "Processos Estocásticos Vetoriais\nSeja um processo vetorial estacionário e ergódico \\mathbf{X} = \\{X^{(i)} : i \\in \\mathbb{Z}\\}:\n\nCada observação no tempo i é um vetor: \\mathbf{X}^{(i)} = (X_1^{(i)}, \\dots, X_d^{(i)})[cite: 7, 24].\nOs valores pertencem a um alfabeto finito A[cite: 24, 76].\nEstrutura Espacial: Assumimos um grafo subjacente G^* = (V, E^*) que codifica as dependências condicionais[cite: 26, 27].\n\n\n\n\n\n\n\nNota sobre a Estrutura\n\n\nO grafo G^* define quais variáveis são condicionalmente dependentes, permitindo uma modelagem global do sistema[cite: 18, 19].\n\n\n\n\n\n\n\n\n\nNota sobre a Estrutura\n\n\nDiferente de modelos em lattice (grades regulares), o grafo G^* aqui é geral e não-homogêneo[cite: 105, 119]."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#por-que-ir-além-do-iid-1",
+    "href": "20260306_CLAPEM/slides.html#por-que-ir-além-do-iid-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Por que ir além do IID?",
+    "text": "Por que ir além do IID?\nA maioria das técnicas tradicionais assume que as observações \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots são independentes (iid)[cite: 28, 58].\nNo entanto, em cenários reais, a independência é restritiva[cite: 58, 60]: - Séries Temporais de EEG: Dependência neural ao longo do tempo[cite: 59]. - Fluxo de Rios: Dependência hidrológica sequencial[cite: 59]. - Mercado Financeiro: Índices diários com autocorrelação[cite: 59].\nNossa proposta: Um critério global que prova a consistência mesmo sob condições de mixing polinomial[cite: 18, 21]."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#condição-de-mixing-polinomial",
+    "href": "20260306_CLAPEM/slides.html#condição-de-mixing-polinomial",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Condição de Mixing Polinomial",
+    "text": "Condição de Mixing Polinomial\nO processo satisfaz uma condição de mixing com taxa \\psi(\\ell) se a dependência entre o passado (X^{(1:m)}) e o futuro (X^{(n:n+k-1)}) decai conforme a distância n-m aumenta[cite: 125, 126, 128]:\n\n\\Bigl| \\mathbb P (X_{futuro} | X_{passado}) - \\mathbb P (X_{futuro}) \\Bigr| \\leq \\psi(n-m) \\mathbb P(X_{futuro})\n\\tag{4}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#estimador-de-grafo-regularizado",
+    "href": "20260306_CLAPEM/slides.html#estimador-de-grafo-regularizado",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Estimador de Grafo Regularizado",
+    "text": "Estimador de Grafo Regularizado\nDiferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização global[cite: 19, 64]:\n\n\\widehat L(G) = \\prod_{i=1}^n \\prod_{v \\in V} \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\n\\tag{5}\nO estimador final \\widehat G maximiza a pseudo-verossimilhança logarítmica com uma penalidade baseada na complexidade do grafo[cite: 190]:\n\n\\widehat G = \\arg\\max_{G} \\Big\\{ \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|} \\Big\\}\n\\tag{6}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#teorema-de-consistência",
+    "href": "20260306_CLAPEM/slides.html#teorema-de-consistência",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Teorema de Consistência",
+    "text": "Teorema de Consistência\nTeorema (Leonardi & Severino, 2025): Sob condições de mixing polinomial \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) e com \\lambda_n = c \\log n, o estimador é consistente[cite: 66, 195]:\n\n\\mathbb{P}(\\widehat G = G^* \\text{ eventualmente}) = 1\n\\tag{7}\n\nOverfitting: Controlado pela penalidade \\lambda_n[cite: 211, 212].\nUnderfitting: Evitado pela divergência de Kullback-Leibler positiva entre vizinhanças distintas[cite: 206, 211]."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#aplicação-rio-são-francisco",
+    "href": "20260306_CLAPEM/slides.html#aplicação-rio-são-francisco",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Aplicação: Rio São Francisco",
+    "text": "Aplicação: Rio São Francisco\nAnálise de volume de água em 10 estações (dados de 1977 a 2016)[cite: 480].\n\nDados: Discretizados em 5 níveis (quantis).\nResultado: O grafo estimado recupera a conectividade física do rio, identificando dependências que seguem o fluxo natural da água."
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#conclusões-e-futuro",
+    "href": "20260306_CLAPEM/slides.html#conclusões-e-futuro",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Conclusões e Futuro",
+    "text": "Conclusões e Futuro\n\nContribuição: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].\nImplementação: Pacote MixingGraph (disponível no GitHub).\nTrabalho Futuro: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323]."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#agenda",
+    "href": "20260306_CLAPEM/tmp.html#agenda",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction\nMotivation\nGraph Estimator\nAlgorithms for Estimation\nSimulation Study\nApplication to Real Data\nConclusion and Future Work"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#vector-valued-stochastic-processes",
+    "href": "20260306_CLAPEM/tmp.html#vector-valued-stochastic-processes",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#vector-valued-stochastic-processes-1",
+    "href": "20260306_CLAPEM/tmp.html#vector-valued-stochastic-processes-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#previous-works",
+    "href": "20260306_CLAPEM/tmp.html#previous-works",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Previous works",
+    "text": "Previous works\n\nExtensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).\n\n\n\nMethods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006).  \n\n\n\n\nTraditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).\n\n\n\n\nThe assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).\n\n\n\n\nThe independence assumption does not hold and these methods serve only as approximations to the true underlying distribution."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#motivation",
+    "href": "20260306_CLAPEM/tmp.html#motivation",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Motivation",
+    "text": "Motivation\n\nLeonardi et al. (2021):\n\nestimate blocks of independence within multivariate stochastic process,\napplied to both iid and processes under mixing conditions,\ndiscrete or continuous data.\n\nLeonardi et al. (2023):\n\nestimate the neighborhood of each vertex and then constructs the graph,\nassume the process is iid,\ndiscrete data."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#objectives-of-the-research",
+    "href": "20260306_CLAPEM/tmp.html#objectives-of-the-research",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Objectives of the research",
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#mixing-condition",
+    "href": "20260306_CLAPEM/tmp.html#mixing-condition",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Mixing Condition",
+    "text": "Mixing Condition\n\nX^{(i:j)} denote the sequence of vectors X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\n\\bf X = \\{X^{(i)}\\colon -\\infty &lt; i &lt; \\infty\\} satisfies a mixing condition with rate \\{\\psi(\\ell)\\}_{\\ell \\in \\mathbb R} if \\begin{equation*}\n\\begin{split}\n  \\Bigl| \\mathbb P \\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\, |\\, X^{(1:m)}=x^{(1:m)}&\\bigr) - \\mathbb P \\bigl( X^{(n:(n+k-1))} =x^{(1:k)}\\bigr)\\Bigr| \\\\\n  &\\leq \\psi(n-m) \\mathbb P\\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\bigr),\n\\end{split}\n\\end{equation*} for n\\geq m+\\ell and for each k, m \\in \\mathbb N and each x^{(1:k)} \\in (A^d)^k, x^{(1:m)}\\in (A^d)^m with \\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#empirical-probabilities",
+    "href": "20260306_CLAPEM/tmp.html#empirical-probabilities",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nThe stationary distribution of the process \\pi is unknown, we must estimate it from the data.\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W}, \\begin{equation*}\n    \\widehat{\\pi}(a_W)  = \\frac{N(a_W)}{n}.\n\\end{equation*}\nIf \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{W'}|a_{W})  = \\frac{\\widehat\\pi(a_{W'\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,W'\\subset V and configurations a_W\\in A^W, a_{W'}\\in A^{W'}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#empirical-probabilities-1",
+    "href": "20260306_CLAPEM/tmp.html#empirical-probabilities-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nGiven a graph G=(V,E), define G(v) = \\big\\{u \\in V: (u,v) \\in E \\big\\}, for v \\in V, the set of neighbors of v in graph G.\n\nThen we can compute \\begin{equation*}\n    \\widehat\\pi(a_v|a_{G(v)})  = \\frac{\\widehat\\pi(a_{\\{v\\}\\cup G(v)})}{\\widehat\\pi(a_{G(v)})}.\n\\end{equation*}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#graph-estimator",
+    "href": "20260306_CLAPEM/tmp.html#graph-estimator",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Graph Estimator",
+    "text": "Graph Estimator\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \n\\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{1}\nApplying the logarithm we can write expression above as \n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{2}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#regularized-graph-estimator",
+    "href": "20260306_CLAPEM/tmp.html#regularized-graph-estimator",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Regularized Graph Estimator",
+    "text": "Regularized Graph Estimator\n Theorem 10: Assume the process \\{X^{(i)}: i \\in \\mathbb{Z}\\} satisfies the mixing condition presented before with \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) for some \\epsilon&gt;0. Then, by taking \\lambda_n = c \\log n, we have that \\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*} satisfies \\widehat G=G^* eventually almost surely as n\\to \\infty."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#intuitive-overview-of-theorem-proof",
+    "href": "20260306_CLAPEM/tmp.html#intuitive-overview-of-theorem-proof",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Intuitive Overview of Theorem Proof",
+    "text": "Intuitive Overview of Theorem Proof\nConsider \\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup  \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that, eventually almost surely as n\\to\\infty, neither of the cases above can happen, which implies that \\widehat G = G^*."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#algorithms-for-estimation-1",
+    "href": "20260306_CLAPEM/tmp.html#algorithms-for-estimation-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Algorithms for Estimation",
+    "text": "Algorithms for Estimation\n Define\n\\begin{equation*}\\label{eq:defH}\n    H(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\n\\end{equation*}\nFocus: determine the maximal value of H(\\cdot) and identify the argument at which this maximum occurs."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#exact-algorithm",
+    "href": "20260306_CLAPEM/tmp.html#exact-algorithm",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Exact Algorithm",
+    "text": "Exact Algorithm\n\nH(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\nDefine \\mathcal{G} = \\Big\\{ G = (V, E): E \\subseteq \\{V\\times V\\} \\setminus \\{(v,v):v \\in V\\}\\Big\\}.\n\n\n\nSet \\widehat G = \\arg\\max_{G \\:\\in\\: \\mathcal{G}} H(G).\nDrawback: computational complexity\n\\qquad |\\mathcal{G}| = 2^{{d(d-1)}/{2}},\n\\qquad |V|=d."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#forward-stepwise-algorithm",
+    "href": "20260306_CLAPEM/tmp.html#forward-stepwise-algorithm",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Forward Stepwise Algorithm",
+    "text": "Forward Stepwise Algorithm\n\nStarts with an empty graph.\nAdds edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#backward-stepwise-algorithm",
+    "href": "20260306_CLAPEM/tmp.html#backward-stepwise-algorithm",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Backward Stepwise Algorithm",
+    "text": "Backward Stepwise Algorithm\n\nBegins with a complete graph.\nRemoves edges one at a time, selecting the edge that maximizes improvement in fit.\nStops when no further enhancement in fit is achieved."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#simulated-annealing-algorithm",
+    "href": "20260306_CLAPEM/tmp.html#simulated-annealing-algorithm",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Simulated Annealing Algorithm",
+    "text": "Simulated Annealing Algorithm\n\n\n\nH(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\nDefinition of a neighbor of a graph.\n\n\n\n\n\n\n\n\\qquad\\qquad\\qquad\\qquad G_1\n\n\n\n\n\n\n\n\\qquad\\qquad\\qquad\\qquad G_2\n\n\n\n\n\n\n\n\\qquad\\qquad\\qquad\\qquad G_3"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#the-mixinggraph-r-package",
+    "href": "20260306_CLAPEM/tmp.html#the-mixinggraph-r-package",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "The MixingGraph R package",
+    "text": "The MixingGraph R package\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.\n\n\n\nOffers examples on how to use the package.\nAvailable at github.com/magnotairone/MixingGraph."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#simulation-study-1",
+    "href": "20260306_CLAPEM/tmp.html#simulation-study-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Simulation Study",
+    "text": "Simulation Study\n\nObjective: Assess the performance of the proposed algorithms via simulation studies.\nScenario 1: Fixed True Graph\n\nGenerate synthetic data based on fixed true graph.\nAssess estimator’s performance under stability conditions.\n\nScenario 2: Random Graphs with Varying Edge Number\n\nGenerate random graphs with varying edge numbers.\nEvaluate estimator’s performance across graphs with different edge configuration."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---scenario-1",
+    "href": "20260306_CLAPEM/tmp.html#example-11---scenario-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Scenario 1",
+    "text": "Example 11 - Scenario 1\n\nConsider \\mathbf{X} = (X_1, \\dots, X_5).\nJoint probability function of these variables:  p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \n\n\n\n\nConditional probabilities:\n\n\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---sampling-scheme",
+    "href": "20260306_CLAPEM/tmp.html#example-11---sampling-scheme",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Sampling Scheme",
+    "text": "Example 11 - Sampling Scheme\n\nThe Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):\n\niterations: 15{,}000,\nburn-in period: 5{,}000,\nfinal sample: 10{,}000.\n\nSmaller samples were extracted from the initial sample s_1, \\dots, s_{10{,}000}, with sizes N \\in \\{100, 500, 1{,}000, 5{,}000, 10{,}000\\}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---exact-algorithm",
+    "href": "20260306_CLAPEM/tmp.html#example-11---exact-algorithm",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Exact Algorithm",
+    "text": "Example 11 - Exact Algorithm\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---forward-stepwise",
+    "href": "20260306_CLAPEM/tmp.html#example-11---forward-stepwise",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Forward Stepwise",
+    "text": "Example 11 - Forward Stepwise\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---backward-stepwise",
+    "href": "20260306_CLAPEM/tmp.html#example-11---backward-stepwise",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Backward Stepwise",
+    "text": "Example 11 - Backward Stepwise\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---simulated-annealing",
+    "href": "20260306_CLAPEM/tmp.html#example-11---simulated-annealing",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Simulated Annealing",
+    "text": "Example 11 - Simulated Annealing\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---several-replications",
+    "href": "20260306_CLAPEM/tmp.html#example-11---several-replications",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications\n\nObjective: generate several samples and assess the performance of the algorithms.\nMetrics: underestimation error (ue), overestimation error (oe), and total error (te).\n\n\nue(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\in E \\text{ and } (v,w) \\not\\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}},  oe(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\not\\in E \\text{ and } (v,w) \\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\}},  \\qquad \\qquad te(G, \\hat G) = \\frac{ue \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\} + oe \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}}{|V|(|V|-1)/2}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-11---several-replications-1",
+    "href": "20260306_CLAPEM/tmp.html#example-11---several-replications-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#the-choice-of-penalizing-constant-c",
+    "href": "20260306_CLAPEM/tmp.html#the-choice-of-penalizing-constant-c",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "The Choice of Penalizing Constant c",
+    "text": "The Choice of Penalizing Constant c\nUtilize k-fold cross-validation to assess model performance and select optimal penalizing constant values.\n\n\n\n\n\n\n\n\n\n\nCompute pseudo-log-likelihood over validation sets for different constant values. \\begin{equation}\n  \\mathrm{CV}_k^{(i)}(c) = \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{\\hat G(v)}\\in A^{|\\hat G(v)|}}\n          N_i(a_v,a_{\\widehat G(v)})\\log \\widehat\\pi(a_v|a_{\\widehat G(v)})\\,.\n\\end{equation}"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#the-choice-of-penalizing-constant-c-1",
+    "href": "20260306_CLAPEM/tmp.html#the-choice-of-penalizing-constant-c-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "The Choice of Penalizing Constant c",
+    "text": "The Choice of Penalizing Constant c\n\n5-fold cross-validation error for Example 11, considering a sample of size 5{,}000 and set of values for penalizing constant."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-12---scenario-2",
+    "href": "20260306_CLAPEM/tmp.html#example-12---scenario-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 12 - Scenario 2",
+    "text": "Example 12 - Scenario 2\n\nObjective: Assess algorithms across diverse random scenarios to understand their performance.\nMethodology:\n\nGerante random graphs with fixed number of nodes and different number of edges.\nGenerate samples of size N=5{,}000.\nEvaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.\nVary penalizing constant values c = \\{0.1, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0\\}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-12-random-graphs",
+    "href": "20260306_CLAPEM/tmp.html#example-12-random-graphs",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 12: Random Graphs",
+    "text": "Example 12: Random Graphs"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-12-random-graphs-1",
+    "href": "20260306_CLAPEM/tmp.html#example-12-random-graphs-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 12: Random Graphs",
+    "text": "Example 12: Random Graphs\nAverage error metrics outcomes of the forward stepwise algorithm as function of penalizing constant."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#example-12-random-graphs-2",
+    "href": "20260306_CLAPEM/tmp.html#example-12-random-graphs-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Example 12: Random Graphs",
+    "text": "Example 12: Random Graphs\nAverage error metrics outcomes of the forward stepwise algorithm as function of the number of nodes in the graph."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#são-francisco-river-data",
+    "href": "20260306_CLAPEM/tmp.html#são-francisco-river-data",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data"
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#são-francisco-river-data-1",
+    "href": "20260306_CLAPEM/tmp.html#são-francisco-river-data-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nWater volume measured at d stations along the river’s course.\nStations denoted as X_{u}, where u = 1, \\ldots, d.\nVector \\mathbf{X} observed at discrete time intervals (10-day mean).\nEach observation denoted as \\mathbf{X}^{(i)}= (X_{1}^{(i)}, \\ldots, X_{d}^{(i)}).\nProcess \\mathbf{X}^n=\\{\\mathbf{X}^{(i)}: 1 \\leq i \\leq n\\}."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#são-francisco-river-data-2",
+    "href": "20260306_CLAPEM/tmp.html#são-francisco-river-data-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nData avaiability: daily measurements from October 1st, 1924, to February 28th, 2019.\nData considered: from January 1977 to December 2016.\nTotal of 1042 observations.\nDiscretizetion of the data into five levels based on quantiles."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#são-francisco-river-data-3",
+    "href": "20260306_CLAPEM/tmp.html#são-francisco-river-data-3",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\nForward stepwise algorithm and a 5-fold cross-validation approach.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResults similar to Leonardi et al (2021)."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#stock-exchange-data",
+    "href": "20260306_CLAPEM/tmp.html#stock-exchange-data",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\n\n\n\nRelation between stock exchanges’ performance reflect global market interconnectedness and economic trends.\nImpacts investment strategies, risk assessment, and portfolio diversification.\nChallenge: Variations in stock exchange operating hours due to different time zones.\nComplex analysis required to account for global market fluctuations."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#stock-exchange-data-1",
+    "href": "20260306_CLAPEM/tmp.html#stock-exchange-data-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises 2{,}654 rows for analysis.\nForward stepwise algorithm and a 5-fold cross-validation approach."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#stock-exchange-data-2",
+    "href": "20260306_CLAPEM/tmp.html#stock-exchange-data-2",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nEstimated graph, considering the penalizing constant value chosen by cross-validation."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#conclusion-and-future-work",
+    "href": "20260306_CLAPEM/tmp.html#conclusion-and-future-work",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Conclusion and Future Work",
+    "text": "Conclusion and Future Work\n\nMotivated by Leonardi et al. (2021) and Leonardi et al. (2023).\nIntroduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.\nDeveloped method for estimating entire graph G.\nProved consistency and convergence rate of the estimator.\nExplored implementation approaches: exact, stepwise, and simulated annealing.\nConducted simulation study to evaluate effectiveness.\nShowed analysis and application to real-world data.\nFuture Work:\n\nGeneralize approach for continuous multivariate stochastic processes.\nExtend methodology to infinite vertex sets and unbounded estimators.\nAdapt model to estimate direction of edges for directed graphs."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#references",
+    "href": "20260306_CLAPEM/tmp.html#references",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "References",
+    "text": "References\n\n\nCerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. A test of hypotheses for random graph distributions built from eeg data. IEEE Transactions on Network Science and Engineering, 4(2):75-82.\nGalves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. Identifying interacting pairs of sites in Ising models on a countable set. Braz. J. Probab. Stat., 29(2):443-459.\nLauritzen(1996) Steffen L Lauritzen. Graphical models, volume 17. Clarendon Press.\nLeonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. Independent block identification in multivariate time series. Journal of Time Series Analysis, 42(1):19-33.\nLeonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nMeinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. Highdimensional graphs and variable selection with the lasso. Ann. Statist., 34(3):1436-1462.\nRavikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. High-dimensional Ising model selection using l1-regularized logistic regression. Ann. Statist., 38(3):3022-1319."
+  },
+  {
+    "objectID": "20260306_CLAPEM/tmp.html#section",
+    "href": "20260306_CLAPEM/tmp.html#section",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "",
+    "text": "Thank you!\n\n\nObrigado!\n\n\n¡Gracias!"
+  },
+  {
+    "objectID": "20260306_CLAPEM/slides.html#objectives-of-the-research",
+    "href": "20260306_CLAPEM/slides.html#objectives-of-the-research",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Objectives of the research",
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+  }
+]

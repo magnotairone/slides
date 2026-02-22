@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1a4b94c7829d375d4b3cdea495934c25.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Magno Severino">
+  <meta name="dcterms.date" content="2026-03-06">
+  <title>Apresentações - Prof. Magno – Model selection for Markov random fields on graphs under a mixing condition</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f8265fa2a00a40990cf52f83a3366e37.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Model selection for Markov random fields on graphs under a mixing condition</h1>
+  <p class="subtitle">XVII CLAPEM</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Magno Severino 
+</div>
+</div>
+</div>
+
+  <p class="date">2026-03-06</p>
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ul>
+<li>Introduction</li>
+<li>Motivation</li>
+<li>Graph Estimator</li>
+<li>Algorithms for Estimation</li>
+<li>Simulation Study</li>
+<li>Application to Real Data</li>
+<li>Conclusion and Future Work</li>
+</ul>
+<!-- 
+  1. introducao
+  2. teorico 
+  3. algoritmos - OK
+  4. simulacoes  - OK
+   4.1 cenario fixo - OK
+   4.2 cenario random - OK
+  5. aplicacoes - OK
+   5.1 sfr - OK
+   5.2 stock - talvez simplificar
+  6 Pacote R
+  7 Conclusao
+  8 Referencias
+-->
+</section>
+<section id="vector-valued-stochastic-processes" class="slide level2 smaller">
+<h2>Vector-Valued Stochastic Processes</h2>
+<ul>
+<li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
+<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet.</p></li>
+<li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
+<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tmp_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" width="667" height="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="vector-valued-stochastic-processes-1" class="slide level2 smaller">
+<h2>Vector-Valued Stochastic Processes</h2>
+<ul>
+<li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
+<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet.</p></li>
+<li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
+<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tmp_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="667" height="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="previous-works" class="slide level2 smaller">
+<h2>Previous works</h2>
+<ul>
+<li>Extensive research has been conducted on discrete graphical models or Markov random fields, especially for binary graphical models with pairwise interactions (Lauritzen, 1996, and Galves et al., 2015).</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Methods for estimating graph structures have been proposed for continuous random variables and various types of interactions (Meinshausen and Bühlmann, 2006). <!-- - The assumption of independence of the observations in --> <!-- the non-homogeneous Markov random fields setting is often too restrictive. --></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Traditional model selection techniques involve estimating neighborhoods of individual nodes and constructing the graph based on these neighborhoods (Ravikumar et al., 2010).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The assumption of independence in observations is often too restrictive in real world scenarios (Cerqueira et al., 2017).</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The independence assumption does not hold and these methods serve only as approximations to the true underlying distribution.</li>
+</ul>
+</div>
+</section>
+<section id="motivation" class="slide level2 smaller">
+<h2>Motivation</h2>
+<ul>
+<li>Leonardi et al.&nbsp;(2021):
+<ul>
+<li>estimate blocks of independence within multivariate stochastic process,</li>
+<li>applied to both iid and processes under mixing conditions,</li>
+<li>discrete or continuous data.</li>
+</ul></li>
+<li>Leonardi et al.&nbsp;(2023):
+<ul>
+<li>estimate the neighborhood of each vertex and then constructs the graph,</li>
+<li>assume the process is iid,</li>
+<li>discrete data.</li>
+</ul></li>
+</ul>
+</section>
+<section id="objectives-of-the-research" class="slide level2 smaller">
+<h2>Objectives of the research</h2>
+<ul>
+<li><p><strong>Proposal</strong>: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.</p></li>
+<li><p><strong>Aim</strong>: combine and generalize previous works,</p>
+<ul>
+<li><p>Leonardi et al.&nbsp;(2021): method assumes decomposition into subvectors with immediate neighbor dependencies,</p></li>
+<li><p>Leonardi et al.&nbsp;(2023): estimator of neighborhood of each vertex for iid data.</p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><strong>Proposed solution</strong>: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.</p></li>
+<li><p><strong>Key advantages</strong>:</p>
+<ul>
+<li>Handles non-iid data (mixing condition),</li>
+<li>Provides a global estimation approach.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="mixing-condition" class="slide level2 smaller">
+<h2>Mixing Condition</h2>
+<ul>
+<li><p><span class="math inline">X^{(i:j)}</span> denote the sequence of vectors <span class="math inline">X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.</span></p></li>
+<li><p><span class="math inline">\bf X = \{X^{(i)}\colon -\infty &lt; i &lt; \infty\}</span> satisfies a <em>mixing condition</em> with rate <span class="math inline">\{\psi(\ell)\}_{\ell \in \mathbb R}</span> if <span class="math display">\begin{equation*}
+\begin{split}
+  \Bigl| \mathbb P \bigl(X^{(n:(n+k-1))}=x^{(1:k)}\, |\, X^{(1:m)}=x^{(1:m)}&amp;\bigr) - \mathbb P \bigl( X^{(n:(n+k-1))} =x^{(1:k)}\bigr)\Bigr| \\
+  &amp;\leq \psi(n-m) \mathbb P\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\bigr),
+\end{split}
+\end{equation*}</span> for <span class="math inline">n\geq m+\ell</span> and for each <span class="math inline">k, m \in \mathbb N</span> and each <span class="math inline">x^{(1:k)} \in (A^d)^k</span>, <span class="math inline">x^{(1:m)}\in (A^d)^m</span> with <span class="math inline">\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0.</span></p></li>
+</ul>
+<!-- ![](images/sim/tmp-proceesso.jpg){fig-align="center"} -->
+
+<img data-src="tmp_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="empirical-probabilities" class="slide level2 smaller">
+<h2>Empirical Probabilities</h2>
+<p>The stationary distribution of the process <span class="math inline">\pi</span> is unknown, we must estimate it from the data.</p>
+<p>Assume we observe a sample of size <span class="math inline">n</span> of the process, denoted by <span class="math inline">\{x^{(i)}\colon i=1,\dots,n\}</span>. Then, for any <span class="math inline">W\subset V</span> and any <span class="math inline">a_W\in A^{W}</span>, <span class="math display">\begin{equation*}
+    \widehat{\pi}(a_W)  = \frac{N(a_W)}{n}.
+\end{equation*}</span></p>
+<p>If <span class="math inline">\:\widehat\pi(a_W)&gt;0</span>, <span class="math display">\begin{equation*}
+    \widehat\pi(a_{W'}|a_{W})  = \frac{\widehat\pi(a_{W'\cup W})}{\widehat\pi(a_{W})}\,,
+\end{equation*}</span> for two disjoint subsets <span class="math inline">W,W'\subset V</span> and configurations <span class="math inline">a_W\in A^W, a_{W'}\in A^{W'}</span>.</p>
+</section>
+<section id="empirical-probabilities-1" class="slide level2 smaller">
+<h2>Empirical Probabilities</h2>
+<p>Given a graph <span class="math inline">G=(V,E),</span> define <span class="math display">G(v) = \big\{u \in V: (u,v) \in E \big\},</span> for <span class="math inline">v \in V,</span> the set of neighbors of <span class="math inline">v</span> in graph <span class="math inline">G.</span></p>
+<p><br></p>
+<p>Then we can compute <span class="math display">\begin{equation*}
+    \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})}.
+\end{equation*}</span></p>
+</section>
+<section id="graph-estimator" class="slide level2 smaller">
+<h2>Graph Estimator</h2>
+<p>Given any graph <span class="math inline">G</span> and a sample of the process, we define the pseudo-likelihood function by <span id="eq-def-lhat"><span class="math display">
+\widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
+\tag{1}</span></span></p>
+<p>Applying the logarithm we can write expression above as <span id="eq-log-pseudo"><span class="math display">
+\log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})
+\tag{2}</span></span></p>
+<div class="fragment">
+<p>The regularized graph estimator is given by</p>
+<p><span class="math display">
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
+</span></p>
+</div>
+</section>
+<section id="regularized-graph-estimator" class="slide level2 smaller">
+<h2>Regularized Graph Estimator</h2>
+<p><br><br> <strong>Theorem 10:</strong> Assume the process <span class="math inline">\{X^{(i)}: i \in \mathbb{Z}\}</span> satisfies the mixing condition presented before with <span class="math inline">\psi(\ell) = O(1/\ell^{1+\epsilon})</span> for some <span class="math inline">\epsilon&gt;0.</span> Then, by taking <span class="math inline">\lambda_n = c \log n,</span> we have that <span class="math display">\begin{equation*}
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\}
+\end{equation*}</span> satisfies <span class="math inline">\widehat G=G^*</span> eventually almost surely as <span class="math inline">n\to \infty.</span></p>
+</section>
+<section id="intuitive-overview-of-theorem-proof" class="slide level2 smaller">
+<h2>Intuitive Overview of Theorem Proof</h2>
+<p>Consider <span class="math inline">\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.</span></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tmp_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="300" height="300"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tmp_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<p>We prove that, eventually almost surely as <span class="math inline">n\to\infty,</span> neither of the cases above can happen, which implies that <span class="math inline">\widehat G = G^*.</span></p>
+</section>
+<section>
+<section id="algorithms-for-estimation" class="title-slide slide level1 center">
+<h1>Algorithms for estimation</h1>
+
+</section>
+<section id="algorithms-for-estimation-1" class="slide level2 smaller">
+<h2>Algorithms for Estimation</h2>
+<p><br><br> Define</p>
+<span class="math display">\begin{equation*}\label{eq:defH}
+    H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.
+\end{equation*}</span>
+<p><strong>Focus</strong>: determine the maximal value of <span class="math inline">H(\cdot)</span> and identify the argument at which this maximum occurs.</p>
+</section>
+<section id="exact-algorithm" class="slide level2 smaller">
+<h2>Exact Algorithm</h2>
+<ul>
+<li><p><span class="math inline">H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.</span></p></li>
+<li><p>Define <span class="math display">\mathcal{G} = \Big\{ G = (V, E): E \subseteq \{V\times V\} \setminus \{(v,v):v \in V\}\Big\}.</span></p></li>
+</ul>
+<!-- - Calculate the penalized pseudo-likelihood for each $G \in \mathcal{G}.$  -->
+<ul>
+<li><p>Set <span class="math display">\widehat G = \arg\max_{G \:\in\: \mathcal{G}} H(G).</span></p></li>
+<li><p>Drawback: computational complexity</p>
+<p><span class="math inline">\qquad |\mathcal{G}| = 2^{{d(d-1)}/{2}},</span></p>
+<p><span class="math inline">\qquad |V|=d.</span></p></li>
+</ul>
+</section>
+<section id="forward-stepwise-algorithm" class="slide level2">
+<h2>Forward Stepwise Algorithm</h2>
+<ul>
+<li><p>Starts with an empty graph.</p></li>
+<li><p>Adds edges one at a time, selecting the edge that maximizes improvement in fit.</p></li>
+<li><p>Stops when no further enhancement in fit is achieved.</p></li>
+</ul>
+
+<img data-src="images/sim/ex1_1x_fwd_stepwise.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="backward-stepwise-algorithm" class="slide level2">
+<h2>Backward Stepwise Algorithm</h2>
+<ul>
+<li><p>Begins with a complete graph.</p></li>
+<li><p>Removes edges one at a time, selecting the edge that maximizes improvement in fit.</p></li>
+<li><p>Stops when no further enhancement in fit is achieved.</p></li>
+</ul>
+
+<img data-src="images/sim/ex1_1x_bcw_stepwise.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="simulated-annealing-algorithm" class="slide level2 smaller">
+<h2>Simulated Annealing Algorithm</h2>
+<!-- - $H^* = \max_{G \in \mathcal{G}} \{H(G)\}.$ -->
+<!-- - $\mathcal{H} = \{G \in \mathcal{G} : H(G) = H^*\}.$ -->
+<ul>
+<li><p><span class="math inline">H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.</span></p></li>
+<li><p>Definition of a neighbor of a graph.</p></li>
+</ul>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/ch3-grafo_aleatorio.jpg"></p>
+<figcaption><span class="math inline">\qquad\qquad\qquad\qquad G_1</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/ch3-grafo_aleatorio_viz1.jpg"></p>
+<figcaption><span class="math inline">\qquad\qquad\qquad\qquad G_2</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/ch3-grafo_aleatorio_viz2.jpg"></p>
+<figcaption><span class="math inline">\qquad\qquad\qquad\qquad G_3</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- ## Simulated Annealing Algorithm {.smaller}  -->
+<!-- - **Algorithm Overview**: -->
+<!--   - Initialize with $G_1 \in \mathcal{G}$. -->
+<!--   - Randomly choose neighbors $G_n^\prime$. -->
+<!--   - Transition based on a probability formula. -->
+<!--   - Repeat for $m$ iterations. -->
+<!-- - **Parameter Choices**: -->
+<!--   - $m$: Number of iterations. -->
+<!--   - $C$: Constant in $\eta_n = C\log(1+n).$ -->
+<!--   - Initial state $G_1$. -->
+<!-- - Further details in Ross (2006). -->
+</section>
+<section id="the-mixinggraph-r-package" class="slide level2">
+<h2>The MixingGraph R package</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png" class="quarto-figure quarto-figure-center" width="200"></p>
+</figure>
+</div>
+</div><div class="column" style="width:75%;">
+<ul>
+<li><p>Includes functions to compute the penalized log pseudo-likelihood function.</p></li>
+<li><p>Implements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.</p></li>
+</ul>
+</div></div>
+<ul>
+<li><p>Offers examples on how to use the package.</p></li>
+<li><p>Available at <a href="https://github.com/magnotairone/MixingGraph/">github.com/magnotairone/MixingGraph</a>.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="simulation-study" class="title-slide slide level1 center">
+<h1>Simulation Study</h1>
+
+</section>
+<section id="simulation-study-1" class="slide level2 smaller">
+<h2>Simulation Study</h2>
+<ul>
+<li><p><strong>Objective</strong>: Assess the performance of the proposed algorithms via simulation studies.</p></li>
+<li><p><strong>Scenario 1: Fixed True Graph</strong></p>
+<ul>
+<li>Generate synthetic data based on fixed true graph.</li>
+<li>Assess estimator’s performance under stability conditions.</li>
+</ul></li>
+<li><p><strong>Scenario 2: Random Graphs with Varying Edge Number</strong></p>
+<ul>
+<li>Generate random graphs with varying edge numbers.</li>
+<li>Evaluate estimator’s performance across graphs with different edge configuration.</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-11---scenario-1" class="slide level2 smaller">
+<h2>Example 11 - Scenario 1</h2>
+<ul>
+<li><p>Consider <span class="math inline">\mathbf{X} = (X_1, \dots, X_5).</span></p></li>
+<li><p>Joint probability function of these variables: <span class="math display"> p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). </span></p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Conditional probabilities:</li>
+</ul>
+<span class="math display">\begin{align*}
+    p(x_1|x_2,x_3,x_4,x_5) &amp;= p(x_1|x_2,x_3), \\  
+    p(x_2|x_1,x_3,x_4,x_5) &amp;= p(x_2|x_1,x_3), \\
+    %p(x_3|x_1,x_2,x_4,x_5) &amp;= p(x_1,x_2,x_3,x_4,x_5)/ \sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\
+    p(x_4|x_1,x_2,x_3,x_5) &amp;= p(x_4|x_3), \\
+    p(x_5|x_1,x_2,x_3,x_4)&amp;= p(x_5|x_3).
+\end{align*}</span>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/ex1_graph.jpg" class="quarto-figure quarto-figure-center" width="250"></p>
+</figure>
+</div>
+</div></div>
+<ul>
+<li><p><strong>Aim</strong>: assess the performance of the algorithms for estimation.</p></li>
+<li><p><strong>Data generation</strong>: Gibbs Sampler algorithm.</p></li>
+</ul>
+<!-- ## Example 11 - Data Generation {.smaller} -->
+<!-- 0. Establish theoretical values for the marginal and conditional distributions. -->
+<!-- 1. Initialize the variables -->
+<!-- ``` {=tex} -->
+<!-- \begin{align*}  -->
+<!--     X_{3}^{0} &\sim p(X_3), &\qquad X_{1}^{0} &\sim p(X_1| X_{3}^{0}), \\ -->
+<!--     X_{2}^{0} &\sim p(X_2| X_{1}^{0}, X_{3}^{0}), &\qquad X_{4}^{0} &\sim p(X_4| X_{3}^{0}), \\ -->
+<!--     X_{5}^{0} &\sim p(X_5| X_{3}^{0}).  -->
+<!-- \end{align*} -->
+<!-- ``` -->
+<!-- 2. For $j = 1, 2 \dots,$ generate -->
+<!-- ``` {=tex}    -->
+<!-- \begin{align*} -->
+<!--     X_{1}^{j} &\sim p(X_1| X_{2}^{j-1}, X_{3}^{j-1}), &\qquad X_{2}^{j} &\sim p(X_2| X_{1}^{j}, X_{3}^{j-1}), \\ -->
+<!--     X_{4}^{j} &\sim p(X_4| X_{3}^{j-1}), &\qquad X_{5}^{j} &\sim p(X_5| X_{3}^{j-1}), \\ -->
+<!--     X_{3}^{j} &\sim p(X_3| X_{1}^{j}, X_{2}^{j}, X_{4}^{j}, X_{5}^{j}). -->
+<!-- \end{align*} -->
+<!-- ``` -->
+<!-- Step 2 above should be repeated accordingly to generate a sample with the size needed. -->
+<!-- ## Example 11 {.smaller} -->
+<!-- TODO: pensar de incluo esse grafico -->
+<!-- Effect of the penalizing constant value. -->
+<!-- ![](images/sim/ex1_1x_exact_N5000.jpg){fig-align="center"} -->
+</section>
+<section id="example-11---sampling-scheme" class="slide level2 smaller">
+<h2>Example 11 - Sampling Scheme</h2>
+<ul>
+<li>The Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):
+<ul>
+<li>iterations: <span class="math inline">15{,}000</span>,</li>
+<li>burn-in period: <span class="math inline">5{,}000</span>,</li>
+<li>final sample: <span class="math inline">10{,}000</span>.</li>
+</ul></li>
+<li>Smaller samples were extracted from the initial sample <span class="math inline">s_1, \dots, s_{10{,}000}</span>, with sizes <span class="math inline">N \in \{100, 500, 1{,}000, 5{,}000, 10{,}000\}</span>.</li>
+</ul>
+
+<img data-src="images/sim/ex1_sample_scheme_page.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="example-11---exact-algorithm" class="slide level2 smaller">
+<h2>Example 11 - Exact Algorithm</h2>
+<p>Effects of sample size and penalizing constant value. Here, <span class="math inline">\lambda_N = c\log N.</span> <img data-src="images/sim/ex1_1x_grid_exact.jpg" class="quarto-figure quarto-figure-center"></p>
+</section>
+<section id="example-11---forward-stepwise" class="slide level2 smaller">
+<h2>Example 11 - Forward Stepwise</h2>
+<p>Effects of sample size and penalizing constant value. Here, <span class="math inline">\lambda_N = c\log N.</span> <img data-src="images/sim/ex1_1x_grid_fwd.jpg" class="quarto-figure quarto-figure-center"></p>
+</section>
+<section id="example-11---backward-stepwise" class="slide level2 smaller">
+<h2>Example 11 - Backward Stepwise</h2>
+<p>Effects of sample size and penalizing constant value. Here, <span class="math inline">\lambda_N = c\log N.</span> <img data-src="images/sim/ex1_1x_grid_bcw.jpg" class="quarto-figure quarto-figure-center"></p>
+</section>
+<section id="example-11---simulated-annealing" class="slide level2 smaller">
+<h2>Example 11 - Simulated Annealing</h2>
+<p>Effects of sample size and penalizing constant value. Here, <span class="math inline">\lambda_N = c\log N.</span> <img data-src="images/sim/ex1_1x_grid_SA.jpg" class="quarto-figure quarto-figure-center"></p>
+<!-- adicionar comentarios -->
+</section>
+<section id="example-11---several-replications" class="slide level2 smaller">
+<h2>Example 11 - Several Replications</h2>
+<ul>
+<li><p><strong>Objective</strong>: generate several samples and assess the performance of the algorithms.</p></li>
+<li><p><strong>Metrics</strong>: underestimation error (<span class="math inline">ue</span>), overestimation error (<span class="math inline">oe</span>), and total error (<span class="math inline">te</span>).</p></li>
+</ul>
+<div id="title-slide" class="center">
+<p><span class="math inline">ue(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\in E \text{ and } (v,w) \not\in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}},</span> <br><br> <span class="math inline">oe(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\not\in E \text{ and } (v,w) \in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\}},</span> <br><br> <span class="math inline">\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\} + oe \sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}}{|V|(|V|-1)/2}.</span></p>
+</div>
+</section>
+<section id="example-11---several-replications-1" class="slide level2 smaller">
+<h2>Example 11 - Several Replications</h2>
+
+<!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
+<!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
+<img data-src="images/sim/ex1_10x_tile.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="the-choice-of-penalizing-constant-c" class="slide level2 smaller">
+<h2>The Choice of Penalizing Constant <span class="math inline">c</span></h2>
+<p>Utilize <span class="math inline">k</span>-fold cross-validation to assess model performance and select optimal penalizing constant values.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tmp_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960" height="300"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Compute pseudo-log-likelihood over validation sets for different constant values. <span class="math display">\begin{equation}
+  \mathrm{CV}_k^{(i)}(c) = \sum_{v \in V} \:\sum_{(a_v\in A)} \:\sum_{a_{\hat G(v)}\in A^{|\hat G(v)|}}
+          N_i(a_v,a_{\widehat G(v)})\log \widehat\pi(a_v|a_{\widehat G(v)})\,.
+\end{equation}</span></p>
+<!-- ## The Choice of Penalizing Constant $c$  {.smaller} -->
+<!-- - **Issue:** Configuration mismatch between training and validation sets can cause problems in cross-validation. -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = 0, \text{ resulting in } \mathrm{CV}_k^{(i)}(c) = -\infty.$$  -->
+<!-- - **Solution:** Introduce the hyperparameter $\gamma$ to handle cases where observed configuration is absent in training set, -->
+<!--    $$\hat\pi(a_v|a_{\hat G(v)}) = \gamma.$$ -->
+<!-- - **Redefinition:** Rescale distribution $\hat\pi(\cdot|a_{\hat G(v)})$ for configurations not seen in training data. -->
+<!-- - **Recommendation:** Set $\gamma$ to a small value for numerical stability. -->
+<!-- - This change ensures stability and reliability of cross-validation method for real-world datasets. -->
+</div>
+</section>
+<section id="the-choice-of-penalizing-constant-c-1" class="slide level2 smaller">
+<h2>The Choice of Penalizing Constant <span class="math inline">c</span></h2>
+
+<img data-src="images/sim/ex1_cv_error_with_labels.jpg" class="quarto-figure quarto-figure-center r-stretch"><p><span class="math inline">5</span>-fold cross-validation error for Example 11, considering a sample of size <span class="math inline">5{,}000</span> and set of values for penalizing constant.</p>
+</section>
+<section id="example-12---scenario-2" class="slide level2 smaller">
+<h2>Example 12 - Scenario 2</h2>
+<ul>
+<li><p><strong>Objective</strong>: Assess algorithms across diverse random scenarios to understand their performance.</p></li>
+<li><p><strong>Methodology</strong>:</p>
+<ul>
+<li>Gerante random graphs with fixed number of nodes and different number of edges.</li>
+<li>Generate samples of size <span class="math inline">N=5{,}000</span>.</li>
+<li>Evaluate Exact, Simulated Annealing, Forward Stepwise, and Backward Stepwise algorithms.</li>
+<li>Vary penalizing constant values <span class="math inline">c = \{0.1, 0.5,</span> <span class="math inline">1.0, 1.5, 2.0, 2.5, 3.0\}.</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-12-random-graphs" class="slide level2 smaller">
+<h2>Example 12: Random Graphs</h2>
+
+<!-- ## Example 12 - Forward Stepwise {.smaller} -->
+<!-- ![](images/sim/ex3_fwd_nedge2_rep1_grid.jpg){fig-align="center"} -->
+<!-- add legenda -->
+<img data-src="images/sim/ex3_grid_reps.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="example-12-random-graphs-1" class="slide level2 smaller">
+<h2>Example 12: Random Graphs</h2>
+<p>Average error metrics outcomes of the forward stepwise algorithm as function of penalizing constant. <!-- Each sub-figure represents the result of a specific $c$ value and displays the averaged errors as a function of the number of edges in the graph. --></p>
+
+<img data-src="images/sim/ex3_error_lines_fwd.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="example-12-random-graphs-2" class="slide level2 smaller">
+<h2>Example 12: Random Graphs</h2>
+<p>Average error metrics outcomes of the forward stepwise algorithm as function of the number of nodes in the graph.</p>
+
+<!-- Effect of varying the penalizing constant $c$ on the average error metrics outcomes from the forward stepwise algorithm.  -->
+<!-- Each subfigure is the result given by graphs with a fixed number of edges, from 1 to 10. -->
+<img data-src="images/sim/ex3_error_lines_over_lambda_fwd.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="application-to-real-data" class="title-slide slide level1 center">
+<h1>Application to real data</h1>
+
+</section>
+<section id="são-francisco-river-data" class="slide level2 smaller">
+<h2>São Francisco River Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/SF_map.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/SF_stations.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="são-francisco-river-data-1" class="slide level2 smaller">
+<h2>São Francisco River Data</h2>
+<ul>
+<li><p>Water volume measured at <span class="math inline">d</span> stations along the river’s course.</p></li>
+<li><p>Stations denoted as <span class="math inline">X_{u}</span>, where <span class="math inline">u = 1, \ldots, d</span>.</p></li>
+<li><p>Vector <span class="math inline">\mathbf{X}</span> observed at discrete time intervals (10-day mean).</p></li>
+<li><p>Each observation denoted as <span class="math inline">\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{d}^{(i)})</span>.</p></li>
+<li><p>Process <span class="math inline">\mathbf{X}^n=\{\mathbf{X}^{(i)}: 1 \leq i \leq n\}</span>.</p></li>
+</ul>
+</section>
+<section id="são-francisco-river-data-2" class="slide level2 smaller">
+<h2>São Francisco River Data</h2>
+<ul>
+<li><p><strong>Data avaiability</strong>: daily measurements from October 1st, 1924, to February 28th, 2019.</p></li>
+<li><p><strong>Data considered</strong>: from January 1977 to December 2016.</p></li>
+<li><p>Total of 1042 observations.</p></li>
+<li><p><strong>Discretizetion</strong> of the data into five levels based on quantiles.</p></li>
+</ul>
+
+<!-- ## São Francisco River Data {.smaller} -->
+<!-- ![](images/sim/SF_boxplot.jpg){fig-align="center"}. -->
+<!-- Stream flow volume measured at the ten stations in the SFR (logarithmic scale). -->
+<img data-src="images/sim/SF_NAdata.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="são-francisco-river-data-3" class="slide level2 smaller">
+<h2>São Francisco River Data</h2>
+<p>Forward stepwise algorithm and a <span class="math inline">5</span>-fold cross-validation approach.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/SF_stations.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<p>Results similar to Leonardi et al (2021).</p>
+</section>
+<section id="stock-exchange-data" class="slide level2 smaller">
+<h2>Stock Exchange Data</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><br></p>
+<ul>
+<li><p>Relation between stock exchanges’ performance reflect global market interconnectedness and economic trends.</p></li>
+<li><p>Impacts investment strategies, risk assessment, and portfolio diversification.</p></li>
+<li><p><strong>Challenge</strong>: Variations in stock exchange operating hours due to different time zones.</p></li>
+<li><p>Complex analysis required to account for global market fluctuations.</p></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sim/stocks_working_hours_bw_FINAL.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="stock-exchange-data-1" class="slide level2 smaller">
+<h2>Stock Exchange Data</h2>
+<ul>
+<li><p><strong>Objective</strong>: analyse the Relation between stock exchanges’ performance.</p></li>
+<li><p><strong>Discretization</strong>: daily indicator of an increase in the index rate.</p></li>
+<li><p>Data from May 18th, 2010 to September 20th, 2023.</p></li>
+<li><p>Adjustments made to address missing data and holiday schedules.</p></li>
+<li><p>Final dataset comprises <span class="math inline">2{,}654</span> rows for analysis.</p></li>
+<li><p>Forward stepwise algorithm and a <span class="math inline">5</span>-fold cross-validation approach.</p></li>
+</ul>
+<!-- ## Stock Exchange Data {.smaller} -->
+<!-- ![](images/sim/app_stock_cv_error_with_labels.jpg){fig-align="center"} -->
+<!-- $5$-fold cross-validation error. -->
+</section>
+<section id="stock-exchange-data-2" class="slide level2 smaller">
+<h2>Stock Exchange Data</h2>
+
+<img data-src="images/sim/app_stock_cv_graph_page.jpg" class="quarto-figure quarto-figure-center r-stretch"><p>Estimated graph, considering the penalizing constant value chosen by cross-validation.</p>
+</section>
+<section id="conclusion-and-future-work" class="slide level2 smaller">
+<h2>Conclusion and Future Work</h2>
+<ul>
+<li><p>Motivated by Leonardi et al.&nbsp;(2021) and Leonardi et al.&nbsp;(2023).</p></li>
+<li><p>Introduced a penalized pseudo-likelihood criterion to perform graph estimation for process under mixing conditions.</p></li>
+<li><p>Developed method for estimating entire graph <span class="math inline">G</span>.</p></li>
+<li><p>Proved consistency and convergence rate of the estimator.</p></li>
+<li><p>Explored implementation approaches: exact, stepwise, and simulated annealing.</p></li>
+<li><p>Conducted simulation study to evaluate effectiveness.</p></li>
+<li><p>Showed analysis and application to real-world data.</p></li>
+<li><p><strong>Future Work</strong>:</p>
+<ul>
+<li>Generalize approach for continuous multivariate stochastic processes.</li>
+<li>Extend methodology to infinite vertex sets and unbounded estimators.</li>
+<li>Adapt model to estimate direction of edges for directed graphs.</li>
+</ul></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller">
+<h2>References</h2>
+<div style="font-size: 80%;">
+<ul>
+<li><p>Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. <strong>A test of hypotheses for random graph distributions built from eeg data</strong>. <em>IEEE Transactions on Network Science and Engineering</em>, 4(2):75-82.</p></li>
+<li><p>Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. <strong>Identifying interacting pairs of sites in Ising models on a countable set</strong>. <em>Braz. J. Probab. Stat.</em>, 29(2):443-459.</p></li>
+<li><p>Lauritzen(1996) Steffen L Lauritzen. <strong>Graphical models</strong>, volume 17. <em>Clarendon Press</em>.</p></li>
+<li><p>Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. <strong>Independent block identification in multivariate time series</strong>. <em>Journal of Time Series Analysis</em>, 42(1):19-33.</p></li>
+<li><p>Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. <strong>Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions</strong>. <em>Scandinavian Journal of Statistics</em>.</p></li>
+<li><p>Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. <strong>Highdimensional graphs and variable selection with the lasso</strong>. <em>Ann. Statist.</em>, 34(3):1436-1462.</p></li>
+<li><p>Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. <strong>High-dimensional Ising model selection using l1-regularized logistic regression</strong>. <em>Ann. Statist.</em>, 38(3):3022-1319.</p></li>
+</ul>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br><br><br></p>
+<h1 style="text-align: center">
+Thank you!
+</h1>
+<h1 style="text-align: center">
+Obrigado!
+</h1>
+<h1 style="text-align: center">
+¡Gracias!
+</h1>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo_clapem.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Prof.&nbsp;Magno Tairone | PhD Statistics</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

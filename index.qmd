@@ -1,0 +1,17 @@
+---
+title: "Apresentações e Palestras - Magno Severino"
+subtitle: "Repositório de materiais acadêmicos e aulas"
+format: html
+listing:
+  contents: 
+    - "20260306_CLAPEM/slides.qmd"
+  type: grid
+  sort: "date desc"
+  fields: [title, subtitle, date]
+---
+
+Bem-vindo ao meu portal de apresentações. Aqui você encontra os materiais utilizados em aulas, conferências e palestras.
+
+## Apresentações Disponíveis
+
+---

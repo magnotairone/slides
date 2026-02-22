@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs  # Essencial para publicar no GitHub Pages facilmente
+
+website:
+  title: "Apresentações - Prof. Magno"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Início
+      - text: "Slides"
+        menu:
+          - href: 20260306_CLAPEM/slides.qmd
+            text: "Contributed Talk  - XVII CLAPEM"
+          # - href: aula-02/slides.qmd
+          #   text: "Lema de Neyman-Pearson"
+
+format:
+  html:    # Garante que páginas do site (como o index) usem HTML padrão
+    theme: cosmo
+  revealjs:
+    theme: [default, custom.scss] # Você pode criar um .css/scss para cores do Insper
+    # logo: logo.png               # Coloque um logo na raiz se desejar
+    footer: "Prof. Magno Tairone | PhD Statistics"
+    slide-number: true
+    show-slide-number: all
+    incremental: false           # Se true, os tópicos aparecem um a um
+    chalkboard: true             # Habilita lousa digital para riscar no slide
+    highlight-style: ayu-mirage  # Estilo de cor para código R
+    html-math-method: katex      # Melhor renderização de fórmulas matemáticas
+    code-line-numbers: true
+    
+execute:
+  echo: true                     # Mostra o código R por padrão
+  warning: false                 # Esconde avisos no slide final
+  cache: false                    # Agiliza a renderização de códigos pesados
