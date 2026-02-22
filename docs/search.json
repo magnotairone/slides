@@ -42,6 +42,13 @@
     "text": "Por que ir além do IID?\nA maioria das técnicas tradicionais assume que as observações \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots são independentes (iid).\nNo entanto, em cenários reais, a independência é restritiva:\n\nSéries Temporais de EEG: Dependência neural ao longo do tempo.\nFluxo de Rios: Dependência hidrológica sequencial.\nMercado Financeiro: Índices diários com autocorrelação.\n\nNossa proposta: Um critério global que prova a consistência mesmo sob condições de mixing."
   },
   {
+    "objectID": "20260306_CLAPEM/slides.html#objectives-of-the-research",
+    "href": "20260306_CLAPEM/slides.html#objectives-of-the-research",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Objectives of the research",
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+  },
+  {
     "objectID": "20260306_CLAPEM/slides.html#mixing-condition",
     "href": "20260306_CLAPEM/slides.html#mixing-condition",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
@@ -502,12 +509,5 @@
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "",
     "text": "Thank you!\n\n\nObrigado!\n\n\n¡Gracias!"
-  },
-  {
-    "objectID": "20260306_CLAPEM/slides.html#objectives-of-the-research",
-    "href": "20260306_CLAPEM/slides.html#objectives-of-the-research",
-    "title": "Model selection for Markov random fields on graphs under a mixing condition",
-    "section": "Objectives of the research",
-    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
   }
 ]
