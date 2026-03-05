@@ -66,3 +66,16 @@ $link-color: #004D4D;
   margin-bottom: 6px;
   color: #1a1a1a;
 }
+
+// Altera a cor do código inline para preto e remove o fundo se desejar
+code {
+  color: #1a1a1a !important; // Cor preta/grafite para melhor leitura
+  background-color: #f4f4f4;  // Opcional: um cinza bem leve de fundo
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+.reveal h2 {
+  font-size: 1.4em !important; /* Tamanho padrão costuma ser 1.6em ou maior */
+  margin-top: 10px;
+}

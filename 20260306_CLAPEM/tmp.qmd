@@ -1114,67 +1114,8 @@ Average error metrics outcomes of the forward stepwise algorithm as function of 
 <!-- Each subfigure is the result given by graphs with a fixed number of edges, from 1 to 10. -->
 
 
-# Application to real data
 
 
-## São Francisco River Data {.smaller}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![](images/sim/SF_map.jpg){fig-align="center"}
-:::
-::: {.column width="50%"}
-![](images/sim/SF_stations.jpg){fig-align="center"}
-:::
-::::
-
-## São Francisco River Data {.smaller}
-
-- Water volume measured at $d$ stations along the river's course.
-
-- Stations denoted as $X_{u}$, where $u = 1, \ldots, d$.
-
-- Vector $\mathbf{X}$ observed at discrete time intervals (10-day mean).
-
-- Each observation denoted as $\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{d}^{(i)})$.
-
-- Process $\mathbf{X}^n=\{\mathbf{X}^{(i)}: 1 \leq i \leq n\}$.
-
-## São Francisco River Data {.smaller}
-
-- **Data avaiability**: daily measurements from October 1st, 1924, to February 28th, 2019.
-
-- **Data considered**: from January 1977 to December 2016.
-
-- Total of 1042 observations.
-
-- **Discretizetion** of the data into five levels based on quantiles.
-
-
-![](images/sim/SF_NAdata.jpg){width=70% fig-align="center"}
-
-<!-- ## São Francisco River Data {.smaller} -->
-
-<!-- ![](images/sim/SF_boxplot.jpg){fig-align="center"}. -->
-
-<!-- Stream flow volume measured at the ten stations in the SFR (logarithmic scale). -->
-
-## São Francisco River Data {.smaller}
-
-Forward stepwise algorithm and a $5$-fold cross-validation approach.
-
-
-:::: {.columns}
-::: {.column width="50%"}
-![](images/sim/SF_stations.jpg){fig-align="center"}
-:::
-::: {.column width="50%"}
-![](images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg){fig-align="center"}
-:::
-::::
-
-Results similar to Leonardi et al (2021).
 
 ## Stock Exchange Data {.smaller}
 

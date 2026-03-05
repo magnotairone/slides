@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f8265fa2a00a40990cf52f83a3366e37.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-86c9f797259fc4b25cb3884809e51fdf.css">
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
@@ -161,79 +161,65 @@ Magno Severino
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
+<ul>
+<li><p><strong>Motivation</strong></p></li>
+<li><p><strong>Mathematical Framework</strong></p></li>
+<li><p><strong>Estimation Method</strong> and <strong>Theoretical Results</strong></p></li>
+<li><p><strong>Applications to real data</strong></p></li>
+<li><p><strong>Conclusion and Future Work</strong></p></li>
+</ul>
 </section>
 <section id="vector-valued-stochastic-processes" class="slide level2 smaller">
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
-<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet.</p></li>
+<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
 <li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
 <li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" width="667" height="400"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>Diferente de modelos em <em>lattice</em> (grades regulares), o grafo <span class="math inline">G^*</span> aqui é geral e não-homogêneo.</p>
-</div>
-</div>
-</div>
-</section>
+
+<!-- ::: {.callout-important} -->
+<!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
+<!-- ::: -->
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
 <section id="vector-valued-stochastic-processes-1" class="slide level2 smaller">
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
-<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet.</p></li>
+<li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
 <li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
 <li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="667" height="400"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>Diferente de modelos em <em>lattice</em> (grades regulares), o grafo <span class="math inline">G^*</span> aqui é geral e não-homogêneo.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="por-que-ir-além-do-iid" class="slide level2 smaller">
-<h2>Por que ir além do IID?</h2>
-<p>A maioria das técnicas tradicionais assume que as observações <span class="math inline">\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots</span> são independentes (iid).</p>
-<p>No entanto, em cenários reais, a independência é restritiva:</p>
+
+<!-- ::: {.callout-important} -->
+<!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
+<!-- ::: -->
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
+<section id="the-iid-case" class="slide level2 smaller">
+<h2>The IID case</h2>
 <ul>
-<li><strong>Séries Temporais de EEG</strong>: Dependência neural ao longo do tempo.</li>
-<li><strong>Fluxo de Rios</strong>: Dependência hidrológica sequencial.</li>
-<li><strong>Mercado Financeiro</strong>: Índices diários com autocorrelação.</li>
+<li><p><strong>Classic Problem</strong>: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields.</p></li>
+<li><p><strong>Established Literature</strong>: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al.&nbsp;(2024).</p></li>
+<li><p><strong>Common Approaches</strong>:</p>
+<ul>
+<li><strong>Structure Estimation</strong>: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.</li>
+<li><strong>Neighborhood-Based Estimation</strong>: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph.</li>
+</ul></li>
 </ul>
-<p><strong>Nossa proposta</strong>: Um critério global que prova a consistência mesmo sob condições de <strong>mixing</strong>.</p>
+<!-- - **Main Limitations**: -->
+<!--     - **Restrictive Assumption**: The independence of observations is often too restrictive for real-world scenarios like EEG, river flow, or stock market data[cite: 58, 59]. -->
+<!--     - [cite_start]**Combining Rules**: Rules used to combine individual neighborhoods can lead to drastic underestimation or overestimation of edges. -->
+</section>
+<section id="why-go-beyond-the-iid-assumption" class="slide level2 smaller">
+<h2>Why go beyond the IID assumption?</h2>
+<p>Most traditional graphical model techniques assume that observations <span class="math inline">\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots</span> are Independent and Identically Distributed (IID).</p>
+<p>However, in real-world scenarios, the independence assumption is often too restrictive:</p>
+<ul>
+<li><strong>EEG Time Series</strong>: Neural dependencies evolve over time.</li>
+<li><strong>River Stream Flow</strong>: Successive observations exhibit hydrological dependence.</li>
+<li><strong>Financial Markets</strong>: Daily indices show significant autocorrelation and mixing properties.</li>
+</ul>
+<p><strong>Our Proposal</strong>: A global model selection criterion that ensures consistency even under <strong>polynomial mixing conditions</strong>.</p>
 </section>
 <section id="objectives-of-the-research" class="slide level2 smaller">
 <h2>Objectives of the research</h2>
@@ -259,13 +245,15 @@ Magno Severino
 <section id="mixing-condition" class="slide level2 smaller">
 <h2>Mixing Condition</h2>
 <ul>
-<li><span class="math inline">X^{(i:j)}</span> denote the sequence of vectors <span class="math inline">X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.</span></li>
+<li>Let <span class="math inline">X^{(i:j)}</span> denote the sequence of vectors <span class="math inline">X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.</span></li>
 </ul>
-<p>O processo satisfaz uma condição de mixing com taxa <span class="math inline">\psi(\ell)</span> se a dependência entre o passado (<span class="math inline">X^{(1:m)}</span>) e o futuro (<span class="math inline">X^{(n:n+k-1)}</span>) decai conforme a distância <span class="math inline">n-m</span> aumenta:</p>
+<p>The process satisfies a <strong>mixing condition</strong> with rate <span class="math inline">\psi(\ell)</span> if the dependence between the past (<span class="math inline">X^{(1:m)}</span>) and the future (<span class="math inline">X^{(n:n+k-1)}</span>) decays as the distance <span class="math inline">\ell=n-m</span> increases:</p>
+<!-- $$\psi(\ell) = \sup_{m \ge 1, k \ge 1} \{ \text{measure of dependence between } X^{(1:m)} \text{ and } X^{(m+\ell:m+\ell+k-1)} \}$$ -->
 <p><span id="eq-mixing"><span class="math display">
 \Bigl| \mathbb P (X_{future} | X_{past}) - \mathbb P (X_{future}) \Bigr| \leq \psi(n-m) \mathbb P(X_{future})
 \tag{1}</span></span></p>
-</section>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="empirical-probabilities" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
 <p>The stationary distribution of the process <span class="math inline">\pi</span> is unknown, we must estimate it from the data.</p>
@@ -286,6 +274,7 @@ Magno Severino
 </section>
 <section id="graph-estimator" class="slide level2 smaller">
 <h2>Graph Estimator</h2>
+<!-- Diferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização global. -->
 <p>Given any graph <span class="math inline">G</span> and a sample of the process, we define the pseudo-likelihood function by <span id="eq-def-lhat"><span class="math display">
 \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \tag{2}</span></span></p>
@@ -307,35 +296,62 @@ Magno Severino
 <!-- - **Overfitting**: Controlado pela penalidade $\lambda_n$[cite: 211, 212]. -->
 <!-- - **Underfitting**: Evitado pela divergência de Kullback-Leibler positiva entre vizinhanças distintas[cite: 206, 211]. -->
 </section>
-<section>
-<section id="algorithms-for-estimation" class="title-slide slide level1 center">
-<h1>Algorithms for estimation</h1>
-
-</section>
-<section id="algorithms-for-estimation-1" class="slide level2 smaller">
-<h2>Algorithms for Estimation</h2>
-<ul>
-<li><p>Exact Algorithm</p></li>
-<li><p>Forward stepwise Algorithm</p></li>
-<li><p>Backward stepwise Algorithm</p></li>
-<li><p>Simulated Annealing Algorithm</p></li>
-</ul>
+<section id="intuitive-overview-of-theorem-proof" class="slide level2 smaller">
+<h2>Intuitive Overview of Theorem Proof</h2>
+<p>Consider <span class="math inline">\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.</span></p>
+<p><br></p>
 <div class="columns">
-<div class="column" style="width:25%;">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png" class="quarto-figure quarto-figure-center" width="200"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="300" height="300"></p>
 </figure>
 </div>
-</div><div class="column" style="width:75%;">
-<ul>
-<li><p>Includes functions to compute the penalized log pseudo-likelihood function.</p></li>
-<li><p>Implements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.</p></li>
-<li><p>Available at <a href="https://github.com/magnotairone/MixingGraph/">github.com/magnotairone/MixingGraph</a>.</p></li>
-<li><p>Offers examples on how to use the package.</p></li>
-</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 </div></div>
-</section></section>
+<p><br></p>
+<p>We prove that, eventually almost surely as <span class="math inline">n\to\infty,</span> neither of the cases above can happen, which implies that <span class="math inline">\widehat G = G^*.</span></p>
+</section>
+<section id="algorithms-for-estimation" class="slide level2 smaller">
+<h2>Algorithms for estimation</h2>
+<p>The objective is to find the optimal graph by maximizing the regularized log-pseudo-likelihood function:</p>
+<p><span class="math display">H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.</span></p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<h4 id="implemented-search-strategies">Implemented Search Strategies</h4>
+<ul>
+<li><strong>Exact Algorithm</strong>: Performs an exhaustive search over the set of all possible simple graphs <span class="math inline">\mathcal{G}</span>Computational complexity: <span class="math inline">2^{d(d-1)/2}</span>.</li>
+<li><strong>Stepwise (Forward/Backward)</strong>: Heuristic approach that adds or removes edges based on local improvements of <span class="math inline">H(G)</span>.</li>
+<li><strong>Simulated Annealing</strong>: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.</li>
+</ul>
+</div><div class="column" style="width:35%;">
+<!-- #### The `MixingGraph` Package -->
+<div class="teaching-card">
+<div class="teaching-title">
+<p><a href="https://github.com/magnotairone/MixingGraph/">The <code>MixingGraph</code> Package</a></p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png" class="quarto-figure quarto-figure-center" width="130"></p>
+</figure>
+</div>
+<p>Comprehensive tools for estimating the graph <span class="math inline">\hat{G}</span>, executing search algorithms, and ensuring reproducible results.</p>
+</div>
+</div></div>
+</section>
 <section>
 <section id="application-to-real-data" class="title-slide slide level1 center">
 <h1>Application to real data</h1>
@@ -377,28 +393,39 @@ Magno Severino
 <li><p><strong>Discretizetion</strong> of the data into five levels based on quantiles.</p></li>
 </ul>
 
-<!-- ## São Francisco River Data {.smaller} -->
-<!-- ![](images/sim/SF_boxplot.jpg){fig-align="center"}. -->
-<!-- Stream flow volume measured at the ten stations in the SFR (logarithmic scale). -->
+<!-- ## São Francisco River: Data {.smaller} -->
+<!-- The study analyzes water volume interactions across $d=10$ stations along the river's course. -->
+<!-- **Data Characteristics**: -->
+<!--   * Vector $\mathbf{X}$ observed at 10-day mean discrete intervals. -->
+<!--   * Period: Jan 1977 – Dec 2016 ($n=1042$ observations). -->
+<!--   * **Discretization**: Five levels based on quantiles. -->
+<!-- ![](images/sim/SF_NAdata.jpg){fig-align="center" width="100%"} -->
 <img data-src="images/sim/SF_NAdata.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
-<section id="são-francisco-river-data-3" class="slide level2 smaller">
-<h2>São Francisco River Data</h2>
-<p>Forward stepwise algorithm and a <span class="math inline">5</span>-fold cross-validation approach.</p>
+<section id="são-francisco-river-structural-results" class="slide level2 smaller">
+<h2>São Francisco River: Structural Results</h2>
+<div style="font-size: 90%;">
+<p>We applied the <strong>Forward Stepwise Algorithm</strong> with <strong>5-fold cross-validation</strong> to select the optimal penalty <span class="math inline">c</span>.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<h4 id="physical-network">Physical Network</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/sim/SF_stations.jpg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="images/sim/SF_stations.jpg" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
+<h4 id="estimated-graph-widehatg">Estimated Graph <span class="math inline">\widehat{G}</span></h4>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
 </div>
 </div></div>
-<p>Results similar to Leonardi et al (2021).</p>
+<ul>
+<li>The estimated edges accurately recover the hydrological flow and physical connectivity of the river.</li>
+<li>Results are consistent with independent block identification methods (Leonardi et al, 2021).</li>
+</ul>
+</div>
 </section>
 <section id="stock-exchange-data" class="slide level2 smaller">
 <h2>Stock Exchange Data</h2>
@@ -438,139 +465,62 @@ Magno Severino
 
 <img data-src="images/sim/app_stock_cv_graph_page.jpg" class="quarto-figure quarto-figure-center r-stretch"><p>Estimated graph, considering the penalizing constant value chosen by cross-validation.</p>
 </section>
-<section id="discussion" class="slide level2">
-<h2>Discussion</h2>
+<section id="discussion-future-work" class="slide level2 smaller">
+<h2>Discussion &amp; Future Work</h2>
 <ul>
-<li><strong>Contribuição</strong>: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].</li>
-<li><strong>Implementação</strong>: Pacote <code>MixingGraph</code> (disponível no GitHub).</li>
-<li><strong>Trabalho Futuro</strong>: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323].</li>
+<li><strong>Summary</strong>:
+<ul>
+<li>Generalization of structure recovery for multivariate processes under <strong>polynomial mixing conditions</strong>.</li>
+<li>Development of a <strong>global estimation criterion</strong> based on penalized log-pseudo-likelihood.</li>
+<li>Proved <strong>strong consistency</strong> and derived convergence rates for the estimator <span class="math inline">\widehat{G}</span>.</li>
+<li>Implementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).</li>
+<li>Validation through extensive simulations and applications to <strong>hydrological</strong> and <strong>financial</strong> data.</li>
+</ul></li>
+<li><strong>Future Directions</strong>:
+<ul>
+<li>Generalization to <strong>infinite vertex sets</strong> and unbounded degree estimators.</li>
+<li>Extension to <strong>continuous-valued</strong> multivariate stochastic processes.</li>
+<li>Adaptation of the framework for <strong>directed graph estimation</strong> (causality).</li>
+</ul></li>
 </ul>
-<!-- ------------------------------- -->
 </section>
-<section id="agenda-1" class="slide level2">
-<h2>Agenda</h2>
+<section id="references" class="slide level2 smaller">
+<h2>References</h2>
+<div style="font-size: 80%;">
 <ul>
-<li><strong>Introdução e Motivação</strong>: O problema de dados não-independentes.</li>
-<li><strong>O Estimador de Grafo</strong>: Critério de pseudo-verossimilhança penalizada.</li>
-<li><strong>Resultados Teóricos</strong>: Consistência quase certa sob condições de mixing.</li>
-<li><strong>Algoritmos e Pacote R</strong>: Implementação via <code>MixingGraph</code>.</li>
-<li><strong>Estudos de Simulação e Aplicações</strong>: Rio São Francisco e Mercado Financeiro.</li>
+<li><p>Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. <strong>A test of hypotheses for random graph distributions built from eeg data</strong>. <em>IEEE Transactions on Network Science and Engineering</em>.</p></li>
+<li><p>Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. <strong>Identifying interacting pairs of sites in Ising models on a countable set</strong>. <em>Braz. J. Probab. Stat.</em>.</p></li>
+<li><p>Lauritzen(1996) Steffen L Lauritzen. <strong>Graphical models</strong>, volume 17. <em>Clarendon Press</em>.</p></li>
+<li><p>Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. <strong>Independent block identification in multivariate time series</strong>. <em>Journal of Time Series Analysis</em>.</p></li>
+<li><p>Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. <strong>Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions</strong>. <em>Scandinavian Journal of Statistics</em>.</p></li>
+<li><p>Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. <strong>Highdimensional graphs and variable selection with the lasso</strong>. <em>Ann. Statist.</em>.</p></li>
+<li><p>Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. <strong>High-dimensional Ising model selection using l1-regularized logistic regression</strong>. <em>Ann. Statist.</em>.</p></li>
 </ul>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br><br><br></p>
+<h1 style="text-align: center">
+¡Gracias!
+</h1>
+<h1 style="text-align: center">
+Obrigado!
+</h1>
+<h1 style="text-align: center">
+Thank you!
+</h1>
+<div style="position: absolute; bottom: 20px; width: 100%; text-align: center; font-size: 0.6em;">
+<p>magnotfs@insper.edu.br <br> <a href="https://magnotairone.github.io/">magnotairone.github.io</a></p>
+</div>
+
+
 </section></section>
-<section>
-<section id="introdução" class="title-slide slide level1 center">
-<h1>Introdução</h1>
-
-</section>
-<section id="processos-estocásticos-vetoriais" class="slide level2 smaller">
-<h2>Processos Estocásticos Vetoriais</h2>
-</section>
-<section id="processos-estocásticos-vetoriais-1" class="slide level2 smaller">
-<h2>Processos Estocásticos Vetoriais</h2>
-<p>Seja um processo vetorial estacionário e ergódico <span class="math inline">\mathbf{X} = \{X^{(i)} : i \in \mathbb{Z}\}</span>:</p>
-<ul>
-<li>Cada observação no tempo <span class="math inline">i</span> é um vetor: <span class="math inline">\mathbf{X}^{(i)} = (X_1^{(i)}, \dots, X_d^{(i)})</span>[cite: 7, 24].</li>
-<li>Os valores pertencem a um alfabeto finito <span class="math inline">A</span>[cite: 24, 76].</li>
-<li><strong>Estrutura Espacial</strong>: Assumimos um grafo subjacente <span class="math inline">G^* = (V, E^*)</span> que codifica as dependências condicionais[cite: 26, 27].</li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Nota sobre a Estrutura</strong></p>
-</div>
-<div class="callout-content">
-<p>O grafo <span class="math inline">G^*</span> define quais variáveis são condicionalmente dependentes, permitindo uma modelagem global do sistema[cite: 18, 19].</p>
-</div>
-</div>
-</div>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Nota sobre a Estrutura</strong></p>
-</div>
-<div class="callout-content">
-<p>Diferente de modelos em <em>lattice</em> (grades regulares), o grafo <span class="math inline">G^*</span> aqui é geral e não-homogêneo[cite: 105, 119].</p>
-</div>
-</div>
-</div>
-</section>
-<section id="por-que-ir-além-do-iid-1" class="slide level2 smaller">
-<h2>Por que ir além do IID?</h2>
-<p>A maioria das técnicas tradicionais assume que as observações <span class="math inline">\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots</span> são independentes (iid)[cite: 28, 58].</p>
-<p>No entanto, em cenários reais, a independência é restritiva[cite: 58, 60]: - <strong>Séries Temporais de EEG</strong>: Dependência neural ao longo do tempo[cite: 59]. - <strong>Fluxo de Rios</strong>: Dependência hidrológica sequencial[cite: 59]. - <strong>Mercado Financeiro</strong>: Índices diários com autocorrelação[cite: 59].</p>
-<p><strong>Nossa proposta</strong>: Um critério global que prova a consistência mesmo sob condições de <strong>mixing polinomial</strong>[cite: 18, 21].</p>
-</section></section>
-<section>
-<section id="o-estimador" class="title-slide slide level1 center">
-<h1>O Estimador</h1>
-
-</section>
-<section id="condição-de-mixing-polinomial" class="slide level2 smaller">
-<h2>Condição de Mixing Polinomial</h2>
-<p>O processo satisfaz uma condição de mixing com taxa <span class="math inline">\psi(\ell)</span> se a dependência entre o passado (<span class="math inline">X^{(1:m)}</span>) e o futuro (<span class="math inline">X^{(n:n+k-1)}</span>) decai conforme a distância <span class="math inline">n-m</span> aumenta[cite: 125, 126, 128]:</p>
-<p><span id="eq-mixing"><span class="math display">
-\Bigl| \mathbb P (X_{futuro} | X_{passado}) - \mathbb P (X_{futuro}) \Bigr| \leq \psi(n-m) \mathbb P(X_{futuro})
-\tag{4}</span></span></p>
-</section>
-<section id="estimador-de-grafo-regularizado" class="slide level2 smaller">
-<h2>Estimador de Grafo Regularizado</h2>
-<p>Diferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização <strong>global</strong>[cite: 19, 64]:</p>
-<p><span id="eq-pseudo-lik"><span class="math display">
-\widehat L(G) = \prod_{i=1}^n \prod_{v \in V} \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})
-\tag{5}</span></span></p>
-<p>O estimador final <span class="math inline">\widehat G</span> maximiza a pseudo-verossimilhança logarítmica com uma penalidade baseada na complexidade do grafo[cite: 190]:</p>
-<p><span id="eq-estimator"><span class="math display">
-\widehat G = \arg\max_{G} \Big\{ \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|} \Big\}
-\tag{6}</span></span></p>
-</section></section>
-<section>
-<section id="resultados-e-aplicações" class="title-slide slide level1 center">
-<h1>Resultados e Aplicações</h1>
-
-</section>
-<section id="teorema-de-consistência" class="slide level2 smaller">
-<h2>Teorema de Consistência</h2>
-<p><strong>Teorema (Leonardi &amp; Severino, 2025)</strong>: Sob condições de mixing polinomial <span class="math inline">\psi(\ell) = O(1/\ell^{1+\epsilon})</span> e com <span class="math inline">\lambda_n = c \log n</span>, o estimador é consistente[cite: 66, 195]:</p>
-<p><span id="eq-consistencia"><span class="math display">
-\mathbb{P}(\widehat G = G^* \text{ eventualmente}) = 1
-\tag{7}</span></span></p>
-<ul>
-<li><strong>Overfitting</strong>: Controlado pela penalidade <span class="math inline">\lambda_n</span>[cite: 211, 212].</li>
-<li><strong>Underfitting</strong>: Evitado pela divergência de Kullback-Leibler positiva entre vizinhanças distintas[cite: 206, 211].</li>
-</ul>
-</section>
-<section id="aplicação-rio-são-francisco" class="slide level2 smaller">
-<h2>Aplicação: Rio São Francisco</h2>
-<p>Análise de volume de água em 10 estações (dados de 1977 a 2016)[cite: 480].</p>
-<ul>
-<li><strong>Dados</strong>: Discretizados em 5 níveis (quantis).</li>
-<li><strong>Resultado</strong>: O grafo estimado recupera a conectividade física do rio, identificando dependências que seguem o fluxo natural da água.</li>
-</ul>
-</section>
-<section id="conclusões-e-futuro" class="slide level2">
-<h2>Conclusões e Futuro</h2>
-<ul>
-<li><strong>Contribuição</strong>: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].</li>
-<li><strong>Implementação</strong>: Pacote <code>MixingGraph</code> (disponível no GitHub).</li>
-<li><strong>Trabalho Futuro</strong>: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323].</li>
-</ul>
-</section></section>
-<section id="obrigado" class="title-slide slide level1 center">
-<h1>Obrigado!</h1>
-
-
-</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/logo_clapem.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Prof.&nbsp;Magno Tairone | PhD Statistics</p>
+
 </div>
 </div></div>
 

@@ -20,17 +20,27 @@ execute:
 
 ## Agenda
 
+-  **Motivation**
+    
+-  **Mathematical Framework**
+    
+-  **Estimation Method** and  **Theoretical Results**
+    
+-  **Applications to real data**
+
+-  **Conclusion and Future Work**
+
 ## Vector-Valued Stochastic Processes {.smaller}
 
 - $\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).$
 
-- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
+- $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
 - We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
-```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
+```{r, engine = 'tikz', fig.align='center', fig.width=6, fig.height=3.5, out.width="75%"}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:10:44
 % !TEX encoding = UTF-8 Unicode
 \begin{tikzpicture}[x=1pt,y=1pt]
@@ -177,21 +187,22 @@ execute:
 
 ```
 
-::: {.callout-important}
-Diferente de modelos em *lattice* (grades regulares), o grafo $G^*$ aqui é geral e não-homogêneo.
-:::
+<!-- ::: {.callout-important} -->
+<!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
+<!-- ::: -->
+
 
 ## Vector-Valued Stochastic Processes {.smaller}
 
 - $\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).$
 
-- $X_v^{(i)} \in A,$ $A$ a finite alphabet.
+- $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
 - Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
 
 - We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
-```{r, engine = 'tikz', fig.align='center', out.height='400px', out.width='667px'}
+```{r, engine = 'tikz', fig.align='center', fig.width=6, fig.height=3.5, out.width="75%"}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:11:34
 % !TEX encoding = UTF-8 Unicode
 \begin{tikzpicture}[x=1pt,y=1pt]
@@ -342,21 +353,36 @@ Diferente de modelos em *lattice* (grades regulares), o grafo $G^*$ aqui é gera
 
 ```
 
-::: {.callout-important}
-Diferente de modelos em *lattice* (grades regulares), o grafo $G^*$ aqui é geral e não-homogêneo.
-:::
+<!-- ::: {.callout-important} -->
+<!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
+<!-- ::: -->
 
-## Por que ir além do IID? {.smaller}
+## The IID case {.smaller}
 
-A maioria das técnicas tradicionais assume que as observações $\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots$ são independentes (iid). 
+- **Classic Problem**: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields.
 
-No entanto, em cenários reais, a independência é restritiva:
+- **Established Literature**: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).
 
-- **Séries Temporais de EEG**: Dependência neural ao longo do tempo.
-- **Fluxo de Rios**: Dependência hidrológica sequencial.
-- **Mercado Financeiro**: Índices diários com autocorrelação.
+- **Common Approaches**:
+    - **Structure Estimation**: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.
+    - **Neighborhood-Based Estimation**: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph.
 
-**Nossa proposta**: Um critério global que prova a consistência mesmo sob condições de **mixing**.
+<!-- - **Main Limitations**: -->
+<!--     - **Restrictive Assumption**: The independence of observations is often too restrictive for real-world scenarios like EEG, river flow, or stock market data[cite: 58, 59]. -->
+<!--     - [cite_start]**Combining Rules**: Rules used to combine individual neighborhoods can lead to drastic underestimation or overestimation of edges. -->
+
+## Why go beyond the IID assumption? {.smaller}
+
+Most traditional graphical model techniques assume that observations $\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots$ are Independent and Identically Distributed (IID).
+
+However, in real-world scenarios, the independence assumption is often too restrictive:
+
+- **EEG Time Series**: Neural dependencies evolve over time.
+- **River Stream Flow**: Successive observations exhibit hydrological dependence.
+- **Financial Markets**: Daily indices show significant autocorrelation and mixing properties.
+
+**Our Proposal**: A global model selection criterion that ensures consistency even under **polynomial mixing conditions**.
+
 
 ## Objectives of the research {.smaller}
 
@@ -380,13 +406,138 @@ No entanto, em cenários reais, a independência é restritiva:
 
 ## Mixing Condition {.smaller}
 
-- $X^{(i:j)}$ denote the sequence of vectors $X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.$
+- Let $X^{(i:j)}$ denote the sequence of vectors $X^{(i)}, X^{(i+1)}, \ldots, X^{(j)}.$
 
-O processo satisfaz uma condição de mixing com taxa $\psi(\ell)$ se a dependência entre o passado ($X^{(1:m)}$) e o futuro ($X^{(n:n+k-1)}$) decai conforme a distância $n-m$ aumenta:
+The process satisfies a **mixing condition** with rate $\psi(\ell)$ if the dependence between the past ($X^{(1:m)}$) and the future ($X^{(n:n+k-1)}$) decays as the distance $\ell=n-m$ increases:
 
+<!-- $$\psi(\ell) = \sup_{m \ge 1, k \ge 1} \{ \text{measure of dependence between } X^{(1:m)} \text{ and } X^{(m+\ell:m+\ell+k-1)} \}$$ -->
 $$
 \Bigl| \mathbb P (X_{future} | X_{past}) - \mathbb P (X_{future}) \Bigr| \leq \psi(n-m) \mathbb P(X_{future})
 $$ {#eq-mixing}
+
+```{r, engine = 'tikz', fig.align='center'}
+% Created by tikzDevice version 0.12.4 on 2024-04-01 21:32:51
+% !TEX encoding = UTF-8 Unicode
+\begin{tikzpicture}[x=1pt,y=1pt]
+\definecolor{fillColor}{RGB}{255,255,255}
+\path[use as bounding box,fill=fillColor,fill opacity=0.00] (0,0) rectangle (361.35,144.54);
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{255,255,255}
+\definecolor{fillColor}{RGB}{255,255,255}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,line cap=round,fill=fillColor] (  0.00,  0.00) rectangle (361.35,144.54);
+\end{scope}
+\begin{scope}
+\path[clip] ( 40.82, 37.04) rectangle (355.85,139.04);
+\definecolor{fillColor}{RGB}{255,255,255}
+
+\path[fill=fillColor] ( 40.82, 37.04) rectangle (355.85,139.04);
+\definecolor{drawColor}{RGB}{217,95,2}
+\definecolor{fillColor}{RGB}{217,95,2}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.30] ( 82.82, 41.68) rectangle (145.83,134.40);
+\definecolor{drawColor}{RGB}{27,158,119}
+\definecolor{fillColor}{RGB}{27,158,119}
+
+\path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.30] (271.84, 41.68) rectangle (313.85,134.40);
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (292.84, 84.24) {A};
+\definecolor{drawColor}{RGB}{217,95,2}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (114.33, 84.24) {B};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 40.82, 37.04) --
+	( 40.82,139.04);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.30}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 37.55) {$X_1$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 56.09) {$X_2$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87, 74.64) {$X_3$};
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 35.87,130.27) {$X_d$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.20}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 41.68) --
+	( 40.82, 41.68);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 60.23) --
+	( 40.82, 60.23);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07, 78.77) --
+	( 40.82, 78.77);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 38.07,134.40) --
+	( 40.82,134.40);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 40.82, 37.04) --
+	(355.85, 37.04);
+\definecolor{fillColor}{RGB}{0,0,0}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round,fill=fillColor] (347.19, 32.04) --
+	(355.85, 37.04) --
+	(347.19, 42.04) --
+	cycle;
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.20}
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] ( 82.82, 34.29) --
+	( 82.82, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (145.83, 34.29) --
+	(145.83, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (271.84, 34.29) --
+	(271.84, 37.04);
+
+\path[draw=drawColor,line width= 0.6pt,line join=round] (313.85, 34.29) --
+	(313.85, 37.04);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{gray}{0.30}
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at ( 82.82, 23.83) {$1$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (145.83, 23.83) {$m$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (271.84, 23.83) {$n$};
+
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (313.85, 23.83) {$n+k-1$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.50] at (355.85,  8.42) {$t$};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
+\definecolor{drawColor}{RGB}{0,0,0}
+
+\node[text=drawColor,anchor=base east,inner sep=0pt, outer sep=0pt, scale=  1.50] at ( 17.58,128.71) {$V$};
+\end{scope}
+\end{tikzpicture}
+
+```
 
 ## Empirical Probabilities {.smaller}
 
@@ -420,6 +571,8 @@ Then we can compute
 
 ## Graph Estimator {.smaller}
 
+<!-- Diferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização global. -->
+
 Given any graph $G$ and a sample of the process,  we define the pseudo-likelihood function by
 $$
 \widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
@@ -452,37 +605,82 @@ satisfies $\widehat G=G^*$ eventually almost surely as $n\to \infty.$
 <!-- - **Overfitting**: Controlado pela penalidade $\lambda_n$[cite: 211, 212]. -->
 <!-- - **Underfitting**: Evitado pela divergência de Kullback-Leibler positiva entre vizinhanças distintas[cite: 206, 211]. -->
 
-# Algorithms for estimation
+## Intuitive Overview of Theorem Proof  {.smaller}
 
-## Algorithms for Estimation {.smaller}
+Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.$
 
-- Exact Algorithm
-
-- Forward stepwise Algorithm
-
-- Backward stepwise Algorithm
-
-- Simulated Annealing Algorithm 
-
+<br/>
 
 :::: {.columns}
 
-::: {.column width="25%"}
-![](https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png){fig-align="center" width=200px}
+::: {.column width="50%"}
+
+```{r, engine = 'tikz', fig.align='center', out.height='300px', out.width='300px'}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+    %uncomment if require: \path (0,248); %set diagram left start at 0, and has height of 248
+    %Shape: Circle [id:dp904407057957167] 
+    \draw   (234,153.5) .. controls (234,122.85) and (258.85,98) .. (289.5,98) .. controls (320.15,98) and (345,122.85) .. (345,153.5) .. controls (345,184.15) and (320.15,209) .. (289.5,209) .. controls (258.85,209) and (234,184.15) .. (234,153.5) -- cycle ;
+    %Shape: Circle [id:dp714900201452652] 
+    \draw   (205,123) .. controls (205,63.35) and (253.35,15) .. (313,15) .. controls (372.65,15) and (421,63.35) .. (421,123) .. controls (421,182.65) and (372.65,231) .. (313,231) .. controls (253.35,231) and (205,182.65) .. (205,123) -- cycle ;
+    % Text Node
+    \draw (387,14.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\:\widehat G$};
+    % Text Node
+    \draw (313,76.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$G^{*}$};
+    \end{tikzpicture}
+```
+:::
+
+::: {.column width="50%"}
+```{r, engine = 'tikz', fig.align='center'}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    %Shape: Circle [id:dp8459764215331429] 
+    \draw   (294,155) .. controls (294,95.35) and (342.35,47) .. (402,47) .. controls (461.65,47) and (510,95.35) .. (510,155) .. controls (510,214.65) and (461.65,263) .. (402,263) .. controls (342.35,263) and (294,214.65) .. (294,155) -- cycle ;
+    %Shape: Circle [id:dp4157181109791406] 
+    \draw   (161,156) .. controls (161,96.35) and (209.35,48) .. (269,48) .. controls (328.65,48) and (377,96.35) .. (377,156) .. controls (377,215.65) and (328.65,264) .. (269,264) .. controls (209.35,264) and (161,215.65) .. (161,156) -- cycle ;
+    % Text Node
+    \draw (476,46.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\widehat G$};
+    % Text Node
+    \draw (165,51.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$G^{*}$};
+\end{tikzpicture}
+```
+:::
 
 :::
 
-::: {.column width="75%"}
 
-- Includes functions to compute the penalized log pseudo-likelihood function.
+<br/>
 
-- Implements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.
+We prove that, eventually almost surely as $n\to\infty,$ neither of the cases above can happen, which implies that $\widehat G = G^*.$
 
-- Available at [github.com/magnotairone/MixingGraph](https://github.com/magnotairone/MixingGraph/).
 
-- Offers examples on how to use the package.
+## Algorithms for estimation {.smaller}
 
+The objective is to find the optimal graph by maximizing the regularized log-pseudo-likelihood function:
+
+$$H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$$
+
+:::: {.columns}
+
+::: {.column width="65%"}
+#### Implemented Search Strategies
+* **Exact Algorithm**: Performs an exhaustive search over the set of all possible simple graphs $\mathcal{G}$Computational complexity: $2^{d(d-1)/2}$.
+* **Stepwise (Forward/Backward)**: Heuristic approach that adds or removes edges based on local improvements of $H(G)$.
+* **Simulated Annealing**: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.
 :::
+
+::: {.column width="35%"}
+<!-- #### The `MixingGraph` Package -->
+::: {.teaching-card}
+::: {.teaching-title}
+[The `MixingGraph` Package](https://github.com/magnotairone/MixingGraph/)
+:::
+![](https://raw.githubusercontent.com/magnotairone/MixingGraph/master/man/figures/logo.png){fig-align="center" width=130px}
+
+Comprehensive tools for estimating the graph $\hat{G}$, executing search algorithms, and ensuring reproducible results.
+:::
+:::
+
 ::::
 
 
@@ -526,27 +724,43 @@ satisfies $\widehat G=G^*$ eventually almost surely as $n\to \infty.$
 
 ![](images/sim/SF_NAdata.jpg){width=70% fig-align="center"}
 
-<!-- ## São Francisco River Data {.smaller} -->
 
-<!-- ![](images/sim/SF_boxplot.jpg){fig-align="center"}. -->
+<!-- ## São Francisco River: Data {.smaller} -->
 
-<!-- Stream flow volume measured at the ten stations in the SFR (logarithmic scale). -->
+<!-- The study analyzes water volume interactions across $d=10$ stations along the river's course. -->
 
-## São Francisco River Data {.smaller}
+<!-- **Data Characteristics**: -->
 
-Forward stepwise algorithm and a $5$-fold cross-validation approach.
+<!--   * Vector $\mathbf{X}$ observed at 10-day mean discrete intervals. -->
+<!--   * Period: Jan 1977 – Dec 2016 ($n=1042$ observations). -->
+<!--   * **Discretization**: Five levels based on quantiles. -->
 
+<!-- ![](images/sim/SF_NAdata.jpg){fig-align="center" width="100%"} -->
+
+## São Francisco River: Structural Results {.smaller}
+
+::: {style="font-size: 90%;"}
+
+We applied the **Forward Stepwise Algorithm** with **5-fold cross-validation** to select the optimal penalty $c$.
 
 :::: {.columns}
+
 ::: {.column width="50%"}
-![](images/sim/SF_stations.jpg){fig-align="center"}
+#### Physical Network
+![](images/sim/SF_stations.jpg){fig-align="center" width="65%"}
 :::
+
 ::: {.column width="50%"}
-![](images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg){fig-align="center"}
+#### Estimated Graph $\widehat{G}$
+![](images/sim/SF_map_best_cv_fwd_N_1042_c_0.4.jpg){fig-align="center" width="65%"}
 :::
+
 ::::
 
-Results similar to Leonardi et al (2021).
+  * The estimated edges accurately recover the hydrological flow and physical connectivity of the river.
+  * Results are consistent with independent block identification methods (Leonardi et al, 2021).
+
+:::
 
 ## Stock Exchange Data {.smaller}
 
@@ -597,126 +811,50 @@ Results similar to Leonardi et al (2021).
 
 Estimated graph, considering the penalizing constant value chosen by cross-validation.
 
-## Discussion
+## Discussion & Future Work {.smaller}
 
-- **Contribuição**: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].
-- **Implementação**: Pacote `MixingGraph` (disponível no GitHub).
-- **Trabalho Futuro**: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323].
+* **Summary**:
+    * Generalization of structure recovery for multivariate processes under **polynomial mixing conditions**.
+    * Development of a **global estimation criterion** based on penalized log-pseudo-likelihood.
+    * Proved **strong consistency** and derived convergence rates for the estimator $\widehat{G}$.
+    * Implementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).
+    * Validation through extensive simulations and applications to **hydrological** and **financial** data.
 
-
-
-
-
-
-
-
-
-
+* **Future Directions**:
+    * Generalization to **infinite vertex sets** and unbounded degree estimators.
+    * Extension to **continuous-valued** multivariate stochastic processes.
+    * Adaptation of the framework for **directed graph estimation** (causality).
 
 
+## References {.smaller}
 
+::: {style="font-size: 80%;"}
 
+- Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. **A test of hypotheses for random graph distributions built from eeg data**. *IEEE Transactions on Network Science and Engineering*.
 
+- Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. **Identifying interacting pairs of sites in Ising models on a countable set**. *Braz. J. Probab. Stat.*.
 
+- Lauritzen(1996) Steffen L Lauritzen. **Graphical models**, volume 17. *Clarendon Press*.
 
+- Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. **Independent block identification in multivariate time series**. *Journal of Time Series Analysis*.
 
+- Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
 
-<!-- ------------------------------- -->
+- Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. **Highdimensional graphs and variable selection with the lasso**. *Ann. Statist.*.
 
+- Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. **High-dimensional Ising model selection using l1-regularized logistic regression**. *Ann. Statist.*.
 
-
-## Agenda
-
-- **Introdução e Motivação**: O problema de dados não-independentes.
-- **O Estimador de Grafo**: Critério de pseudo-verossimilhança penalizada.
-- **Resultados Teóricos**: Consistência quase certa sob condições de mixing.
-- **Algoritmos e Pacote R**: Implementação via `MixingGraph`.
-- **Estudos de Simulação e Aplicações**: Rio São Francisco e Mercado Financeiro.
-
-# Introdução
-
-## Processos Estocásticos Vetoriais {.smaller}
-
-## Processos Estocásticos Vetoriais {.smaller}
-
-Seja um processo vetorial estacionário e ergódico $\mathbf{X} = \{X^{(i)} : i \in \mathbb{Z}\}$:
-
-* Cada observação no tempo $i$ é um vetor: $\mathbf{X}^{(i)} = (X_1^{(i)}, \dots, X_d^{(i)})$[cite: 7, 24].
-* Os valores pertencem a um alfabeto finito $A$[cite: 24, 76].
-* **Estrutura Espacial**: Assumimos um grafo subjacente $G^* = (V, E^*)$ que codifica as dependências condicionais[cite: 26, 27].
-
-::: {.callout-note}
-### Nota sobre a Estrutura
-O grafo $G^*$ define quais variáveis são condicionalmente dependentes, permitindo uma modelagem global do sistema[cite: 18, 19].
-:::
-::: {.callout-important}
-### Nota sobre a Estrutura
-Diferente de modelos em *lattice* (grades regulares), o grafo $G^*$ aqui é geral e não-homogêneo[cite: 105, 119].
 :::
 
-## Por que ir além do IID? {.smaller}
+## 
+<br/><br/><br/>
 
-A maioria das técnicas tradicionais assume que as observações $\mathbf{X}^{(1)}, \mathbf{X}^{(2)}, \dots$ são independentes (iid)[cite: 28, 58]. 
-
-No entanto, em cenários reais, a independência é restritiva[cite: 58, 60]:
-- **Séries Temporais de EEG**: Dependência neural ao longo do tempo[cite: 59].
-- **Fluxo de Rios**: Dependência hidrológica sequencial[cite: 59].
-- **Mercado Financeiro**: Índices diários com autocorrelação[cite: 59].
-
-**Nossa proposta**: Um critério global que prova a consistência mesmo sob condições de **mixing polinomial**[cite: 18, 21].
-
-# O Estimador
-
-## Condição de Mixing Polinomial {.smaller}
-
-O processo satisfaz uma condição de mixing com taxa $\psi(\ell)$ se a dependência entre o passado ($X^{(1:m)}$) e o futuro ($X^{(n:n+k-1)}$) decai conforme a distância $n-m$ aumenta[cite: 125, 126, 128]:
-
-$$
-\Bigl| \mathbb P (X_{futuro} | X_{passado}) - \mathbb P (X_{futuro}) \Bigr| \leq \psi(n-m) \mathbb P(X_{futuro})
-$$ {#eq-mixing}
+<h1 style="text-align: center"> ¡Gracias! </h1>
+<h1 style="text-align: center"> Obrigado! </h1>
+<h1 style="text-align: center"> Thank you! </h1>
 
 
-
-## Estimador de Grafo Regularizado {.smaller}
-
-Diferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização **global**[cite: 19, 64]:
-
-$$
-\widehat L(G) = \prod_{i=1}^n \prod_{v \in V} \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})
-$$ {#eq-pseudo-lik}
-
-O estimador final $\widehat G$ maximiza a pseudo-verossimilhança logarítmica com uma penalidade baseada na complexidade do grafo[cite: 190]:
-
-$$
-\widehat G = \arg\max_{G} \Big\{ \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|} \Big\}
-$$ {#eq-estimator}
-
-# Resultados e Aplicações
-
-## Teorema de Consistência {.smaller}
-
-**Teorema (Leonardi & Severino, 2025)**: Sob condições de mixing polinomial $\psi(\ell) = O(1/\ell^{1+\epsilon})$ e com $\lambda_n = c \log n$, o estimador é consistente[cite: 66, 195]:
-
-$$
-\mathbb{P}(\widehat G = G^* \text{ eventualmente}) = 1
-$$ {#eq-consistencia}
-
-- **Overfitting**: Controlado pela penalidade $\lambda_n$[cite: 211, 212].
-- **Underfitting**: Evitado pela divergência de Kullback-Leibler positiva entre vizinhanças distintas[cite: 206, 211].
-
-## Aplicação: Rio São Francisco {.smaller}
-
-Análise de volume de água em 10 estações (dados de 1977 a 2016)[cite: 480].
-
-- **Dados**: Discretizados em 5 níveis (quantis).
-- **Resultado**: O grafo estimado recupera a conectividade física do rio, identificando dependências que seguem o fluxo natural da água.
-
-
-
-## Conclusões e Futuro
-
-- **Contribuição**: Primeiro resultado de consistência para seleção de modelos em MRFs sob dados não-independentes[cite: 22].
-- **Implementação**: Pacote `MixingGraph` (disponível no GitHub).
-- **Trabalho Futuro**: Extensão para espaços de estados contínuos e grafos direcionados[cite: 322, 323].
-
-# Obrigado!
+::: {style="position: absolute; bottom: 20px; width: 100%; text-align: center; font-size: 0.6em;"}
+magnotfs@insper.edu.br <br/>
+[magnotairone.github.io](https://magnotairone.github.io/) 
+:::

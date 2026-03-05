@@ -21,7 +21,7 @@ format:
   revealjs:
     theme: [default, custom.scss] # Você pode criar um .css/scss para cores do Insper
     # logo: logo.png               # Coloque um logo na raiz se desejar
-    footer: "Prof. Magno Tairone | PhD Statistics"
+    # footer: "Prof. Magno Tairone | PhD Statistics"
     slide-number: true
     show-slide-number: all
     incremental: false           # Se true, os tópicos aparecem um a um
