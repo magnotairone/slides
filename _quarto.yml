@@ -12,8 +12,7 @@ website:
         menu:
           - href: 20260306_CLAPEM/slides.qmd
             text: "Contributed Talk  - XVII CLAPEM"
-          # - href: aula-02/slides.qmd
-          #   text: "Lema de Neyman-Pearson"
+          
 
 format:
   html:    # Garante que páginas do site (como o index) usem HTML padrão

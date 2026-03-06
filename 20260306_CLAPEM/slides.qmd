@@ -594,7 +594,7 @@ $$
 ## Consistency Theorem {.smaller}
 
 <br/><br/>
-**Theorem:** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
+**Theorem (Leonardi and Severino, 2025):** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
 with $\psi(\ell) = O(1/\ell^{1+\epsilon})$ for some $\epsilon>0.$
 Then, by taking $\lambda_n = c \log n,$ we have that 
 \begin{equation*}
@@ -840,9 +840,11 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 
 - Lauritzen, S. (1996) **Graphical models**, volume 17. *Clarendon Press*.
 
+- Leonardi, F, Carvalho, R. and Frondana, I. (2023). **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
+
 - Leonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M., and Sued, M. (2021). **Independent block identification in multivariate time series**. *Journal of Time Series Analysis*.
 
-- Leonardi, F, Carvalho, R. and Frondana, I. (2023). **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
+- Leonardi, F. and Severino, M. (2025). **Model selection for Markov random fields on graphs under a mixing condition**. *Stochastic Processes and their Applications*.
 
 - Meinshausen, N. and Bühlmann, P. (2006). **Highdimensional graphs and variable selection with the lasso**. *Ann. Statist.*.
 
