@@ -1,7 +1,7 @@
 ---
 title: "Model selection for Markov random fields on graphs under a mixing condition"
 subtitle: "XVII CLAPEM"
-author: "Magno Severino"
+author: "Magno Severino & Florencia Leonardi"
 # institute: "Insper / PhD IME-USP"
 date: "2026-03-06"
 lang: en
