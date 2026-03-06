@@ -28,7 +28,7 @@ execute:
     
 -  **Applications to real data**
 
--  **Conclusion and Future Work**
+-  **Discussion and Future Work**
 
 ## Vector-Valued Stochastic Processes {.smaller}
 
@@ -36,7 +36,7 @@ execute:
 
 - $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
-- Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
+- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$.
 
 - We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
@@ -198,7 +198,7 @@ execute:
 
 - $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
-- Process $\bf X = \{X^{(i)}: -\infty<i<\infty\}.$
+- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$.
 
 - We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
 
@@ -359,7 +359,7 @@ execute:
 
 ## The IID case {.smaller}
 
-- **Classic Problem**: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields.
+- **Classic Problem**: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.
 
 - **Established Literature**: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).
 
@@ -381,7 +381,7 @@ However, in real-world scenarios, the independence assumption is often too restr
 - **River Stream Flow**: Successive observations exhibit hydrological dependence.
 - **Financial Markets**: Daily indices show significant autocorrelation and mixing properties.
 
-**Our Proposal**: A global model selection criterion that ensures consistency even under **polynomial mixing conditions**.
+**Our Proposal**: A global model selection criterion that ensures consistency even under **mixing conditions**.
 
 
 ## Objectives of the research {.smaller}
@@ -442,10 +442,10 @@ $$ {#eq-mixing}
 
 \path[draw=drawColor,line width= 0.6pt,fill=fillColor,fill opacity=0.30] (271.84, 41.68) rectangle (313.85,134.40);
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (292.84, 84.24) {A};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (292.84, 84.24) {$X_{\text{future}}$};
 \definecolor{drawColor}{RGB}{217,95,2}
 
-\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (114.33, 84.24) {B};
+\node[text=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.10] at (114.33, 84.24) {$X_{\text{past}}$};
 \end{scope}
 \begin{scope}
 \path[clip] (  0.00,  0.00) rectangle (361.35,144.54);
@@ -541,19 +541,19 @@ $$ {#eq-mixing}
 
 ## Empirical Probabilities {.smaller}
 
-The stationary distribution of the process $\pi$ is unknown, we must estimate it from the data.
+As the stationary distribution of the process $\pi$ is unknown, we must estimate it from the data
 
 Assume we observe a sample of size $n$ of the process, denoted by $\{x^{(i)}\colon i=1,\dots,n\}$.
-Then, for any $W\subset V$ and any $a_W\in A^{W}$,
+Then, for any $W\subset V$ and any $a_W\in A^{W}$ $(\pi(a_W)  = \mathbb P (X_W = a_W) )$,
 \begin{equation*}
-    \widehat{\pi}(a_W)  = \frac{N(a_W)}{n}.
+    \widehat{\pi}(a_W) = \frac{N(a_W)}{n}.
 \end{equation*}
 
-If $\:\widehat\pi(a_W)>0$, 
+where $N(a_W)$ denotes the number of times the configuration 𝑎𝑊 appears in the sample. If $\:\widehat\pi(a_W)>0$, 
 \begin{equation*}
-    \widehat\pi(a_{W'}|a_{W})  = \frac{\widehat\pi(a_{W'\cup W})}{\widehat\pi(a_{W})}\,,
+    \widehat\pi(a_{U}|a_{W}) = \frac{\widehat\pi(a_{U\cup W})}{\widehat\pi(a_{W})}\,,
 \end{equation*}
-for two disjoint subsets  $W,W'\subset V$ and configurations  $a_W\in A^W, a_{W'}\in A^{W'}$.
+for two disjoint subsets  $W,U\subset V$ and configurations  $a_W\in A^W, a_{U}\in A^{U}$.
 
 ## Empirical Probabilities {.smaller}
 
@@ -594,7 +594,7 @@ $$
 ## Consistency Theorem {.smaller}
 
 <br/><br/>
-**Theorem 10:** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
+**Theorem:** Assume the process $\{X^{(i)}: i \in \mathbb{Z}\}$ satisfies the mixing condition presented before
 with $\psi(\ell) = O(1/\ell^{1+\epsilon})$ for some $\epsilon>0.$
 Then, by taking $\lambda_n = c \log n,$ we have that 
 \begin{equation*}
@@ -607,9 +607,12 @@ satisfies $\widehat G=G^*$ eventually almost surely as $n\to \infty.$
 
 ## Intuitive Overview of Theorem Proof  {.smaller}
 
+The proof of this consistency is based on results about the rate of convergence of empirical probabilities.
+
+
 Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.$
 
-<br/>
+<!-- <br/> -->
 
 :::: {.columns}
 
@@ -623,9 +626,9 @@ Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  
     %Shape: Circle [id:dp714900201452652] 
     \draw   (205,123) .. controls (205,63.35) and (253.35,15) .. (313,15) .. controls (372.65,15) and (421,63.35) .. (421,123) .. controls (421,182.65) and (372.65,231) .. (313,231) .. controls (253.35,231) and (205,182.65) .. (205,123) -- cycle ;
     % Text Node
-    \draw (387,14.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\:\widehat G$};
+    \draw (387,14.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\:\widehat E$};
     % Text Node
-    \draw (313,76.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$G^{*}$};
+    \draw (313,76.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$E^{*}$};
     \end{tikzpicture}
 ```
 :::
@@ -639,9 +642,9 @@ Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  
     %Shape: Circle [id:dp4157181109791406] 
     \draw   (161,156) .. controls (161,96.35) and (209.35,48) .. (269,48) .. controls (328.65,48) and (377,96.35) .. (377,156) .. controls (377,215.65) and (328.65,264) .. (269,264) .. controls (209.35,264) and (161,215.65) .. (161,156) -- cycle ;
     % Text Node
-    \draw (476,46.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\widehat G$};
+    \draw (476,46.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\widehat E$};
     % Text Node
-    \draw (165,51.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$G^{*}$};
+    \draw (165,51.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$E^{*}$};
 \end{tikzpicture}
 ```
 :::
@@ -649,7 +652,7 @@ Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  
 :::
 
 
-<br/>
+<!-- <br/> -->
 
 We prove that, eventually almost surely as $n\to\infty,$ neither of the cases above can happen, which implies that $\widehat G = G^*.$
 
@@ -664,7 +667,7 @@ $$H(G) = \log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}.$$
 
 ::: {.column width="65%"}
 #### Implemented Search Strategies
-* **Exact Algorithm**: Performs an exhaustive search over the set of all possible simple graphs $\mathcal{G}$Computational complexity: $2^{d(d-1)/2}$.
+* **Exact Algorithm**: Performs an exhaustive search over the set of all possible simple graphs $\mathcal{G}$. Computational complexity: $2^{d(d-1)/2}$.
 * **Stepwise (Forward/Backward)**: Heuristic approach that adds or removes edges based on local improvements of $H(G)$.
 * **Simulated Annealing**: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.
 :::
@@ -703,11 +706,11 @@ Comprehensive tools for estimating the graph $\hat{G}$, executing search algorit
 
 - Water volume measured at $d$ stations along the river's course.
 
-- Stations denoted as $X_{u}$, where $u = 1, \ldots, d$.
+- Stations denoted as $X_{u}$, where $u = 1, \ldots, d=10$.
 
 - Vector $\mathbf{X}$ observed at discrete time intervals (10-day mean).
 
-- Each observation denoted as $\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{d}^{(i)})$.
+- Each observation denoted as $\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{10}^{(i)})$.
 
 - Process $\mathbf{X}^n=\{\mathbf{X}^{(i)}: 1 \leq i \leq n\}$.
 
@@ -814,7 +817,7 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 ## Discussion & Future Work {.smaller}
 
 * **Summary**:
-    * Generalization of structure recovery for multivariate processes under **polynomial mixing conditions**.
+    * Generalization of structure recovery for multivariate processes under **mixing conditions**.
     * Development of a **global estimation criterion** based on penalized log-pseudo-likelihood.
     * Proved **strong consistency** and derived convergence rates for the estimator $\widehat{G}$.
     * Implementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).
@@ -823,26 +826,29 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 * **Future Directions**:
     * Generalization to **infinite vertex sets** and unbounded degree estimators.
     * Extension to **continuous-valued** multivariate stochastic processes.
-    * Adaptation of the framework for **directed graph estimation** (causality).
+
+<!-- * Adaptation of the framework for **directed graph estimation** (causality). -->
 
 
 ## References {.smaller}
 
 ::: {style="font-size: 80%;"}
 
-- Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. **A test of hypotheses for random graph distributions built from eeg data**. *IEEE Transactions on Network Science and Engineering*.
+- Cerqueira, A., Fraiman, D., Vargas, C., and Leonardi, F. (2017). **A test of hypotheses for random graph distributions built from eeg data**. *IEEE Transactions on Network Science and Engineering*.
 
-- Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. **Identifying interacting pairs of sites in Ising models on a countable set**. *Braz. J. Probab. Stat.*.
+- Galves, A., Orlandi, E., and Takahashi, D. (2015). **Identifying interacting pairs of sites in Ising models on a countable set**. *Braz. J. Probab. Stat.*.
 
-- Lauritzen(1996) Steffen L Lauritzen. **Graphical models**, volume 17. *Clarendon Press*.
+- Lauritzen, S. (1996) **Graphical models**, volume 17. *Clarendon Press*.
 
-- Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. **Independent block identification in multivariate time series**. *Journal of Time Series Analysis*.
+- Leonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M., and Sued, M. (2021). **Independent block identification in multivariate time series**. *Journal of Time Series Analysis*.
 
-- Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
+- Leonardi, F, Carvalho, R. and Frondana, I. (2023). **Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions**. *Scandinavian Journal of Statistics*.
 
-- Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. **Highdimensional graphs and variable selection with the lasso**. *Ann. Statist.*.
+- Meinshausen, N. and Bühlmann, P. (2006). **Highdimensional graphs and variable selection with the lasso**. *Ann. Statist.*.
 
-- Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. **High-dimensional Ising model selection using l1-regularized logistic regression**. *Ann. Statist.*.
+- Oodaira, H., Yoshihara, K. (1971)**The law of the iterated logarithm for stationary processes satisfying mixing conditions**, Kodai Math. Semin. Rep.
+
+- Ravikumar, P., Wainwright, M. and Laffert, J. (2010). **High-dimensional Ising model selection using l1-regularized logistic regression**. *Ann. Statist.*.
 
 :::
 
@@ -858,3 +864,7 @@ Estimated graph, considering the penalizing constant value chosen by cross-valid
 magnotfs@insper.edu.br <br/>
 [magnotairone.github.io](https://magnotairone.github.io/) 
 :::
+
+<div class="footer">
+This work was partially supported by FAPESP and CNPq, Brazil.
+</div>

@@ -18,35 +18,35 @@
     "href": "20260306_CLAPEM/slides.html#agenda",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Agenda",
-    "text": "Agenda\n\nMotivation\nMathematical Framework\nEstimation Method and Theoretical Results\nApplications to real data\nConclusion and Future Work"
+    "text": "Agenda\n\nMotivation\nMathematical Framework\nEstimation Method and Theoretical Results\nApplications to real data\nDiscussion and Future Work"
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes",
     "href": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nStationary and ergodic process \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\} in \\big((A^d)^\\mathbb N, \\mathcal F, \\mathbb P\\big).\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes-1",
     "href": "20260306_CLAPEM/slides.html#vector-valued-stochastic-processes-1",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Vector-Valued Stochastic Processes",
-    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nProcess \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\}.\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nStationary and ergodic process \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\} in \\big((A^d)^\\mathbb N, \\mathcal F, \\mathbb P\\big).\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#the-iid-case",
     "href": "20260306_CLAPEM/slides.html#the-iid-case",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "The IID case",
-    "text": "The IID case\n\nClassic Problem: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields.\nEstablished Literature: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).\nCommon Approaches:\n\nStructure Estimation: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.\nNeighborhood-Based Estimation: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph."
+    "text": "The IID case\n\nClassic Problem: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.\nEstablished Literature: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).\nCommon Approaches:\n\nStructure Estimation: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.\nNeighborhood-Based Estimation: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#why-go-beyond-the-iid-assumption",
     "href": "20260306_CLAPEM/slides.html#why-go-beyond-the-iid-assumption",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Why go beyond the IID assumption?",
-    "text": "Why go beyond the IID assumption?\nMost traditional graphical model techniques assume that observations \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots are Independent and Identically Distributed (IID).\nHowever, in real-world scenarios, the independence assumption is often too restrictive:\n\nEEG Time Series: Neural dependencies evolve over time.\nRiver Stream Flow: Successive observations exhibit hydrological dependence.\nFinancial Markets: Daily indices show significant autocorrelation and mixing properties.\n\nOur Proposal: A global model selection criterion that ensures consistency even under polynomial mixing conditions."
+    "text": "Why go beyond the IID assumption?\nMost traditional graphical model techniques assume that observations \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots are Independent and Identically Distributed (IID).\nHowever, in real-world scenarios, the independence assumption is often too restrictive:\n\nEEG Time Series: Neural dependencies evolve over time.\nRiver Stream Flow: Successive observations exhibit hydrological dependence.\nFinancial Markets: Daily indices show significant autocorrelation and mixing properties.\n\nOur Proposal: A global model selection criterion that ensures consistency even under mixing conditions."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#objectives-of-the-research",
@@ -67,7 +67,7 @@
     "href": "20260306_CLAPEM/slides.html#empirical-probabilities",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Empirical Probabilities",
-    "text": "Empirical Probabilities\nThe stationary distribution of the process \\pi is unknown, we must estimate it from the data.\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W}, \\begin{equation*}\n    \\widehat{\\pi}(a_W)  = \\frac{N(a_W)}{n}.\n\\end{equation*}\nIf \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{W'}|a_{W})  = \\frac{\\widehat\\pi(a_{W'\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,W'\\subset V and configurations a_W\\in A^W, a_{W'}\\in A^{W'}."
+    "text": "Empirical Probabilities\nAs the stationary distribution of the process \\pi is unknown, we must estimate it from the data\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W} (\\pi(a_W)  = \\mathbb P (X_W = a_W) ), \\begin{equation*}\n    \\widehat{\\pi}(a_W) = \\frac{N(a_W)}{n}.\n\\end{equation*}\nwhere N(a_W) denotes the number of times the configuration 𝑎𝑊 appears in the sample. If \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{U}|a_{W}) = \\frac{\\widehat\\pi(a_{U\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,U\\subset V and configurations a_W\\in A^W, a_{U}\\in A^{U}."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#empirical-probabilities-1",
@@ -88,21 +88,21 @@
     "href": "20260306_CLAPEM/slides.html#consistency-theorem",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Consistency Theorem",
-    "text": "Consistency Theorem\n Theorem 10: Assume the process \\{X^{(i)}: i \\in \\mathbb{Z}\\} satisfies the mixing condition presented before with \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) for some \\epsilon&gt;0. Then, by taking \\lambda_n = c \\log n, we have that \\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*} satisfies \\widehat G=G^* eventually almost surely as n\\to \\infty."
+    "text": "Consistency Theorem\n Theorem: Assume the process \\{X^{(i)}: i \\in \\mathbb{Z}\\} satisfies the mixing condition presented before with \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) for some \\epsilon&gt;0. Then, by taking \\lambda_n = c \\log n, we have that \\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*} satisfies \\widehat G=G^* eventually almost surely as n\\to \\infty."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#intuitive-overview-of-theorem-proof",
     "href": "20260306_CLAPEM/slides.html#intuitive-overview-of-theorem-proof",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Intuitive Overview of Theorem Proof",
-    "text": "Intuitive Overview of Theorem Proof\nConsider \\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup  \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that, eventually almost surely as n\\to\\infty, neither of the cases above can happen, which implies that \\widehat G = G^*."
+    "text": "Intuitive Overview of Theorem Proof\nThe proof of this consistency is based on results about the rate of convergence of empirical probabilities.\nConsider \\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup  \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that, eventually almost surely as n\\to\\infty, neither of the cases above can happen, which implies that \\widehat G = G^*."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#algorithms-for-estimation",
     "href": "20260306_CLAPEM/slides.html#algorithms-for-estimation",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Algorithms for estimation",
-    "text": "Algorithms for estimation\nThe objective is to find the optimal graph by maximizing the regularized log-pseudo-likelihood function:\nH(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\n\n\nImplemented Search Strategies\n\nExact Algorithm: Performs an exhaustive search over the set of all possible simple graphs \\mathcal{G}Computational complexity: 2^{d(d-1)/2}.\nStepwise (Forward/Backward): Heuristic approach that adds or removes edges based on local improvements of H(G).\nSimulated Annealing: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.\n\n\n\n\n\nThe MixingGraph Package\n\n\n\n\n\n\nComprehensive tools for estimating the graph \\hat{G}, executing search algorithms, and ensuring reproducible results."
+    "text": "Algorithms for estimation\nThe objective is to find the optimal graph by maximizing the regularized log-pseudo-likelihood function:\nH(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\n\n\nImplemented Search Strategies\n\nExact Algorithm: Performs an exhaustive search over the set of all possible simple graphs \\mathcal{G}. Computational complexity: 2^{d(d-1)/2}.\nStepwise (Forward/Backward): Heuristic approach that adds or removes edges based on local improvements of H(G).\nSimulated Annealing: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.\n\n\n\n\n\nThe MixingGraph Package\n\n\n\n\n\n\nComprehensive tools for estimating the graph \\hat{G}, executing search algorithms, and ensuring reproducible results."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data",
@@ -116,7 +116,7 @@
     "href": "20260306_CLAPEM/slides.html#são-francisco-river-data-1",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "São Francisco River Data",
-    "text": "São Francisco River Data\n\nWater volume measured at d stations along the river’s course.\nStations denoted as X_{u}, where u = 1, \\ldots, d.\nVector \\mathbf{X} observed at discrete time intervals (10-day mean).\nEach observation denoted as \\mathbf{X}^{(i)}= (X_{1}^{(i)}, \\ldots, X_{d}^{(i)}).\nProcess \\mathbf{X}^n=\\{\\mathbf{X}^{(i)}: 1 \\leq i \\leq n\\}."
+    "text": "São Francisco River Data\n\nWater volume measured at d stations along the river’s course.\nStations denoted as X_{u}, where u = 1, \\ldots, d=10.\nVector \\mathbf{X} observed at discrete time intervals (10-day mean).\nEach observation denoted as \\mathbf{X}^{(i)}= (X_{1}^{(i)}, \\ldots, X_{10}^{(i)}).\nProcess \\mathbf{X}^n=\\{\\mathbf{X}^{(i)}: 1 \\leq i \\leq n\\}."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data-2",
@@ -124,13 +124,6 @@
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "São Francisco River Data",
     "text": "São Francisco River Data\n\nData avaiability: daily measurements from October 1st, 1924, to February 28th, 2019.\nData considered: from January 1977 to December 2016.\nTotal of 1042 observations.\nDiscretizetion of the data into five levels based on quantiles."
-  },
-  {
-    "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-data-3",
-    "href": "20260306_CLAPEM/slides.html#são-francisco-river-data-3",
-    "title": "Model selection for Markov random fields on graphs under a mixing condition",
-    "section": "São Francisco River: Data",
-    "text": "São Francisco River: Data\nThe study analyzes water volume interactions across d=10 stations along the river’s course.\nData Characteristics:\n\nVector \\mathbf{X} observed at 10-day mean discrete intervals.\nPeriod: Jan 1977 – Dec 2016 (n=1042 observations).\nDiscretization: Five levels based on quantiles."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#são-francisco-river-structural-results",
@@ -165,21 +158,21 @@
     "href": "20260306_CLAPEM/slides.html#discussion-future-work",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Discussion & Future Work",
-    "text": "Discussion & Future Work\n\nSummary:\n\nGeneralization of structure recovery for multivariate processes under polynomial mixing conditions.\nDevelopment of a global estimation criterion based on penalized log-pseudo-likelihood.\nProved strong consistency and derived convergence rates for the estimator \\widehat{G}.\nImplementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).\nValidation through extensive simulations and applications to hydrological and financial data.\n\nFuture Directions:\n\nGeneralization to infinite vertex sets and unbounded degree estimators.\nExtension to continuous-valued multivariate stochastic processes.\nAdaptation of the framework for directed graph estimation (causality)."
+    "text": "Discussion & Future Work\n\nSummary:\n\nGeneralization of structure recovery for multivariate processes under mixing conditions.\nDevelopment of a global estimation criterion based on penalized log-pseudo-likelihood.\nProved strong consistency and derived convergence rates for the estimator \\widehat{G}.\nImplementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).\nValidation through extensive simulations and applications to hydrological and financial data.\n\nFuture Directions:\n\nGeneralization to infinite vertex sets and unbounded degree estimators.\nExtension to continuous-valued multivariate stochastic processes."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#references",
     "href": "20260306_CLAPEM/slides.html#references",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "References",
-    "text": "References\n\n\nCerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. A test of hypotheses for random graph distributions built from eeg data. IEEE Transactions on Network Science and Engineering.\nGalves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. Identifying interacting pairs of sites in Ising models on a countable set. Braz. J. Probab. Stat..\nLauritzen(1996) Steffen L Lauritzen. Graphical models, volume 17. Clarendon Press.\nLeonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. Independent block identification in multivariate time series. Journal of Time Series Analysis.\nLeonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nMeinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. Highdimensional graphs and variable selection with the lasso. Ann. Statist..\nRavikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. High-dimensional Ising model selection using l1-regularized logistic regression. Ann. Statist.."
+    "text": "References\n\n\nCerqueira, A., Fraiman, D., Vargas, C., and Leonardi, F. (2017). A test of hypotheses for random graph distributions built from eeg data. IEEE Transactions on Network Science and Engineering.\nGalves, A., Orlandi, E., and Takahashi, D. (2015). Identifying interacting pairs of sites in Ising models on a countable set. Braz. J. Probab. Stat..\nLauritzen, S. (1996) Graphical models, volume 17. Clarendon Press.\nLeonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M., and Sued, M. (2021). Independent block identification in multivariate time series. Journal of Time Series Analysis.\nLeonardi, F, Carvalho, R. and Frondana, I. (2023). Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nMeinshausen, N. and Bühlmann, P. (2006). Highdimensional graphs and variable selection with the lasso. Ann. Statist..\nOodaira, H., Yoshihara, K. (1971)The law of the iterated logarithm for stationary processes satisfying mixing conditions, Kodai Math. Semin. Rep.\nRavikumar, P., Wainwright, M. and Laffert, J. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. Ann. Statist.."
   },
   {
     "objectID": "20260306_CLAPEM/slides.html#section",
     "href": "20260306_CLAPEM/slides.html#section",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "",
-    "text": "¡Gracias!\n\n\nObrigado!\n\n\nThank you!\n\n\nmagnotfs@insper.edu.br  magnotairone.github.io"
+    "text": "¡Gracias!\n\n\nObrigado!\n\n\nThank you!\n\n\nmagnotfs@insper.edu.br  magnotairone.github.io\n\n\nThis work was partially supported by FAPESP and CNPq, Brazil."
   },
   {
     "objectID": "20260306_CLAPEM/tmp.html#agenda",

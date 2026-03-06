@@ -166,7 +166,7 @@ Magno Severino
 <li><p><strong>Mathematical Framework</strong></p></li>
 <li><p><strong>Estimation Method</strong> and <strong>Theoretical Results</strong></p></li>
 <li><p><strong>Applications to real data</strong></p></li>
-<li><p><strong>Conclusion and Future Work</strong></p></li>
+<li><p><strong>Discussion and Future Work</strong></p></li>
 </ul>
 </section>
 <section id="vector-valued-stochastic-processes" class="slide level2 smaller">
@@ -174,7 +174,7 @@ Magno Severino
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
 <li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
-<li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
+<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span>.</p></li>
 <li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
 </ul>
 
@@ -187,7 +187,7 @@ Magno Severino
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
 <li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
-<li><p>Process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}.</span></p></li>
+<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span>.</p></li>
 <li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
 </ul>
 
@@ -198,7 +198,7 @@ Magno Severino
 <section id="the-iid-case" class="slide level2 smaller">
 <h2>The IID case</h2>
 <ul>
-<li><p><strong>Classic Problem</strong>: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields.</p></li>
+<li><p><strong>Classic Problem</strong>: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.</p></li>
 <li><p><strong>Established Literature</strong>: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al.&nbsp;(2024).</p></li>
 <li><p><strong>Common Approaches</strong>:</p>
 <ul>
@@ -219,7 +219,7 @@ Magno Severino
 <li><strong>River Stream Flow</strong>: Successive observations exhibit hydrological dependence.</li>
 <li><strong>Financial Markets</strong>: Daily indices show significant autocorrelation and mixing properties.</li>
 </ul>
-<p><strong>Our Proposal</strong>: A global model selection criterion that ensures consistency even under <strong>polynomial mixing conditions</strong>.</p>
+<p><strong>Our Proposal</strong>: A global model selection criterion that ensures consistency even under <strong>mixing conditions</strong>.</p>
 </section>
 <section id="objectives-of-the-research" class="slide level2 smaller">
 <h2>Objectives of the research</h2>
@@ -256,13 +256,13 @@ Magno Severino
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="empirical-probabilities" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
-<p>The stationary distribution of the process <span class="math inline">\pi</span> is unknown, we must estimate it from the data.</p>
-<p>Assume we observe a sample of size <span class="math inline">n</span> of the process, denoted by <span class="math inline">\{x^{(i)}\colon i=1,\dots,n\}</span>. Then, for any <span class="math inline">W\subset V</span> and any <span class="math inline">a_W\in A^{W}</span>, <span class="math display">\begin{equation*}
-    \widehat{\pi}(a_W)  = \frac{N(a_W)}{n}.
+<p>As the stationary distribution of the process <span class="math inline">\pi</span> is unknown, we must estimate it from the data</p>
+<p>Assume we observe a sample of size <span class="math inline">n</span> of the process, denoted by <span class="math inline">\{x^{(i)}\colon i=1,\dots,n\}</span>. Then, for any <span class="math inline">W\subset V</span> and any <span class="math inline">a_W\in A^{W}</span> <span class="math inline">(\pi(a_W)  = \mathbb P (X_W = a_W) )</span>, <span class="math display">\begin{equation*}
+    \widehat{\pi}(a_W) = \frac{N(a_W)}{n}.
 \end{equation*}</span></p>
-<p>If <span class="math inline">\:\widehat\pi(a_W)&gt;0</span>, <span class="math display">\begin{equation*}
-    \widehat\pi(a_{W'}|a_{W})  = \frac{\widehat\pi(a_{W'\cup W})}{\widehat\pi(a_{W})}\,,
-\end{equation*}</span> for two disjoint subsets <span class="math inline">W,W'\subset V</span> and configurations <span class="math inline">a_W\in A^W, a_{W'}\in A^{W'}</span>.</p>
+<p>where <span class="math inline">N(a_W)</span> denotes the number of times the configuration 𝑎𝑊 appears in the sample. If <span class="math inline">\:\widehat\pi(a_W)&gt;0</span>, <span class="math display">\begin{equation*}
+    \widehat\pi(a_{U}|a_{W}) = \frac{\widehat\pi(a_{U\cup W})}{\widehat\pi(a_{W})}\,,
+\end{equation*}</span> for two disjoint subsets <span class="math inline">W,U\subset V</span> and configurations <span class="math inline">a_W\in A^W, a_{U}\in A^{U}</span>.</p>
 </section>
 <section id="empirical-probabilities-1" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
@@ -290,7 +290,7 @@ Magno Severino
 </section>
 <section id="consistency-theorem" class="slide level2 smaller">
 <h2>Consistency Theorem</h2>
-<p><br><br> <strong>Theorem 10:</strong> Assume the process <span class="math inline">\{X^{(i)}: i \in \mathbb{Z}\}</span> satisfies the mixing condition presented before with <span class="math inline">\psi(\ell) = O(1/\ell^{1+\epsilon})</span> for some <span class="math inline">\epsilon&gt;0.</span> Then, by taking <span class="math inline">\lambda_n = c \log n,</span> we have that <span class="math display">\begin{equation*}
+<p><br><br> <strong>Theorem:</strong> Assume the process <span class="math inline">\{X^{(i)}: i \in \mathbb{Z}\}</span> satisfies the mixing condition presented before with <span class="math inline">\psi(\ell) = O(1/\ell^{1+\epsilon})</span> for some <span class="math inline">\epsilon&gt;0.</span> Then, by taking <span class="math inline">\lambda_n = c \log n,</span> we have that <span class="math display">\begin{equation*}
   \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\}
 \end{equation*}</span> satisfies <span class="math inline">\widehat G=G^*</span> eventually almost surely as <span class="math inline">n\to \infty.</span></p>
 <!-- - **Overfitting**: Controlado pela penalidade $\lambda_n$[cite: 211, 212]. -->
@@ -298,8 +298,9 @@ Magno Severino
 </section>
 <section id="intuitive-overview-of-theorem-proof" class="slide level2 smaller">
 <h2>Intuitive Overview of Theorem Proof</h2>
+<p>The proof of this consistency is based on results about the rate of convergence of empirical probabilities.</p>
 <p>Consider <span class="math inline">\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  \big\{G^* \not\subset \widehat G \big\}.</span></p>
-<p><br></p>
+<!-- <br/> -->
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
@@ -322,7 +323,7 @@ Magno Severino
 </div>
 </div>
 </div></div>
-<p><br></p>
+<!-- <br/> -->
 <p>We prove that, eventually almost surely as <span class="math inline">n\to\infty,</span> neither of the cases above can happen, which implies that <span class="math inline">\widehat G = G^*.</span></p>
 </section>
 <section id="algorithms-for-estimation" class="slide level2 smaller">
@@ -333,7 +334,7 @@ Magno Severino
 <div class="column" style="width:65%;">
 <h4 id="implemented-search-strategies">Implemented Search Strategies</h4>
 <ul>
-<li><strong>Exact Algorithm</strong>: Performs an exhaustive search over the set of all possible simple graphs <span class="math inline">\mathcal{G}</span>Computational complexity: <span class="math inline">2^{d(d-1)/2}</span>.</li>
+<li><strong>Exact Algorithm</strong>: Performs an exhaustive search over the set of all possible simple graphs <span class="math inline">\mathcal{G}</span>. Computational complexity: <span class="math inline">2^{d(d-1)/2}</span>.</li>
 <li><strong>Stepwise (Forward/Backward)</strong>: Heuristic approach that adds or removes edges based on local improvements of <span class="math inline">H(G)</span>.</li>
 <li><strong>Simulated Annealing</strong>: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces.</li>
 </ul>
@@ -378,9 +379,9 @@ Magno Severino
 <h2>São Francisco River Data</h2>
 <ul>
 <li><p>Water volume measured at <span class="math inline">d</span> stations along the river’s course.</p></li>
-<li><p>Stations denoted as <span class="math inline">X_{u}</span>, where <span class="math inline">u = 1, \ldots, d</span>.</p></li>
+<li><p>Stations denoted as <span class="math inline">X_{u}</span>, where <span class="math inline">u = 1, \ldots, d=10</span>.</p></li>
 <li><p>Vector <span class="math inline">\mathbf{X}</span> observed at discrete time intervals (10-day mean).</p></li>
-<li><p>Each observation denoted as <span class="math inline">\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{d}^{(i)})</span>.</p></li>
+<li><p>Each observation denoted as <span class="math inline">\mathbf{X}^{(i)}= (X_{1}^{(i)}, \ldots, X_{10}^{(i)})</span>.</p></li>
 <li><p>Process <span class="math inline">\mathbf{X}^n=\{\mathbf{X}^{(i)}: 1 \leq i \leq n\}</span>.</p></li>
 </ul>
 </section>
@@ -470,7 +471,7 @@ Magno Severino
 <ul>
 <li><strong>Summary</strong>:
 <ul>
-<li>Generalization of structure recovery for multivariate processes under <strong>polynomial mixing conditions</strong>.</li>
+<li>Generalization of structure recovery for multivariate processes under <strong>mixing conditions</strong>.</li>
 <li>Development of a <strong>global estimation criterion</strong> based on penalized log-pseudo-likelihood.</li>
 <li>Proved <strong>strong consistency</strong> and derived convergence rates for the estimator <span class="math inline">\widehat{G}</span>.</li>
 <li>Implementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).</li>
@@ -480,21 +481,22 @@ Magno Severino
 <ul>
 <li>Generalization to <strong>infinite vertex sets</strong> and unbounded degree estimators.</li>
 <li>Extension to <strong>continuous-valued</strong> multivariate stochastic processes.</li>
-<li>Adaptation of the framework for <strong>directed graph estimation</strong> (causality).</li>
 </ul></li>
 </ul>
+<!-- * Adaptation of the framework for **directed graph estimation** (causality). -->
 </section>
 <section id="references" class="slide level2 smaller">
 <h2>References</h2>
 <div style="font-size: 80%;">
 <ul>
-<li><p>Cerqueira et al.(2017) Andressa Cerqueira, Daniel Fraiman, Claudia D. Vargas and Florencia Leonardi. <strong>A test of hypotheses for random graph distributions built from eeg data</strong>. <em>IEEE Transactions on Network Science and Engineering</em>.</p></li>
-<li><p>Galves et al.(2015) Antonio Galves, Enza Orlandi and Daniel Y. Takahashi. <strong>Identifying interacting pairs of sites in Ising models on a countable set</strong>. <em>Braz. J. Probab. Stat.</em>.</p></li>
-<li><p>Lauritzen(1996) Steffen L Lauritzen. <strong>Graphical models</strong>, volume 17. <em>Clarendon Press</em>.</p></li>
-<li><p>Leonardi et al.(2021) Florencia Leonardi, Matías Lopez-Rosenfeld, Daniela Rodriguez, Magno TF Severino and Mariela Sued. <strong>Independent block identification in multivariate time series</strong>. <em>Journal of Time Series Analysis</em>.</p></li>
-<li><p>Leonardi et al.(2023) Florencia Leonardi, Rodrigo Carvalho and Iara Frondana. <strong>Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions</strong>. <em>Scandinavian Journal of Statistics</em>.</p></li>
-<li><p>Meinshausen and Bühlmann(2006) N. Meinshausen and P. Bühlmann. <strong>Highdimensional graphs and variable selection with the lasso</strong>. <em>Ann. Statist.</em>.</p></li>
-<li><p>Ravikumar et al.(2010) Pradeep Ravikumar, Martin J. Wainwright and John D. Lafferty. <strong>High-dimensional Ising model selection using l1-regularized logistic regression</strong>. <em>Ann. Statist.</em>.</p></li>
+<li><p>Cerqueira, A., Fraiman, D., Vargas, C., and Leonardi, F. (2017). <strong>A test of hypotheses for random graph distributions built from eeg data</strong>. <em>IEEE Transactions on Network Science and Engineering</em>.</p></li>
+<li><p>Galves, A., Orlandi, E., and Takahashi, D. (2015). <strong>Identifying interacting pairs of sites in Ising models on a countable set</strong>. <em>Braz. J. Probab. Stat.</em>.</p></li>
+<li><p>Lauritzen, S. (1996) <strong>Graphical models</strong>, volume 17. <em>Clarendon Press</em>.</p></li>
+<li><p>Leonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M., and Sued, M. (2021). <strong>Independent block identification in multivariate time series</strong>. <em>Journal of Time Series Analysis</em>.</p></li>
+<li><p>Leonardi, F, Carvalho, R. and Frondana, I. (2023). <strong>Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions</strong>. <em>Scandinavian Journal of Statistics</em>.</p></li>
+<li><p>Meinshausen, N. and Bühlmann, P. (2006). <strong>Highdimensional graphs and variable selection with the lasso</strong>. <em>Ann. Statist.</em>.</p></li>
+<li><p>Oodaira, H., Yoshihara, K. (1971)<strong>The law of the iterated logarithm for stationary processes satisfying mixing conditions</strong>, Kodai Math. Semin. Rep.</p></li>
+<li><p>Ravikumar, P., Wainwright, M. and Laffert, J. (2010). <strong>High-dimensional Ising model selection using l1-regularized logistic regression</strong>. <em>Ann. Statist.</em>.</p></li>
 </ul>
 </div>
 </section>
@@ -512,6 +514,9 @@ Thank you!
 </h1>
 <div style="position: absolute; bottom: 20px; width: 100%; text-align: center; font-size: 0.6em;">
 <p>magnotfs@insper.edu.br <br> <a href="https://magnotairone.github.io/">magnotairone.github.io</a></p>
+</div>
+<div class="footer">
+<p>This work was partially supported by FAPESP and CNPq, Brazil.</p>
 </div>
 
 
