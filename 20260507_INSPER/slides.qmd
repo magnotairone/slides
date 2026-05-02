@@ -1,8 +1,8 @@
 ---
-# title: "Model selection for Markov random fields on graphs under a mixing condition"
-# subtitle: "Seminário Acadêmico de Ciência de Dados"
-# author: "Magno Severino & Florencia Leonardi"
-# date: "2026-05-07"
+title: "Model selection for Markov random fields on graphs under a mixing condition"
+subtitle: "Seminário Acadêmico de Ciência de Dados"
+author: "Magno Severino & Florencia Leonardi"
+date: "2026-05-07"
 lang: en
 format: 
   revealjs:
