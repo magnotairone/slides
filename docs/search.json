@@ -446,5 +446,348 @@
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "",
     "text": "Thank you!\n\n\nObrigado!\n\n\n¡Gracias!"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#agenda",
+    "href": "20260507_INSPER/slides.html#agenda",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Agenda",
+    "text": "Agenda\n\nMotivation\nMathematical Framework\nEstimation Method and Theoretical Results\nApplications to real data\nDiscussion and Future Work"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#vector-valued-stochastic-processes",
+    "href": "20260507_INSPER/slides.html#vector-valued-stochastic-processes",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nStationary and ergodic process \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\} in \\big((A^d)^\\mathbb N, \\mathcal F, \\mathbb P\\big).\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#vector-valued-stochastic-processes-1",
+    "href": "20260507_INSPER/slides.html#vector-valued-stochastic-processes-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Vector-Valued Stochastic Processes",
+    "text": "Vector-Valued Stochastic Processes\n\n\\bf X^{(i)} = \\big(X_1^{(i)}, X_2^{(i)}, \\dots, X_d^{(i)}\\big).\nX_v^{(i)} \\in A, A a finite alphabet, for v \\in \\{1,2,\\dots,d\\}.\nStationary and ergodic process \\bf X = \\{X^{(i)}: -\\infty&lt;i&lt;\\infty\\} in \\big((A^d)^\\mathbb N, \\mathcal F, \\mathbb P\\big).\nWe assume the process \\bf X has an underlying graph G^* = (V, E^*)."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-iid-case",
+    "href": "20260507_INSPER/slides.html#the-iid-case",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The IID case",
+    "text": "The IID case\n\nClassic Problem: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.\nEstablished Literature: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).\nCommon Approaches:\n\nStructure Estimation: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.\nNeighborhood-Based Estimation: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#why-go-beyond-the-iid-assumption",
+    "href": "20260507_INSPER/slides.html#why-go-beyond-the-iid-assumption",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Why go beyond the IID assumption?",
+    "text": "Why go beyond the IID assumption?\nMost traditional graphical model techniques assume that observations \\mathbf{X}^{(1)}, \\mathbf{X}^{(2)}, \\dots are Independent and Identically Distributed (IID).\nHowever, in real-world scenarios, the independence assumption is often too restrictive:\n\nEEG Time Series: Neural dependencies evolve over time.\nRiver Stream Flow: Successive observations exhibit hydrological dependence.\nFinancial Markets: Daily indices show significant autocorrelation and mixing properties.\n\nOur Proposal: A global model selection criterion that ensures consistency even under mixing conditions."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#objectives-of-the-research",
+    "href": "20260507_INSPER/slides.html#objectives-of-the-research",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Objectives of the research",
+    "text": "Objectives of the research\n\nProposal: Method to estimate the graph of conditional dependencies for multivariate stochastic processes with mixing conditions.\nAim: combine and generalize previous works,\n\nLeonardi et al. (2021): method assumes decomposition into subvectors with immediate neighbor dependencies,\nLeonardi et al. (2023): estimator of neighborhood of each vertex for iid data.\n\n\n\n\nProposed solution: penalized pseudo-likelihood criterion for entire graph estimation for multivariate processes with mixing conditions.\nKey advantages:\n\nHandles non-iid data (mixing condition),\nProvides a global estimation approach."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#mixing-condition",
+    "href": "20260507_INSPER/slides.html#mixing-condition",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Mixing Condition",
+    "text": "Mixing Condition\n\nLet X^{(i:j)} denote the sequence of vectors X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\n\nThe process satisfies a mixing condition with rate \\psi(\\ell) if the dependence between the past (X^{(1:m)}) and the future (X^{(n:n+k-1)}) decays as the distance \\ell=n-m increases:\n\n\n\\Bigl| \\mathbb P (X_{future} | X_{past}) - \\mathbb P (X_{future}) \\Bigr| \\leq \\psi(n-m) \\mathbb P(X_{future})\n\\tag{1}"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#empirical-probabilities",
+    "href": "20260507_INSPER/slides.html#empirical-probabilities",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nAs the stationary distribution of the process \\pi is unknown, we must estimate it from the data\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W} (\\pi(a_W)  = \\mathbb P (X_W = a_W) ), \\begin{equation*}\n    \\widehat{\\pi}(a_W) = \\frac{N(a_W)}{n}.\n\\end{equation*}\nwhere N(a_W) denotes the number of times the configuration 𝑎𝑊 appears in the sample. If \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{U}|a_{W}) = \\frac{\\widehat\\pi(a_{U\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,U\\subset V and configurations a_W\\in A^W, a_{U}\\in A^{U}."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#empirical-probabilities-1",
+    "href": "20260507_INSPER/slides.html#empirical-probabilities-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Empirical Probabilities",
+    "text": "Empirical Probabilities\nGiven a graph G=(V,E), define G(v) = \\big\\{u \\in V: (u,v) \\in E \\big\\}, for v \\in V, the set of neighbors of v in graph G.\n\nThen we can compute \\begin{equation*}\n    \\widehat\\pi(a_v|a_{G(v)})  = \\frac{\\widehat\\pi(a_{\\{v\\}\\cup G(v)})}{\\widehat\\pi(a_{G(v)})}.\n\\end{equation*}"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#graph-estimator",
+    "href": "20260507_INSPER/slides.html#graph-estimator",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Graph Estimator",
+    "text": "Graph Estimator\n\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \n\\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nApplying the logarithm we can write expression above as \n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{3}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#consistency-theorem",
+    "href": "20260507_INSPER/slides.html#consistency-theorem",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Consistency Theorem",
+    "text": "Consistency Theorem\n Theorem (Leonardi and Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{Z}\\} satisfies the mixing condition presented before with \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}) for some \\epsilon&gt;0. Then, by taking \\lambda_n = c \\log n, we have that \\begin{equation*}\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\}\n\\end{equation*} satisfies \\widehat G=G^* eventually almost surely as n\\to \\infty."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#intuitive-overview-of-theorem-proof",
+    "href": "20260507_INSPER/slides.html#intuitive-overview-of-theorem-proof",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Intuitive Overview of Theorem Proof",
+    "text": "Intuitive Overview of Theorem Proof\nThe proof of this consistency is based on results about the rate of convergence of empirical probabilities.\nConsider \\{\\widehat G\\neq G^*\\} = \\big\\{G^* \\subsetneq \\widehat G \\big\\} \\cup  \\big\\{G^* \\not\\subset \\widehat G \\big\\}.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe prove that, eventually almost surely as n\\to\\infty, neither of the cases above can happen, which implies that \\widehat G = G^*."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#algorithms-for-estimation",
+    "href": "20260507_INSPER/slides.html#algorithms-for-estimation",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Algorithms for estimation",
+    "text": "Algorithms for estimation\nThe objective is to find the optimal graph by maximizing the regularized log-pseudo-likelihood function:\nH(G) = \\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}.\n\n\nImplemented Search Strategies\n\nExact Algorithm: Performs an exhaustive search over the set of all possible simple graphs \\mathcal{G}. Computational complexity: 2^{d(d-1)/2}.\nStepwise (Forward/Backward): Heuristic approach that adds or removes edges based on local improvements of H(G).\nSimulated Annealing: A stochastic global search metaheuristic used to approximate the estimator in high-dimensional spaces."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#são-francisco-river-data",
+    "href": "20260507_INSPER/slides.html#são-francisco-river-data",
+    "title": "Apresentações - Prof. Magno",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#são-francisco-river-data-1",
+    "href": "20260507_INSPER/slides.html#são-francisco-river-data-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nWater volume measured at d stations along the river’s course.\nStations denoted as X_{u}, where u = 1, \\ldots, d=10.\nVector \\mathbf{X} observed at discrete time intervals (10-day mean).\nEach observation denoted as \\mathbf{X}^{(i)}= (X_{1}^{(i)}, \\ldots, X_{10}^{(i)}).\nProcess \\mathbf{X}^n=\\{\\mathbf{X}^{(i)}: 1 \\leq i \\leq n\\}."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#são-francisco-river-data-2",
+    "href": "20260507_INSPER/slides.html#são-francisco-river-data-2",
+    "title": "Apresentações - Prof. Magno",
+    "section": "São Francisco River Data",
+    "text": "São Francisco River Data\n\nData avaiability: daily measurements from October 1st, 1924, to February 28th, 2019.\nData considered: from January 1977 to December 2016.\nTotal of 1042 observations.\nDiscretizetion of the data into five levels based on quantiles."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#são-francisco-river-structural-results",
+    "href": "20260507_INSPER/slides.html#são-francisco-river-structural-results",
+    "title": "Apresentações - Prof. Magno",
+    "section": "São Francisco River: Structural Results",
+    "text": "São Francisco River: Structural Results\n\nWe applied the Forward Stepwise Algorithm with 5-fold cross-validation to select the optimal penalty c.\n\n\nPhysical Network\n\n\n\n\n\n\nEstimated Graph \\widehat{G}\n\n\n\n\n\n\n\nThe estimated edges accurately recover the hydrological flow and physical connectivity of the river.\nResults are consistent with independent block identification methods (Leonardi et al, 2021)."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#stock-exchange-data",
+    "href": "20260507_INSPER/slides.html#stock-exchange-data",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\n\n\n\nRelation between stock exchanges’ performance reflect global market interconnectedness and economic trends.\nImpacts investment strategies, risk assessment, and portfolio diversification.\nChallenge: Variations in stock exchange operating hours due to different time zones.\nComplex analysis required to account for global market fluctuations."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#stock-exchange-data-1",
+    "href": "20260507_INSPER/slides.html#stock-exchange-data-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nObjective: analyse the Relation between stock exchanges’ performance.\nDiscretization: daily indicator of an increase in the index rate.\nData from May 18th, 2010 to September 20th, 2023.\nAdjustments made to address missing data and holiday schedules.\nFinal dataset comprises 2{,}654 rows for analysis.\nForward stepwise algorithm and a 5-fold cross-validation approach."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#stock-exchange-data-2",
+    "href": "20260507_INSPER/slides.html#stock-exchange-data-2",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Stock Exchange Data",
+    "text": "Stock Exchange Data\n\nEstimated graph, considering the penalizing constant value chosen by cross-validation."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#discussion-future-work",
+    "href": "20260507_INSPER/slides.html#discussion-future-work",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Discussion & Future Work",
+    "text": "Discussion & Future Work\n\nSummary:\n\nGeneralization of structure recovery for multivariate processes under mixing conditions.\nDevelopment of a global estimation criterion based on penalized log-pseudo-likelihood.\nProved strong consistency and derived convergence rates for the estimator \\widehat{G}.\nImplementation of exhaustive and heuristic search algorithms (Stepwise, Simulated Annealing).\nValidation through extensive simulations and applications to hydrological and financial data.\n\nFuture Directions:\n\nGeneralization to infinite vertex sets and unbounded degree estimators.\nExtension to continuous-valued multivariate stochastic processes."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#references",
+    "href": "20260507_INSPER/slides.html#references",
+    "title": "Apresentações - Prof. Magno",
+    "section": "References",
+    "text": "References\n\n\nCerqueira, A., Fraiman, D., Vargas, C., and Leonardi, F. (2017). A test of hypotheses for random graph distributions built from eeg data. IEEE Transactions on Network Science and Engineering.\nGalves, A., Orlandi, E., and Takahashi, D. (2015). Identifying interacting pairs of sites in Ising models on a countable set. Braz. J. Probab. Stat..\nLauritzen, S. (1996) Graphical models, volume 17. Clarendon Press.\nLeonardi, F, Carvalho, R. and Frondana, I. (2023). Structure recovery for partially observed discrete markov random fields on graphs under not necessarily positive distributions. Scandinavian Journal of Statistics.\nLeonardi, F., Lopez-Rosenfeld, M., Rodriguez, D., Severino, M., and Sued, M. (2021). Independent block identification in multivariate time series. Journal of Time Series Analysis.\nLeonardi, F. and Severino, M. (2025). Model selection for Markov random fields on graphs under a mixing condition. Stochastic Processes and their Applications.\nMeinshausen, N. and Bühlmann, P. (2006). Highdimensional graphs and variable selection with the lasso. Ann. Statist..\nOodaira, H., Yoshihara, K. (1971). The law of the iterated logarithm for stationary processes satisfying mixing conditions, Kodai Math. Semin. Rep.\nRavikumar, P., Wainwright, M. and Laffert, J. (2010). High-dimensional Ising model selection using l1-regularized logistic regression. Ann. Statist.."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#section",
+    "href": "20260507_INSPER/slides.html#section",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "",
+    "text": "¡Gracias!\n\n\nObrigado!\n\n\nThank you!\n\n\nmagnotfs@insper.edu.br  magnotairone.github.io\n\n\nThis work was partially supported by FAPESP and CNPq, Brazil."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#subtítulo",
+    "href": "20260507_INSPER/slides.html#subtítulo",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Subtítulo",
+    "text": "Subtítulo\nMagno Severino\nData"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#título-da-apresentação",
+    "href": "20260507_INSPER/slides.html#título-da-apresentação",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Título da Apresentação",
+    "text": "Título da Apresentação\nSubtítulo\nMagno Severino\nData"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#model-selection-for-markov-random-fields-on-graphs-under-a-mixing-condition",
+    "href": "20260507_INSPER/slides.html#model-selection-for-markov-random-fields-on-graphs-under-a-mixing-condition",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Model selection for Markov random fields on graphs under a mixing condition",
+    "text": "Model selection for Markov random fields on graphs under a mixing condition\nMagno Severino & Florencia Leonardi\nSeminário Acadêmico de Ciência de Dados\n2026-05-07"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#section-1",
+    "href": "20260507_INSPER/slides.html#section-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "",
+    "text": "Thank you!\n\n\nThis work was partially supported by FAPESP and CNPq, Brazil.\n\nmagnotfs@insper.edu.br  magnotairone.github.io"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#mixing-condition---formal-definition",
+    "href": "20260507_INSPER/slides.html#mixing-condition---formal-definition",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Mixing Condition - Formal Definition",
+    "text": "Mixing Condition - Formal Definition\n\nX^{(i:j)} denote the sequence of vectors X^{(i)}, X^{(i+1)}, \\ldots, X^{(j)}.\n\\bf X = \\{X^{(i)}\\colon -\\infty &lt; i &lt; \\infty\\} satisfies a mixing condition with rate \\{\\psi(\\ell)\\}_{\\ell \\in \\mathbb R} if \\begin{equation*}\n\\begin{split}\n  \\Bigl| \\mathbb P \\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\, |\\, X^{(1:m)}=x^{(1:m)}&\\bigr) - \\mathbb P \\bigl( X^{(n:(n+k-1))} =x^{(1:k)}\\bigr)\\Bigr| \\\\\n  &\\leq \\psi(n-m) \\mathbb P\\bigl(X^{(n:(n+k-1))}=x^{(1:k)}\\bigr),\n\\end{split}\n\\end{equation*} for n\\geq m+\\ell and for each k, m \\in \\mathbb N and each x^{(1:k)} \\in (A^d)^k, x^{(1:m)}\\in (A^d)^m with \\mathbb P(X^{(1:m)}=x^{(1:m)})&gt;0."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-markov-intersection-property",
+    "href": "20260507_INSPER/slides.html#the-markov-intersection-property",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The Markov Intersection Property",
+    "text": "The Markov Intersection Property\n\nTo define a unique graph G^*, we must ensure that every vertex has a smallest Markov neighborhood.\nDefinitions\n\nMarkov Neighborhood: A set W \\subset V \\setminus \\{v\\} is a Markov neighborhood of v if X_v is conditionally independent of X_{V \\setminus (W \\cup \\{v\\})} given X_W.\nThe Intersection Property: Let \\mathcal{W}(v) be the set of all subsets of V that are Markov neighborhoods of v. The property holds if: W_1, W_2 \\in \\mathcal{W}(v) \\implies (W_1 \\cap W_2) \\in \\mathcal{W}(v)\n\nWhy is this crucial?\n\nUniqueness: It guarantees the existence of a unique Basic Neighborhood (ne(v)), defined as the intersection of all Markov neighborhoods: ne(v) = \\bigcap_{W \\in \\mathcal{W}(v)} W\nBeyond Positivity: While the standard Hammersley-Clifford theorem requires strictly positive distributions (\\pi(x) &gt; 0), this framework only requires the intersection property to hold, allowing for more general discrete distributions.\nGraph Edge Definition: The edges of the true graph G^* are formally defined by these basic neighborhoods: (v, w) \\in E^* \\iff w \\in ne(v)"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-markov-intersection-property-verificar",
+    "href": "20260507_INSPER/slides.html#the-markov-intersection-property-verificar",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The Markov Intersection Property VERIFICAR",
+    "text": "The Markov Intersection Property VERIFICAR\n\nTo define a unique graph G^*, we must ensure that every vertex has a smallest Markov neighborhood.\nDefinitions\n\nMarkov Neighborhood: A set W \\subset V \\setminus \\{v\\} is a Markov neighborhood of v if X_v is conditionally independent of X_{V \\setminus (W \\cup \\{v\\})} given X_W.\nThe Intersection Property: Let \\mathcal{W}(v) be the set of all subsets of V that are Markov neighborhoods of v. The property holds if: W_1, W_2 \\in \\mathcal{W}(v) \\implies (W_1 \\cap W_2) \\in \\mathcal{W}(v)\n\nWhy is this crucial?\n\nUniqueness: It guarantees the existence of a unique Basic Neighborhood (ne(v)), defined as the intersection of all Markov neighborhoods: ne(v) = \\bigcap_{W \\in \\mathcal{W}(v)} W\nBeyond Positivity: While the standard Hammersley-Clifford theorem requires strictly positive distributions (\\pi(x) &gt; 0), this framework only requires the intersection property to hold, allowing for more general discrete distributions.\nGraph Edge Definition: The edges of the true graph G^* are formally defined by these basic neighborhoods: (v, w) \\in E^* \\iff w \\in ne(v)"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#verificar-the-markov-intersection-property",
+    "href": "20260507_INSPER/slides.html#verificar-the-markov-intersection-property",
+    "title": "Apresentações - Prof. Magno",
+    "section": "VERIFICAR The Markov Intersection Property",
+    "text": "VERIFICAR The Markov Intersection Property\n\nTo define a unique graph G^*, we must ensure that every vertex has a smallest Markov neighborhood.\nDefinitions\n\nMarkov Neighborhood: A set W \\subset V \\setminus \\{v\\} is a Markov neighborhood of v if X_v is conditionally independent of X_{V \\setminus (W \\cup \\{v\\})} given X_W.\nThe Intersection Property: Let \\mathcal{W}(v) be the set of all subsets of V that are Markov neighborhoods of v. The property holds if: W_1, W_2 \\in \\mathcal{W}(v) \\implies (W_1 \\cap W_2) \\in \\mathcal{W}(v)\n\nWhy is this crucial?\n\nUniqueness: It guarantees the existence of a unique Basic Neighborhood (ne(v)), defined as the intersection of all Markov neighborhoods: ne(v) = \\bigcap_{W \\in \\mathcal{W}(v)} W\nBeyond Positivity: While the standard Hammersley-Clifford theorem requires strictly positive distributions (\\pi(x) &gt; 0), this framework only requires the intersection property to hold, allowing for more general discrete distributions.\nGraph Edge Definition: The edges of the true graph G^* are formally defined by these basic neighborhoods: (v, w) \\in E^* \\iff w \\in ne(v)"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#rate-of-convergence",
+    "href": "20260507_INSPER/slides.html#rate-of-convergence",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Rate of Convergence",
+    "text": "Rate of Convergence\nProposition 3 (Leonardi & Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{N}\\} is stationary and satisfies the mixing condition with rate \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}). Then, for any \\delta &gt; 0 and W \\subset V:\n\nMarginal Probabilities: |\\widehat{\\pi}(a_W) - \\pi(a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{n}} eventually almost surely as n \\to \\infty.\nConditional Probabilities: |\\widehat{\\pi}(a_v | a_W) - \\pi(a_v | a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{N(a_W)}} eventually almost surely as n \\to \\infty, where N(a_W) is the number of occurrences of configuration a_W.\n\n\nThe proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971), which provides tighter bounds than simple ergodicity.\nIt quantifies the error in terms of n (sample size) and \\log n, which is essential to balance the penalty term \\lambda_n = c \\log n in the estimator.\nThese rates ensure that the “noise” in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#verificar-rate-of-convergence",
+    "href": "20260507_INSPER/slides.html#verificar-rate-of-convergence",
+    "title": "Apresentações - Prof. Magno",
+    "section": "VERIFICAR Rate of Convergence",
+    "text": "VERIFICAR Rate of Convergence\nProposition 3 (Leonardi & Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{N}\\} is stationary and satisfies the mixing condition with rate \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}). Then, for any \\delta &gt; 0, any W \\subset V and any a_W \\in A_W: |\\widehat{\\pi}(a_W) - \\pi(a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{n}} eventually almost surely as n \\to \\infty. Moreover, for any disjoints sets W and W^\\prime \\in V and any a_W \\in A_W and a_{W^\\prime} \\in A_{W^\\prime} |\\widehat{\\pi}(a_W | a_{W^\\prime}) - \\pi(a_W | a_{W^\\prime})| &lt; \\sqrt{\\frac{\\delta \\log n}{N(a_{W^\\prime})}} eventually almost surely as n \\to \\infty, where N(a_{W^\\prime}) is the number of occurrences of configuration a_{W^\\prime}.\n\nThe proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971), which provides tighter bounds than simple ergodicity.\nIt quantifies the error in terms of n (sample size) and \\log n, which is essential to balance the penalty term \\lambda_n = c \\log n in the estimator.\nThese rates ensure that the “noise” in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#verificar-rate-of-convergence-of-empirical-probabilities",
+    "href": "20260507_INSPER/slides.html#verificar-rate-of-convergence-of-empirical-probabilities",
+    "title": "Apresentações - Prof. Magno",
+    "section": "VERIFICAR Rate of Convergence of Empirical Probabilities",
+    "text": "VERIFICAR Rate of Convergence of Empirical Probabilities\nProposition 3 (Leonardi & Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{N}\\} is stationary and satisfies the mixing condition with rate \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}). Then, for any \\delta &gt; 0, any W \\subset V and any a_W \\in A_W: |\\widehat{\\pi}(a_W) - \\pi(a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{n}} eventually almost surely as n \\to \\infty. Moreover, for any disjoints sets W and W^\\prime \\in V and any a_W \\in A_W and a_{W^\\prime} \\in A_{W^\\prime} |\\widehat{\\pi}(a_W | a_{W^\\prime}) - \\pi(a_W | a_{W^\\prime})| &lt; \\sqrt{\\frac{\\delta \\log n}{N(a_{W^\\prime})}} eventually almost surely as n \\to \\infty, where N(a_{W^\\prime}) is the number of occurrences of configuration a_{W^\\prime}.\n\nThe proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971), which provides tighter bounds than simple ergodicity.\nIt quantifies the error in terms of n (sample size) and \\log n, which is essential to balance the penalty term \\lambda_n = c \\log n in the estimator.\nThese rates ensure that the “noise” in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#sketch-of-the-consistency-proof",
+    "href": "20260507_INSPER/slides.html#sketch-of-the-consistency-proof",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Sketch of the Consistency Proof",
+    "text": "Sketch of the Consistency Proof\nThe proof of Theorem 5 demonstrates that \\mathbb{P}(\\widehat{G} \\neq G^*) \\to 0 by decomposing the error into two exhaustive cases: Overfitting and Underfitting.\nCase 1: Overfitting (G^* \\subsetneq \\widehat{G})\n\nDefinition: The estimated graph \\widehat{G} contains all true edges plus at least one extra edge.\nMechanism: As n \\to \\infty, the penalty term \\lambda_n \\sum |A|^{|G(v)|} grows faster than the gain in pseudo-likelihood from adding redundant edges.\nResult: Using Proposition 3 and Lemma 10, we prove that the difference in log-pseudo-likelihood is bounded by the penalty, making \\widehat{G} = G^* more likely than any superset[cite: 1].\n\nCase 2: Underfitting (G^* \\not\\subset \\widehat{G})\n\nDefinition: The estimated graph \\widehat{G} misses at least one edge from the true graph G^*[cite: 1].\nMechanism: The information loss from missing a true dependency is measured by a positive Kullback-Leibler (KL) divergence \\alpha(v) &gt; 0[cite: 1].\nResult: This loss grows linearly with n, eventually dominating both the noise and the penalty term \\lambda_n (which only grows with \\log n)[cite: 1]."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#verificar-sketch-of-the-consistency-proof",
+    "href": "20260507_INSPER/slides.html#verificar-sketch-of-the-consistency-proof",
+    "title": "Apresentações - Prof. Magno",
+    "section": "VERIFICAR Sketch of the Consistency Proof",
+    "text": "VERIFICAR Sketch of the Consistency Proof\nThe proof of Theorem 5 demonstrates that \\mathbb{P}(\\widehat{G} \\neq G^*) \\to 0 by decomposing the error into two exhaustive cases: Overfitting and Underfitting.\nCase 1: Overfitting (G^* \\subsetneq \\widehat{G}) * Definition: The estimated graph \\widehat{G} contains all true edges plus at least one extra edge. * Mechanism: As n \\to \\infty, the penalty term \\lambda_n \\sum |A|^{|G(v)|} grows faster than the gain in pseudo-likelihood from adding redundant edges. * Result: Using Proposition 3 and Lemma 10, we prove that the difference in log-pseudo-likelihood is bounded by the penalty, making \\widehat{G} = G^* more likely than any superset.\nCase 2: Underfitting (G^* \\not\\subset \\widehat{G}) * Definition: The estimated graph \\widehat{G} misses at least one edge from the true graph G^*. * Mechanism: The information loss from missing a true dependency is measured by a positive Kullback-Leibler (KL) divergence \\alpha(v) &gt; 0. * Result: This loss grows linearly with n, eventually dominating both the noise and the penalty term \\lambda_n (which only grows with \\log n).\nNeither event can occur eventually almost surely, implying \\widehat{G} = G^*."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-mixinggraph-r-package",
+    "href": "20260507_INSPER/slides.html#the-mixinggraph-r-package",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The MixingGraph R package",
+    "text": "The MixingGraph R package\n\n\n\n\n\n\n\n\n\nIncludes functions to compute the penalized log pseudo-likelihood function.\nImplements the four algorithms considered for estimation: exact, forward and backward stepwise, and simulated annealing.\n\n\n\nOffers examples on how to use the package.\nAvailable at github.com/magnotairone/MixingGraph."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#simulation-study-1",
+    "href": "20260507_INSPER/slides.html#simulation-study-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Simulation Study",
+    "text": "Simulation Study\n\nObjective: Assess the performance of the proposed algorithms via simulation studies.\nScenario 1: Fixed True Graph\n\nGenerate synthetic data based on fixed true graph.\nAssess estimator’s performance under stability conditions.\n\nScenario 2: Random Graphs with Varying Edge Number\n\nGenerate random graphs with varying edge numbers.\nEvaluate estimator’s performance across graphs with different edge configuration."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---scenario-1",
+    "href": "20260507_INSPER/slides.html#example-11---scenario-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Scenario 1",
+    "text": "Example 11 - Scenario 1\n\nConsider \\mathbf{X} = (X_1, \\dots, X_5).\nJoint probability function of these variables:  p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \n\n\n\n\nConditional probabilities:\n\n\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---sampling-scheme",
+    "href": "20260507_INSPER/slides.html#example-11---sampling-scheme",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Sampling Scheme",
+    "text": "Example 11 - Sampling Scheme\n\nThe Gibbs sampler (Geman and Geman, 1984 and Gelfand and Smith, 1990):\n\niterations: 15{,}000,\nburn-in period: 5{,}000,\nfinal sample: 10{,}000.\n\nSmaller samples were extracted from the initial sample s_1, \\dots, s_{10{,}000}, with sizes N \\in \\{100, 500, 1{,}000, 5{,}000, 10{,}000\\}."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---exact-algorithm",
+    "href": "20260507_INSPER/slides.html#example-11---exact-algorithm",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Exact Algorithm",
+    "text": "Example 11 - Exact Algorithm\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---forward-stepwise",
+    "href": "20260507_INSPER/slides.html#example-11---forward-stepwise",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Forward Stepwise",
+    "text": "Example 11 - Forward Stepwise\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---backward-stepwise",
+    "href": "20260507_INSPER/slides.html#example-11---backward-stepwise",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Backward Stepwise",
+    "text": "Example 11 - Backward Stepwise\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---simulated-annealing",
+    "href": "20260507_INSPER/slides.html#example-11---simulated-annealing",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Simulated Annealing",
+    "text": "Example 11 - Simulated Annealing\nEffects of sample size and penalizing constant value. Here, \\lambda_N = c\\log N."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---several-replications",
+    "href": "20260507_INSPER/slides.html#example-11---several-replications",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications\n\nObjective: generate several samples and assess the performance of the algorithms.\nMetrics: underestimation error (ue), overestimation error (oe), and total error (te).\n\n\nue(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\in E \\text{ and } (v,w) \\not\\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}},  oe(G, \\hat G) = \\frac{\\sum_{(v, w)}\\mathbf{1}\\{(v, w)\\not\\in E \\text{ and } (v,w) \\in \\hat E\\}}{\\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\}},  \\qquad \\qquad te(G, \\hat G) = \\frac{ue \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\not\\in E\\} + oe \\sum_{(v, w)}\\mathbf{1}\\{(v, w) \\in E\\}}{|V|(|V|-1)/2}."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#example-11---several-replications-1",
+    "href": "20260507_INSPER/slides.html#example-11---several-replications-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Example 11 - Several Replications",
+    "text": "Example 11 - Several Replications"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-choice-of-penalizing-constant-c",
+    "href": "20260507_INSPER/slides.html#the-choice-of-penalizing-constant-c",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The Choice of Penalizing Constant c",
+    "text": "The Choice of Penalizing Constant c\nUtilize k-fold cross-validation to assess model performance and select optimal penalizing constant values.\n\n\n\n\n\n\n\n\n\n\nCompute pseudo-log-likelihood over validation sets for different constant values. \\begin{equation}\n  \\mathrm{CV}_k^{(i)}(c) = \\sum_{v \\in V} \\:\\sum_{(a_v\\in A)} \\:\\sum_{a_{\\hat G(v)}\\in A^{|\\hat G(v)|}}\n          N_i(a_v,a_{\\widehat G(v)})\\log \\widehat\\pi(a_v|a_{\\widehat G(v)})\\,.\n\\end{equation}"
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#the-choice-of-penalizing-constant-c-1",
+    "href": "20260507_INSPER/slides.html#the-choice-of-penalizing-constant-c-1",
+    "title": "Apresentações - Prof. Magno",
+    "section": "The Choice of Penalizing Constant c",
+    "text": "The Choice of Penalizing Constant c\n\n5-fold cross-validation error for Example 11, considering a sample of size 5{,}000 and set of values for penalizing constant."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#scenario-1---example",
+    "href": "20260507_INSPER/slides.html#scenario-1---example",
+    "title": "Apresentações - Prof. Magno",
+    "section": "Scenario 1 - Example",
+    "text": "Scenario 1 - Example\n\nConsider \\mathbf{X} = (X_1, \\dots, X_5).\nJoint probability function of these variables:  p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \n\n\n\n\nConditional probabilities:\n\n\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm."
   }
 ]

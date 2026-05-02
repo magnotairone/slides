@@ -1,0 +1,7 @@
+.reveal .slides section:first-of-type h1[style] {
+  font-size: 5em !important;
+}
+
+html body .reveal .slides section:first-of-type .subtitle {
+  font-size: 1.4em !important;
+}

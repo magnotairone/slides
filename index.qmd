@@ -5,6 +5,7 @@ format: html
 listing:
   contents: 
     - "20260306_CLAPEM/slides.qmd"
+    - "20260507_INSPER/slides.qmd"
   type: grid
   sort: "date desc"
   fields: [title, subtitle, date]
