@@ -515,7 +515,7 @@
     "href": "20260507_INSPER/slides.html#graph-estimator",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Graph Estimator",
-    "text": "Graph Estimator\n\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \nL(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nAs the conditional probabilities \\pi are not known, we can estimate them from the data\n\n\\whidehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{3}\n\n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{4}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+    "text": "Graph Estimator\n\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \nL(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nAs the conditional probabilities \\pi are not known, we can estimate them from the data\n\n\\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{3}\nApplying the logarithm and taking into account the number of occurrences of each configuration in the sample, we can rewrite the above as \n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)}).\n\\tag{4}"
   },
   {
     "objectID": "20260507_INSPER/slides.html#consistency-theorem",
@@ -796,5 +796,12 @@
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Rate of Convergence of Empirical Probabilities",
     "text": "Rate of Convergence of Empirical Probabilities\nProposition (Leonardi & Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{N}\\} is stationary and satisfies the mixing condition with rate \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}). Then, for any \\delta &gt; 0, any W \\subset V and any a_W \\in A_W: |\\widehat{\\pi}(a_W) - \\pi(a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{n}} eventually almost surely as n \\to \\infty. Moreover, for any disjoints sets W and W^\\prime \\in V and any a_W \\in A_W and a_{W^\\prime} \\in A_{W^\\prime} |\\widehat{\\pi}(a_W | a_{W^\\prime}) - \\pi(a_W | a_{W^\\prime})| &lt; \\sqrt{\\frac{\\delta \\log n}{N(a_{W^\\prime})}} eventually almost surely as n \\to \\infty. \nThe proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971)."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#graph-estimator-1",
+    "href": "20260507_INSPER/slides.html#graph-estimator-1",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Graph Estimator",
+    "text": "Graph Estimator\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
   }
 ]

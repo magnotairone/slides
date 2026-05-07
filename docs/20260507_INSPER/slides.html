@@ -331,17 +331,18 @@ L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \tag{2}</span></span></p>
 <p>As the conditional probabilities <span class="math inline">\pi</span> are not known, we can estimate them from the data</p>
 <p><span id="eq-def-lhat"><span class="math display">
-\whidehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
+\widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \tag{3}</span></span></p>
-<p><span id="eq-log-pseudo"><span class="math display">
-\log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})
+<p>Applying the logarithm and taking into account the number of occurrences of each configuration in the sample, we can rewrite the above as <span id="eq-log-pseudo"><span class="math display">
+\log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)}).
 \tag{4}</span></span></p>
-<div class="fragment">
+</section>
+<section id="graph-estimator-1" class="slide level2 smaller">
+<h2>Graph Estimator</h2>
 <p>The regularized graph estimator is given by</p>
 <p><span class="math display">
   \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
 </span></p>
-</div>
 </section>
 <section id="consistency-theorem" class="slide level2 smaller">
 <h2>Consistency Theorem</h2>
