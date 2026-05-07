@@ -182,8 +182,8 @@ Magno Severino &amp; Florencia Leonardi
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
 <li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
-<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span>.</p></li>
-<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
+<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span> with invariant distribution <span class="math inline">\pi.</span></p></li>
+<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*)</span> encoding the conditional dependencies in <span class="math inline">\pi</span>.</p></li>
 </ul>
 
 <!-- ::: {.callout-important} -->
@@ -195,8 +195,8 @@ Magno Severino &amp; Florencia Leonardi
 <ul>
 <li><p><span class="math inline">\bf X^{(i)} = \big(X_1^{(i)}, X_2^{(i)}, \dots, X_d^{(i)}\big).</span></p></li>
 <li><p><span class="math inline">X_v^{(i)} \in A,</span> <span class="math inline">A</span> a finite alphabet, for <span class="math inline">v \in \{1,2,\dots,d\}.</span></p></li>
-<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span>.</p></li>
-<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*).</span></p></li>
+<li><p>Stationary and ergodic process <span class="math inline">\bf X = \{X^{(i)}: -\infty&lt;i&lt;\infty\}</span> in <span class="math inline">\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)</span> with invariant distribution <span class="math inline">\pi.</span></p></li>
+<li><p>We assume the process <span class="math inline">\bf X</span> has an underlying graph <span class="math inline">G^* = (V, E^*)</span> encoding the conditional dependencies in <span class="math inline">\pi</span>.</p></li>
 </ul>
 
 <!-- ::: {.callout-important} -->
@@ -206,19 +206,22 @@ Magno Severino &amp; Florencia Leonardi
 ## VERIFICAR The Markov Intersection Property {.smaller}
 
 <!-- TODO: COMPLETAR -->
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>To define a unique graph <span class="math inline">G^*</span>, we must ensure that every vertex has a <strong>smallest</strong> Markov neighborhood.</p>
-<h4 id="definitions">Definitions</h4>
-<ul>
-<li><strong>Markov Neighborhood</strong>: A set <span class="math inline">W \subset V \setminus \{v\}</span> is a Markov neighborhood of <span class="math inline">v</span> if <span class="math inline">X_v</span> is conditionally independent of <span class="math inline">X_{V \setminus (W \cup \{v\})}</span> given <span class="math inline">X_W</span>.</li>
-<li><strong>The Intersection Property</strong>: Let <span class="math inline">\mathcal{W}(v)</span> be the set of all subsets of <span class="math inline">V</span> that are Markov neighborhoods of <span class="math inline">v</span>. The property holds if: <span class="math display">W_1, W_2 \in \mathcal{W}(v) \implies (W_1 \cap W_2) \in \mathcal{W}(v)</span></li>
-</ul>
-<h4 id="why-is-this-crucial">Why is this crucial?</h4>
-<ul>
-<li><strong>Uniqueness</strong>: It guarantees the existence of a unique <strong>Basic Neighborhood</strong> (<span class="math inline">ne(v)</span>), defined as the intersection of all Markov neighborhoods: <span class="math display">ne(v) = \bigcap_{W \in \mathcal{W}(v)} W</span></li>
-<li><strong>Beyond Positivity</strong>: While the standard Hammersley-Clifford theorem requires strictly positive distributions (<span class="math inline">\pi(x) &gt; 0</span>), this framework only requires the intersection property to hold, allowing for more general discrete distributions.</li>
-<li><strong>Graph Edge Definition</strong>: The edges of the true graph <span class="math inline">G^*</span> are formally defined by these basic neighborhoods: <span class="math display">(v, w) \in E^* \iff w \in ne(v)</span> –&gt;</li>
-</ul>
-</section>
+<!-- To define a unique graph $G^*$, we must ensure that every vertex has a **smallest** Markov neighborhood.
+
+#### Definitions
+
+*   **Markov Neighborhood**: A set $W \subset V \setminus \{v\}$ is a Markov neighborhood of $v$ if $X_v$ is conditionally independent of $X_{V \setminus (W \cup \{v\})}$ given $X_W$.
+*   **The Intersection Property**: Let $\mathcal{W}(v)$ be the set of all subsets of $V$ that are Markov neighborhoods of $v$. The property holds if:
+    $$W_1, W_2 \in \mathcal{W}(v) \implies (W_1 \cap W_2) \in \mathcal{W}(v)$$ -->
+<!-- 
+#### Why is this crucial?
+
+*   **Uniqueness**: It guarantees the existence of a unique **Basic Neighborhood** ($ne(v)$), defined as the intersection of all Markov neighborhoods:
+    $$ne(v) = \bigcap_{W \in \mathcal{W}(v)} W$$
+*   **Beyond Positivity**: While the standard Hammersley-Clifford theorem requires strictly positive distributions ($\pi(x) > 0$), this framework only requires the intersection property to hold, allowing for more general discrete distributions.
+*   **Graph Edge Definition**: The edges of the true graph $G^*$ are formally defined by these basic neighborhoods:
+    $$(v, w) \in E^* \iff w \in ne(v)$$ -->
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
 <section id="the-iid-case" class="slide level2 smaller">
 <h2>The IID case</h2>
 <ul>

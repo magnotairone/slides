@@ -46,9 +46,9 @@ execute:
 
 - $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
-- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$.
+- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$ with invariant distribution $\pi.$
 
-- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$ encoding the conditional dependencies in $\pi$.
 
 ```{r, engine = 'tikz', fig.align='center', fig.width=6, fig.height=3.5, out.width="75%"}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:10:44
@@ -208,9 +208,9 @@ execute:
 
 - $X_v^{(i)} \in A,$ $A$ a finite alphabet, for $v \in \{1,2,\dots,d\}.$
 
-- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$.
+- Stationary and ergodic process $\bf X = \{X^{(i)}: -\infty<i<\infty\}$ in $\big((A^d)^\mathbb N, \mathcal F, \mathbb P\big)$  with invariant distribution $\pi.$
 
-- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*).$
+- We assume the process $\bf X$ has an underlying graph $G^* = (V, E^*)$ encoding the conditional dependencies in $\pi$.
 
 ```{r, engine = 'tikz', fig.align='center', fig.width=6, fig.height=3.5, out.width="75%"}
 % Created by tikzDevice version 0.12.4 on 2024-03-25 21:11:34
@@ -371,16 +371,16 @@ execute:
 
 <!-- TODO: COMPLETAR -->
 
-To define a unique graph $G^*$, we must ensure that every vertex has a **smallest** Markov neighborhood.
+<!-- To define a unique graph $G^*$, we must ensure that every vertex has a **smallest** Markov neighborhood.
 
 #### Definitions
 
 *   **Markov Neighborhood**: A set $W \subset V \setminus \{v\}$ is a Markov neighborhood of $v$ if $X_v$ is conditionally independent of $X_{V \setminus (W \cup \{v\})}$ given $X_W$.
 *   **The Intersection Property**: Let $\mathcal{W}(v)$ be the set of all subsets of $V$ that are Markov neighborhoods of $v$. The property holds if:
-    $$W_1, W_2 \in \mathcal{W}(v) \implies (W_1 \cap W_2) \in \mathcal{W}(v)$$
+    $$W_1, W_2 \in \mathcal{W}(v) \implies (W_1 \cap W_2) \in \mathcal{W}(v)$$ -->
 
 
-
+<!-- 
 #### Why is this crucial?
 
 *   **Uniqueness**: It guarantees the existence of a unique **Basic Neighborhood** ($ne(v)$), defined as the intersection of all Markov neighborhoods:
@@ -388,7 +388,6 @@ To define a unique graph $G^*$, we must ensure that every vertex has a **smalles
 *   **Beyond Positivity**: While the standard Hammersley-Clifford theorem requires strictly positive distributions ($\pi(x) > 0$), this framework only requires the intersection property to hold, allowing for more general discrete distributions.
 *   **Graph Edge Definition**: The edges of the true graph $G^*$ are formally defined by these basic neighborhoods:
     $$(v, w) \in E^* \iff w \in ne(v)$$ -->
-
 
 ## The IID case {.smaller}
 
