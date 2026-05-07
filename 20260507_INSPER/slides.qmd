@@ -34,6 +34,8 @@ execute:
     
 -  **Estimation Method** and  **Theoretical Results**
     
+- **Simulations**
+
 -  **Applications to real data**
 
 -  **Discussion and Future Work**
@@ -364,7 +366,7 @@ execute:
 <!-- ::: {.callout-important} -->
 <!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
 <!-- ::: -->
-
+<!-- 
 ## VERIFICAR The Markov Intersection Property {.smaller}
 
 <!-- TODO: COMPLETAR -->
@@ -385,7 +387,7 @@ To define a unique graph $G^*$, we must ensure that every vertex has a **smalles
     $$ne(v) = \bigcap_{W \in \mathcal{W}(v)} W$$
 *   **Beyond Positivity**: While the standard Hammersley-Clifford theorem requires strictly positive distributions ($\pi(x) > 0$), this framework only requires the intersection property to hold, allowing for more general discrete distributions.
 *   **Graph Edge Definition**: The edges of the true graph $G^*$ are formally defined by these basic neighborhoods:
-    $$(v, w) \in E^* \iff w \in ne(v)$$
+    $$(v, w) \in E^* \iff w \in ne(v)$$ -->
 
 
 ## The IID case {.smaller}
@@ -750,9 +752,10 @@ Moreover, for any disjoints sets $W$ and $W^\prime \in V$ and any $a_W \in A_W$ 
 eventually almost surely as $n \to \infty$, where $N(a_{W^\prime})$ is the number of occurrences of configuration $a_{W^\prime}$.
 
 
-*  The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971), which provides tighter bounds than simple ergodicity.
+*  The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971).
+<!-- , which provides tighter bounds than simple ergodicity.
 *   It quantifies the error in terms of $n$ (sample size) and $\log n$, which is essential to balance the penalty term $\lambda_n = c \log n$ in the estimator.
-*   These rates ensure that the "noise" in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate.
+*   These rates ensure that the "noise" in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate. -->
 
 <!-- COMENTARIO
 - O "Pulo do Gato": Explique que, no caso IID, usamos desigualdades de concentração clássicas (como Hoeffding). Aqui, como os dados são dependentes, precisamos de uma ferramenta mais pesada: a Lei do Logaritmo Iterado para processos de mistura.- Dependência da Amostra: Note que a convergência da probabilidade condicional depende de $N(a_W)$. Se uma configuração de vizinhança for muito rara, a estimativa será instável, o que justifica a penalidade baseada no tamanho do alfabeto $|A|^{|G(v)|}$. -->
@@ -845,7 +848,7 @@ Consider $\{\widehat G\neq G^*\} = \big\{G^* \subsetneq \widehat G \big\} \cup  
 We prove that, eventually almost surely as $n\to\infty,$ neither of the cases above can happen, which implies that $\widehat G = G^*.$
 
 
-## VERIFICAR Sketch of the Consistency Proof {.smaller}
+<!-- ## VERIFICAR Sketch of the Consistency Proof {.smaller}
 
 The proof of Theorem 5 demonstrates that $\mathbb{P}(\widehat{G} \neq G^*) \to 0$ by decomposing the error into two exhaustive cases: **Overfitting** and **Underfitting**.
 
@@ -859,7 +862,7 @@ The proof of Theorem 5 demonstrates that $\mathbb{P}(\widehat{G} \neq G^*) \to 0
 *   **Mechanism**: The information loss from missing a true dependency is measured by a positive Kullback-Leibler (KL) divergence $\alpha(v) > 0$.
 *   **Result**: This loss grows linearly with $n$, eventually dominating both the noise and the penalty term $\lambda_n$ (which only grows with $\log n$).
 
-Neither event can occur eventually almost surely, implying $\widehat{G} = G^*$.
+Neither event can occur eventually almost surely, implying $\widehat{G} = G^*$. -->
 
 
 <!-- Sugestões para sua fala (Script):
