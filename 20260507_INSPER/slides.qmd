@@ -721,11 +721,32 @@ Then, for any $W\subset V$ and any $a_W\in A^{W}$ $(\pi(a_W)  = \mathbb P (X_W =
     \widehat{\pi}(a_W) = \frac{N(a_W)}{n}.
 \end{equation*}
 
-where $N(a_W)$ denotes the number of times the configuration 𝑎𝑊 appears in the sample. If $\:\widehat\pi(a_W)>0$, 
+where $N(a_W)$ denotes the number of times the configuration $𝑎_𝑊$ appears in the sample. If $\:\widehat\pi(a_W)>0$, 
 \begin{equation*}
     \widehat\pi(a_{U}|a_{W}) = \frac{\widehat\pi(a_{U\cup W})}{\widehat\pi(a_{W})}\,,
 \end{equation*}
 for two disjoint subsets  $W,U\subset V$ and configurations  $a_W\in A^W, a_{U}\in A^{U}$.
+
+## Rate of Convergence of Empirical Probabilities{.smaller}
+
+**Proposition (Leonardi & Severino, 2025)**: 
+Assume the process $\{X^{(i)}: i \in \mathbb{N}\}$ is stationary and satisfies the mixing condition with rate $\psi(\ell) = O(1/\ell^{1+\epsilon})$. Then, for any $\delta > 0$, any $W \subset V$ and any $a_W \in A_W$:
+    $$|\widehat{\pi}(a_W) - \pi(a_W)| < \sqrt{\frac{\delta \log n}{n}}$$
+eventually almost surely as $n \to \infty$.
+Moreover, for any disjoints sets $W$ and $W^\prime \in V$ and any $a_W \in A_W$ and $a_{W^\prime} \in A_{W^\prime}$
+    $$|\widehat{\pi}(a_W | a_{W^\prime}) - \pi(a_W | a_{W^\prime})| < \sqrt{\frac{\delta \log n}{N(a_{W^\prime})}}$$
+eventually almost surely as $n \to \infty$. 
+<!-- , where $N(a_{W^\prime})$ is the number of occurrences of configuration $a_{W^\prime}$. -->
+
+The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971).
+
+<!-- , which provides tighter bounds than simple ergodicity.
+*   It quantifies the error in terms of $n$ (sample size) and $\log n$, which is essential to balance the penalty term $\lambda_n = c \log n$ in the estimator.
+*   These rates ensure that the "noise" in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate. -->
+
+<!-- COMENTARIO
+- O "Pulo do Gato": Explique que, no caso IID, usamos desigualdades de concentração clássicas (como Hoeffding). Aqui, como os dados são dependentes, precisamos de uma ferramenta mais pesada: a Lei do Logaritmo Iterado para processos de mistura.- Dependência da Amostra: Note que a convergência da probabilidade condicional depende de $N(a_W)$. Se uma configuração de vizinhança for muito rara, a estimativa será instável, o que justifica a penalidade baseada no tamanho do alfabeto $|A|^{|G(v)|}$. -->
+
 
 ## Empirical Probabilities {.smaller}
 
@@ -740,24 +761,6 @@ Then we can compute
     \widehat\pi(a_v|a_{G(v)})  = \frac{\widehat\pi(a_{\{v\}\cup G(v)})}{\widehat\pi(a_{G(v)})}.
 \end{equation*}
 
-## VERIFICAR Rate of Convergence of Empirical Probabilities{.smaller}
-
-**Proposition 3 (Leonardi & Severino, 2025)**: 
-Assume the process $\{X^{(i)}: i \in \mathbb{N}\}$ is stationary and satisfies the mixing condition with rate $\psi(\ell) = O(1/\ell^{1+\epsilon})$. Then, for any $\delta > 0$, any $W \subset V$ and any $a_W \in A_W$:
-    $$|\widehat{\pi}(a_W) - \pi(a_W)| < \sqrt{\frac{\delta \log n}{n}}$$
-eventually almost surely as $n \to \infty$.
-Moreover, for any disjoints sets $W$ and $W^\prime \in V$ and any $a_W \in A_W$ and $a_{W^\prime} \in A_{W^\prime}$
-    $$|\widehat{\pi}(a_W | a_{W^\prime}) - \pi(a_W | a_{W^\prime})| < \sqrt{\frac{\delta \log n}{N(a_{W^\prime})}}$$
-eventually almost surely as $n \to \infty$, where $N(a_{W^\prime})$ is the number of occurrences of configuration $a_{W^\prime}$.
-
-
-*  The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971).
-<!-- , which provides tighter bounds than simple ergodicity.
-*   It quantifies the error in terms of $n$ (sample size) and $\log n$, which is essential to balance the penalty term $\lambda_n = c \log n$ in the estimator.
-*   These rates ensure that the "noise" in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate. -->
-
-<!-- COMENTARIO
-- O "Pulo do Gato": Explique que, no caso IID, usamos desigualdades de concentração clássicas (como Hoeffding). Aqui, como os dados são dependentes, precisamos de uma ferramenta mais pesada: a Lei do Logaritmo Iterado para processos de mistura.- Dependência da Amostra: Note que a convergência da probabilidade condicional depende de $N(a_W)$. Se uma configuração de vizinhança for muito rara, a estimativa será instável, o que justifica a penalidade baseada no tamanho do alfabeto $|A|^{|G(v)|}$. -->
 
 ## Graph Estimator {.smaller}
 

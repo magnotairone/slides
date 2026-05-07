@@ -501,7 +501,7 @@
     "href": "20260507_INSPER/slides.html#empirical-probabilities",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Empirical Probabilities",
-    "text": "Empirical Probabilities\nAs the stationary distribution of the process \\pi is unknown, we must estimate it from the data\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W} (\\pi(a_W)  = \\mathbb P (X_W = a_W) ), \\begin{equation*}\n    \\widehat{\\pi}(a_W) = \\frac{N(a_W)}{n}.\n\\end{equation*}\nwhere N(a_W) denotes the number of times the configuration 𝑎𝑊 appears in the sample. If \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{U}|a_{W}) = \\frac{\\widehat\\pi(a_{U\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,U\\subset V and configurations a_W\\in A^W, a_{U}\\in A^{U}."
+    "text": "Empirical Probabilities\nAs the stationary distribution of the process \\pi is unknown, we must estimate it from the data\nAssume we observe a sample of size n of the process, denoted by \\{x^{(i)}\\colon i=1,\\dots,n\\}. Then, for any W\\subset V and any a_W\\in A^{W} (\\pi(a_W)  = \\mathbb P (X_W = a_W) ), \\begin{equation*}\n    \\widehat{\\pi}(a_W) = \\frac{N(a_W)}{n}.\n\\end{equation*}\nwhere N(a_W) denotes the number of times the configuration 𝑎_𝑊 appears in the sample. If \\:\\widehat\\pi(a_W)&gt;0, \\begin{equation*}\n    \\widehat\\pi(a_{U}|a_{W}) = \\frac{\\widehat\\pi(a_{U\\cup W})}{\\widehat\\pi(a_{W})}\\,,\n\\end{equation*} for two disjoint subsets W,U\\subset V and configurations a_W\\in A^W, a_{U}\\in A^{U}."
   },
   {
     "objectID": "20260507_INSPER/slides.html#empirical-probabilities-1",
@@ -789,5 +789,12 @@
     "title": "Apresentações - Prof. Magno",
     "section": "Scenario 1 - Example",
     "text": "Scenario 1 - Example\n\nConsider \\mathbf{X} = (X_1, \\dots, X_5).\nJoint probability function of these variables:  p(x_1,x_2,x_3,x_4,x_5) = p(x_3) p(x_1|x_3) p(x_2|x_1,x_3) p(x_4|x_3) p(x_5|x_3). \n\n\n\n\nConditional probabilities:\n\n\\begin{align*}\n    p(x_1|x_2,x_3,x_4,x_5) &= p(x_1|x_2,x_3), \\\\  \n    p(x_2|x_1,x_3,x_4,x_5) &= p(x_2|x_1,x_3), \\\\\n    %p(x_3|x_1,x_2,x_4,x_5) &= p(x_1,x_2,x_3,x_4,x_5)/ \\sum {_{x_3}}p(x_1,x_2,x_3,x_4,x_5), \\\\\n    p(x_4|x_1,x_2,x_3,x_5) &= p(x_4|x_3), \\\\\n    p(x_5|x_1,x_2,x_3,x_4)&= p(x_5|x_3).\n\\end{align*}\n\n\n\n\n\n\n\n\nAim: assess the performance of the algorithms for estimation.\nData generation: Gibbs Sampler algorithm."
+  },
+  {
+    "objectID": "20260507_INSPER/slides.html#rate-of-convergence-of-empirical-probabilities",
+    "href": "20260507_INSPER/slides.html#rate-of-convergence-of-empirical-probabilities",
+    "title": "Model selection for Markov random fields on graphs under a mixing condition",
+    "section": "Rate of Convergence of Empirical Probabilities",
+    "text": "Rate of Convergence of Empirical Probabilities\nProposition (Leonardi & Severino, 2025): Assume the process \\{X^{(i)}: i \\in \\mathbb{N}\\} is stationary and satisfies the mixing condition with rate \\psi(\\ell) = O(1/\\ell^{1+\\epsilon}). Then, for any \\delta &gt; 0, any W \\subset V and any a_W \\in A_W: |\\widehat{\\pi}(a_W) - \\pi(a_W)| &lt; \\sqrt{\\frac{\\delta \\log n}{n}} eventually almost surely as n \\to \\infty. Moreover, for any disjoints sets W and W^\\prime \\in V and any a_W \\in A_W and a_{W^\\prime} \\in A_{W^\\prime} |\\widehat{\\pi}(a_W | a_{W^\\prime}) - \\pi(a_W | a_{W^\\prime})| &lt; \\sqrt{\\frac{\\delta \\log n}{N(a_{W^\\prime})}} eventually almost surely as n \\to \\infty. \nThe proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira & Yoshihara, 1971)."
   }
 ]
