@@ -473,7 +473,7 @@
     "href": "20260507_INSPER/slides.html#the-iid-case",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "The IID case",
-    "text": "The IID case\n\nClassic Problem: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.\nEstablished Literature: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).\nCommon Approaches:\n\nStructure Estimation: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.\nNeighborhood-Based Estimation: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph."
+    "text": "The IID case\n\nClassic Problem: In the IID scenario, we have the standard model selection problem for discrete graphical models or Markov random fields on graphs.\nEstablished Literature: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).\nCommon Approaches:\n\nStructure Estimation: Addressed via standard logistic regression (for binary models), distance-based approaches between conditional probabilities, or penalized pseudo-likelihood.\nNeighborhood-Based Estimation: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph."
   },
   {
     "objectID": "20260507_INSPER/slides.html#why-go-beyond-the-iid-assumption",

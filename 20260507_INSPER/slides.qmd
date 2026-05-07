@@ -396,7 +396,7 @@ execute:
 - **Established Literature**: Extensive research exists for this setting, including works by Lauritzen (1996), Koller and Friedman (2009), and Leonardi et al. (2024).
 
 - **Common Approaches**:
-    - **Structure Estimation**: Addressed via standard logistic regression (for binary models), distance-based methods, or penalized pseudo-likelihood.
+    - **Structure Estimation**: Addressed via standard logistic regression (for binary models), distance-based approaches between conditional probabilities, or penalized pseudo-likelihood.
     - **Neighborhood-Based Estimation**: Many methods involve estimating individual neighborhoods for each vertex and then combining them to form the final graph.
 
 <!-- - **Main Limitations**: -->
