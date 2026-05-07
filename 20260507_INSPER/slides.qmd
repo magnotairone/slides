@@ -768,10 +768,16 @@ Then we can compute
 
 Given any graph $G$ and a sample of the process,  we define the pseudo-likelihood function by
 $$
-\widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
+L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 $$ {#eq-def-lhat}
 
-Applying the logarithm we can write expression above as
+As the conditional probabilities $\pi$ are not known, we can estimate them from the data
+
+$$
+\whidehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
+$$ {#eq-def-lhat}
+
+
 $$
 \log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})
 $$ {#eq-log-pseudo}

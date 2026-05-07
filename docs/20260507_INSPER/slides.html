@@ -327,11 +327,15 @@ Magno Severino &amp; Florencia Leonardi
 <h2>Graph Estimator</h2>
 <!-- Diferente de métodos que estimam vizinhanças locais e as combinam, propomos uma otimização global. -->
 <p>Given any graph <span class="math inline">G</span> and a sample of the process, we define the pseudo-likelihood function by <span id="eq-def-lhat"><span class="math display">
-\widehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
+L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \tag{2}</span></span></p>
-<p>Applying the logarithm we can write expression above as <span id="eq-log-pseudo"><span class="math display">
-\log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})
+<p>As the conditional probabilities <span class="math inline">\pi</span> are not known, we can estimate them from the data</p>
+<p><span id="eq-def-lhat"><span class="math display">
+\whidehat L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \widehat\pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 \tag{3}</span></span></p>
+<p><span id="eq-log-pseudo"><span class="math display">
+\log \widehat L(G) = \sum_{v \in V} \sum_{(a_v\in A)} \sum_{a_{G(v)}\in A^{|G(v)|}} N(a_v,a_{G(v)})\log \widehat\pi(a_v|a_{G(v)})
+\tag{4}</span></span></p>
 <div class="fragment">
 <p>The regularized graph estimator is given by</p>
 <p><span class="math display">

@@ -515,7 +515,7 @@
     "href": "20260507_INSPER/slides.html#graph-estimator",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Graph Estimator",
-    "text": "Graph Estimator\n\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \n\\widehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nApplying the logarithm we can write expression above as \n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{3}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+    "text": "Graph Estimator\n\nGiven any graph G and a sample of the process, we define the pseudo-likelihood function by \nL(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{2}\nAs the conditional probabilities \\pi are not known, we can estimate them from the data\n\n\\whidehat L(G) \\;=\\;  \\prod_{i=1}^n \\:\\prod_{v \\in V}  \\widehat\\pi(x^{(i)}_v | x^{(i)}_{G(v)})\\,.\n\\tag{3}\n\n\\log \\widehat L(G) = \\sum_{v \\in V} \\sum_{(a_v\\in A)} \\sum_{a_{G(v)}\\in A^{|G(v)|}} N(a_v,a_{G(v)})\\log \\widehat\\pi(a_v|a_{G(v)})\n\\tag{4}\n\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
   },
   {
     "objectID": "20260507_INSPER/slides.html#consistency-theorem",
