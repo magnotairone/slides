@@ -341,8 +341,9 @@ L(G) \;=\;  \prod_{i=1}^n \:\prod_{v \in V}  \pi(x^{(i)}_v | x^{(i)}_{G(v)})\,.
 <h2>Graph Estimator</h2>
 <p>The regularized graph estimator is given by</p>
 <p><span class="math display">
-  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,,
 </span></p>
+<p>with <span class="math inline">|G(v)|</span> denoting the cardinal of the set <span class="math inline">G(v)</span> and <span class="math inline">\lambda_n</span> being a non-negative decreasing seqeuence.</p>
 </section>
 <section id="consistency-theorem" class="slide level2 smaller">
 <h2>Consistency Theorem</h2>

@@ -788,8 +788,10 @@ $$ {#eq-log-pseudo}
 The regularized graph estimator is given by
 
 $$
-  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,.
+  \widehat G = \underset{G}{\arg\max}\Big\{\log \widehat L(G) - \lambda_n \sum_{v \in V} |A|^{|G(v)|}\Big\} \,,
 $$
+
+with $|G(v)|$ denoting the cardinal of the set $G(v)$ and $\lambda_n$ being a non-negative decreasing seqeuence.
 
 ## Consistency Theorem {.smaller}
 

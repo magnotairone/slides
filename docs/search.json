@@ -802,6 +802,6 @@
     "href": "20260507_INSPER/slides.html#graph-estimator-1",
     "title": "Model selection for Markov random fields on graphs under a mixing condition",
     "section": "Graph Estimator",
-    "text": "Graph Estimator\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,."
+    "text": "Graph Estimator\nThe regularized graph estimator is given by\n\n  \\widehat G = \\underset{G}{\\arg\\max}\\Big\\{\\log \\widehat L(G) - \\lambda_n \\sum_{v \\in V} |A|^{|G(v)|}\\Big\\} \\,,\n\nwith |G(v)| denoting the cardinal of the set G(v) and \\lambda_n being a non-negative decreasing seqeuence."
   }
 ]
