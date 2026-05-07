@@ -1054,7 +1054,7 @@ Here, $\lambda_N = c\log N.$
 
 <!-- adicionar comentarios -->
 
-## Example 11 - Several Replications{.smaller}
+<!-- ## Example 11 - Several Replications{.smaller}
 
 - **Objective**: generate several samples and assess the performance of the algorithms.
 
@@ -1071,7 +1071,7 @@ $\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in 
 
 ## Example 11 - Several Replications {.smaller}
 
-![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=100%}
+![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=100%} -->
 
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->

@@ -549,23 +549,27 @@ Comprehensive tools for estimating the graph $\hat{G}$, executing search algorit
 <h2>Example 11 - Simulated Annealing</h2>
 <p>Effects of sample size and penalizing constant value. Here, <span class="math inline">\lambda_N = c\log N.</span> <img data-src="images/sim/ex1_1x_grid_SA.jpg" class="quarto-figure quarto-figure-center"></p>
 <!-- adicionar comentarios -->
-</section>
-<section id="example-11---several-replications" class="slide level2 smaller">
-<h2>Example 11 - Several Replications</h2>
-<ul>
-<li><p><strong>Objective</strong>: generate several samples and assess the performance of the algorithms.</p></li>
-<li><p><strong>Metrics</strong>: underestimation error (<span class="math inline">ue</span>), overestimation error (<span class="math inline">oe</span>), and total error (<span class="math inline">te</span>).</p></li>
-</ul>
-<div id="title-slide" class="center">
-<p><span class="math inline">ue(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\in E \text{ and } (v,w) \not\in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}},</span> <br><br> <span class="math inline">oe(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\not\in E \text{ and } (v,w) \in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\}},</span> <br><br> <span class="math inline">\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\} + oe \sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}}{|V|(|V|-1)/2}.</span></p>
-</div>
-</section>
-<section id="example-11---several-replications-1" class="slide level2 smaller">
-<h2>Example 11 - Several Replications</h2>
+<!-- ## Example 11 - Several Replications{.smaller}
 
+- **Objective**: generate several samples and assess the performance of the algorithms.
+
+- **Metrics**: underestimation error ($ue$), overestimation error ($oe$), and total error ($te$).
+
+:::{#title-slide .center}
+$ue(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\in E \text{ and } (v,w) \not\in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}},$
+<br><br>
+$oe(G, \hat G) = \frac{\sum_{(v, w)}\mathbf{1}\{(v, w)\not\in E \text{ and } (v,w) \in \hat E\}}{\sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\}},$
+<br><br>
+$\qquad \qquad te(G, \hat G) = \frac{ue \sum_{(v, w)}\mathbf{1}\{(v, w) \not\in E\} + oe \sum_{(v, w)}\mathbf{1}\{(v, w) \in E\}}{|V|(|V|-1)/2}.$
+:::
+
+
+## Example 11 - Several Replications {.smaller}
+
+![](images/sim/ex1_10x_tile.jpg){fig-align="center" width=100%} -->
 <!-- - Stepwise algorithms offer appealing alternatives to Exact algorithm. -->
 <!-- - Simulated Annealing results are unsatisfactory, favoring Forward or Backward Stepwise algorithms for practical applications. -->
-<img data-src="images/sim/ex1_10x_tile.jpg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+</section>
 <section id="the-choice-of-penalizing-constant-c" class="slide level2 smaller">
 <h2>The Choice of Penalizing Constant <span class="math inline">c</span></h2>
 <p>Utilize <span class="math inline">k</span>-fold cross-validation to assess model performance and select optimal penalizing constant values.</p>
