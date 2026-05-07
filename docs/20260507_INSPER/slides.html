@@ -172,6 +172,7 @@ Magno Severino &amp; Florencia Leonardi
 <li><p><strong>Motivation</strong></p></li>
 <li><p><strong>Mathematical Framework</strong></p></li>
 <li><p><strong>Estimation Method</strong> and <strong>Theoretical Results</strong></p></li>
+<li><p><strong>Simulations</strong></p></li>
 <li><p><strong>Applications to real data</strong></p></li>
 <li><p><strong>Discussion and Future Work</strong></p></li>
 </ul>
@@ -188,7 +189,7 @@ Magno Severino &amp; Florencia Leonardi
 <!-- ::: {.callout-important} -->
 <!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
 <!-- ::: -->
-<img data-src="slides_files/figure-html/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
 <section id="vector-valued-stochastic-processes-1" class="slide level2 smaller">
 <h2>Vector-Valued Stochastic Processes</h2>
 <ul>
@@ -201,11 +202,11 @@ Magno Severino &amp; Florencia Leonardi
 <!-- ::: {.callout-important} -->
 <!-- Unlike lattice models (regular grids), the graph $G^*$ in this framework is general and non-homogeneous. -->
 <!-- ::: -->
-<img data-src="slides_files/figure-html/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"></section>
-<section id="verificar-the-markov-intersection-property" class="slide level2 smaller">
-<h2>VERIFICAR The Markov Intersection Property</h2>
+<!-- 
+## VERIFICAR The Markov Intersection Property {.smaller}
+
 <!-- TODO: COMPLETAR -->
-<p>To define a unique graph <span class="math inline">G^*</span>, we must ensure that every vertex has a <strong>smallest</strong> Markov neighborhood.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>To define a unique graph <span class="math inline">G^*</span>, we must ensure that every vertex has a <strong>smallest</strong> Markov neighborhood.</p>
 <h4 id="definitions">Definitions</h4>
 <ul>
 <li><strong>Markov Neighborhood</strong>: A set <span class="math inline">W \subset V \setminus \{v\}</span> is a Markov neighborhood of <span class="math inline">v</span> if <span class="math inline">X_v</span> is conditionally independent of <span class="math inline">X_{V \setminus (W \cup \{v\})}</span> given <span class="math inline">X_W</span>.</li>
@@ -215,7 +216,7 @@ Magno Severino &amp; Florencia Leonardi
 <ul>
 <li><strong>Uniqueness</strong>: It guarantees the existence of a unique <strong>Basic Neighborhood</strong> (<span class="math inline">ne(v)</span>), defined as the intersection of all Markov neighborhoods: <span class="math display">ne(v) = \bigcap_{W \in \mathcal{W}(v)} W</span></li>
 <li><strong>Beyond Positivity</strong>: While the standard Hammersley-Clifford theorem requires strictly positive distributions (<span class="math inline">\pi(x) &gt; 0</span>), this framework only requires the intersection property to hold, allowing for more general discrete distributions.</li>
-<li><strong>Graph Edge Definition</strong>: The edges of the true graph <span class="math inline">G^*</span> are formally defined by these basic neighborhoods: <span class="math display">(v, w) \in E^* \iff w \in ne(v)</span></li>
+<li><strong>Graph Edge Definition</strong>: The edges of the true graph <span class="math inline">G^*</span> are formally defined by these basic neighborhoods: <span class="math display">(v, w) \in E^* \iff w \in ne(v)</span> –&gt;</li>
 </ul>
 </section>
 <section id="the-iid-case" class="slide level2 smaller">
@@ -276,7 +277,7 @@ Magno Severino &amp; Florencia Leonardi
 \Bigl| \mathbb P (X_{future} | X_{past}) - \mathbb P (X_{future}) \Bigr| \leq \psi(n-m) \mathbb P(X_{future})
 \tag{1}</span></span></p>
 
-<img data-src="slides_files/figure-html/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="mixing-condition---formal-definition" class="slide level2 smaller">
 <h2>Mixing Condition - Formal Definition</h2>
 <ul>
@@ -290,7 +291,7 @@ Magno Severino &amp; Florencia Leonardi
 </ul>
 <!-- ![](images/sim/tmp-proceesso.jpg){fig-align="center"} -->
 
-<img data-src="slides_files/figure-html/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="empirical-probabilities" class="slide level2 smaller">
 <h2>Empirical Probabilities</h2>
 <p>As the stationary distribution of the process <span class="math inline">\pi</span> is unknown, we must estimate it from the data</p>
@@ -313,9 +314,9 @@ Magno Severino &amp; Florencia Leonardi
 <h2>VERIFICAR Rate of Convergence of Empirical Probabilities</h2>
 <p><strong>Proposition 3 (Leonardi &amp; Severino, 2025)</strong>: Assume the process <span class="math inline">\{X^{(i)}: i \in \mathbb{N}\}</span> is stationary and satisfies the mixing condition with rate <span class="math inline">\psi(\ell) = O(1/\ell^{1+\epsilon})</span>. Then, for any <span class="math inline">\delta &gt; 0</span>, any <span class="math inline">W \subset V</span> and any <span class="math inline">a_W \in A_W</span>: <span class="math display">|\widehat{\pi}(a_W) - \pi(a_W)| &lt; \sqrt{\frac{\delta \log n}{n}}</span> eventually almost surely as <span class="math inline">n \to \infty</span>. Moreover, for any disjoints sets <span class="math inline">W</span> and <span class="math inline">W^\prime \in V</span> and any <span class="math inline">a_W \in A_W</span> and <span class="math inline">a_{W^\prime} \in A_{W^\prime}</span> <span class="math display">|\widehat{\pi}(a_W | a_{W^\prime}) - \pi(a_W | a_{W^\prime})| &lt; \sqrt{\frac{\delta \log n}{N(a_{W^\prime})}}</span> eventually almost surely as <span class="math inline">n \to \infty</span>, where <span class="math inline">N(a_{W^\prime})</span> is the number of occurrences of configuration <span class="math inline">a_{W^\prime}</span>.</p>
 <ul>
-<li>The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira &amp; Yoshihara, 1971), which provides tighter bounds than simple ergodicity.</li>
-<li>It quantifies the error in terms of <span class="math inline">n</span> (sample size) and <span class="math inline">\log n</span>, which is essential to balance the penalty term <span class="math inline">\lambda_n = c \log n</span> in the estimator.</li>
-<li>These rates ensure that the “noise” in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate.</li>
+<li>The proof is based on the Law of the Iterated Logarithm (LIL) for stationary polynomial mixing processes (Oodaira &amp; Yoshihara, 1971). <!-- , which provides tighter bounds than simple ergodicity.
+*   It quantifies the error in terms of $n$ (sample size) and $\log n$, which is essential to balance the penalty term $\lambda_n = c \log n$ in the estimator.
+*   These rates ensure that the "noise" in the empirical pseudo-likelihood does not overcome the gap between the true graph and any other candidate. --></li>
 </ul>
 <!-- COMENTARIO
 - O "Pulo do Gato": Explique que, no caso IID, usamos desigualdades de concentração clássicas (como Hoeffding). Aqui, como os dados são dependentes, precisamos de uma ferramenta mais pesada: a Lei do Logaritmo Iterado para processos de mistura.- Dependência da Amostra: Note que a convergência da probabilidade condicional depende de $N(a_W)$. Se uma configuração de vizinhança for muito rara, a estimativa será instável, o que justifica a penalidade baseada no tamanho do alfabeto $|A|^{|G(v)|}$. -->
@@ -355,7 +356,7 @@ Magno Severino &amp; Florencia Leonardi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-html/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="300" height="300"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="300" height="300"></p>
 </figure>
 </div>
 </div>
@@ -365,7 +366,7 @@ Magno Severino &amp; Florencia Leonardi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -373,13 +374,21 @@ Magno Severino &amp; Florencia Leonardi
 </div></div>
 <!-- <br/> -->
 <p>We prove that, eventually almost surely as <span class="math inline">n\to\infty,</span> neither of the cases above can happen, which implies that <span class="math inline">\widehat G = G^*.</span></p>
-</section>
-<section id="verificar-sketch-of-the-consistency-proof" class="slide level2 smaller">
-<h2>VERIFICAR Sketch of the Consistency Proof</h2>
-<p>The proof of Theorem 5 demonstrates that <span class="math inline">\mathbb{P}(\widehat{G} \neq G^*) \to 0</span> by decomposing the error into two exhaustive cases: <strong>Overfitting</strong> and <strong>Underfitting</strong>.</p>
-<p><strong>Case 1</strong>: Overfitting (<span class="math inline">G^* \subsetneq \widehat{G}</span>) * <strong>Definition</strong>: The estimated graph <span class="math inline">\widehat{G}</span> contains all true edges plus at least one extra edge. * <strong>Mechanism</strong>: As <span class="math inline">n \to \infty</span>, the penalty term <span class="math inline">\lambda_n \sum |A|^{|G(v)|}</span> grows faster than the gain in pseudo-likelihood from adding redundant edges. * <strong>Result</strong>: Using Proposition 3 and Lemma 10, we prove that the difference in log-pseudo-likelihood is bounded by the penalty, making <span class="math inline">\widehat{G} = G^*</span> more likely than any superset.</p>
-<p><strong>Case 2</strong>: Underfitting (<span class="math inline">G^* \not\subset \widehat{G}</span>) * <strong>Definition</strong>: The estimated graph <span class="math inline">\widehat{G}</span> misses at least one edge from the true graph <span class="math inline">G^*</span>. * <strong>Mechanism</strong>: The information loss from missing a true dependency is measured by a positive Kullback-Leibler (KL) divergence <span class="math inline">\alpha(v) &gt; 0</span>. * <strong>Result</strong>: This loss grows linearly with <span class="math inline">n</span>, eventually dominating both the noise and the penalty term <span class="math inline">\lambda_n</span> (which only grows with <span class="math inline">\log n</span>).</p>
-<p>Neither event can occur eventually almost surely, implying <span class="math inline">\widehat{G} = G^*</span>.</p>
+<!-- ## VERIFICAR Sketch of the Consistency Proof {.smaller}
+
+The proof of Theorem 5 demonstrates that $\mathbb{P}(\widehat{G} \neq G^*) \to 0$ by decomposing the error into two exhaustive cases: **Overfitting** and **Underfitting**.
+
+**Case 1**: Overfitting ($G^* \subsetneq \widehat{G}$)
+*   **Definition**: The estimated graph $\widehat{G}$ contains all true edges plus at least one extra edge.
+*   **Mechanism**: As $n \to \infty$, the penalty term $\lambda_n \sum |A|^{|G(v)|}$ grows faster than the gain in pseudo-likelihood from adding redundant edges.
+*   **Result**: Using Proposition 3 and Lemma 10, we prove that the difference in log-pseudo-likelihood is bounded by the penalty, making $\widehat{G} = G^*$ more likely than any superset.
+
+**Case 2**: Underfitting ($G^* \not\subset \widehat{G}$)
+*   **Definition**: The estimated graph $\widehat{G}$ misses at least one edge from the true graph $G^*$.
+*   **Mechanism**: The information loss from missing a true dependency is measured by a positive Kullback-Leibler (KL) divergence $\alpha(v) > 0$.
+*   **Result**: This loss grows linearly with $n$, eventually dominating both the noise and the penalty term $\lambda_n$ (which only grows with $\log n$).
+
+Neither event can occur eventually almost surely, implying $\widehat{G} = G^*$. -->
 <!-- Sugestões para sua fala (Script):
 - O Equilíbrio: Explique que a prova é um "cabo de guerra". O termo de penalidade evita que o modelo cresça demais (overfitting), enquanto a divergência KL garante que o modelo não seja simples demais (underfitting).
 - O Papel da Mistura: Mencione que a Proposition 3 é o que permite controlar as flutuações estocásticas em ambos os casos, garantindo que o "ruído" dos dados dependentes não confunda o estimador.
@@ -556,7 +565,7 @@ Comprehensive tools for estimating the graph $\hat{G}$, executing search algorit
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-html/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="672" height="300"></p>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="960" height="300"></p>
 </figure>
 </div>
 </div>
@@ -942,6 +951,82 @@ Thank you!
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
